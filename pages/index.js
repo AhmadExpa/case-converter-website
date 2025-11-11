@@ -45,16 +45,618 @@ export default function Home() {
     'अंग्रेजी',
   ];
 
+  // Map UI text. Provide full English and a few concrete translations; others fallback to English.
+  const messages = {
+    English: {
+      title: 'Case Converter',
+      subtitle: 'Simply enter your text and choose the case you want to convert it to.',
+      inputLabel: 'Input',
+      inputPlaceholder: 'Type or paste your content here',
+      outputLabel: 'Output',
+      downloadFile: 'Download File',
+      sentenceCase: 'Sentence case',
+      lowerCase: 'lower case',
+      upperCase: 'UPPER CASE',
+      capitalizedCase: 'Capitalized Case',
+      alternatingCase: 'aLtErNaTiNg cAsE',
+      titleCase: 'Title Case',
+      downloadText: 'Download Text',
+      duplicateWordFinder: 'Duplicate Word Finder',
+      removeDuplicateLines: 'Remove Duplicate Lines',
+      charsToRemove: 'Chars to remove',
+      removeCharacters: 'Remove Characters',
+      wordFrequency: 'Word Frequency',
+      removeUnderscores: 'Remove Underscores',
+      sentenceCounter: 'Sentence Counter',
+      find: 'Find',
+      replace: 'Replace',
+      replaceBtn: 'Replace',
+      copyToClipboard: 'Copy to Clipboard',
+      clear: 'Clear',
+      removeTextFormatting: 'Remove Text Formatting',
+      apply: 'Apply',
+      statsLabelChars: 'Characters',
+      statsLabelWords: 'Words',
+      statsLabelSentences: 'Sentences',
+      statsLabelLines: 'Lines',
+      languagesSupported: 'Languages supported:',
+      processingNote:
+        'Processing is Unicode-aware and works with the languages listed above (and most others) using Unicode properties.',
+      uploadFile: 'Upload File:',
+      italics: 'Italics',
+      dupWordsPrefix: 'Duplicate words:',
+      noDupWords: 'No duplicate words found.',
+      noWordsToAnalyse: 'No words to analyse.',
+    },
+    Deutsch: {
+      title: 'Schreibweisenkonverter',
+      subtitle: 'Geben Sie Ihren Text ein und wählen Sie die gewünschte Schreibweise.',
+      inputLabel: 'Eingabe',
+      inputPlaceholder: 'Text hier eingeben oder einfügen',
+      outputLabel: 'Ausgabe',
+      downloadFile: 'Datei herunterladen',
+      sentenceCase: 'Satzanfang',
+      lowerCase: 'kleinschreibung',
+      upperCase: 'GROSSBUCHSTABEN',
+      capitalizedCase: 'Wortanfänge Groß',
+      alternatingCase: 'AbWeChSeLnD',
+      titleCase: 'Titel-Schreibweise',
+      downloadText: 'Text herunterladen',
+      duplicateWordFinder: 'Doppelte Wörter finden',
+      removeDuplicateLines: 'Doppelte Zeilen entfernen',
+      charsToRemove: 'Zu entfernende Zeichen',
+      removeCharacters: 'Zeichen entfernen',
+      wordFrequency: 'Wortfrequenz',
+      removeUnderscores: 'Unterstriche entfernen',
+      sentenceCounter: 'Satz-Zähler',
+      find: 'Suchen',
+      replace: 'Ersetzen',
+      replaceBtn: 'Ersetzen',
+      copyToClipboard: 'In Zwischenablage kopieren',
+      clear: 'Zurücksetzen',
+      removeTextFormatting: 'Formatierung entfernen',
+      apply: 'Anwenden',
+      statsLabelChars: 'Zeichen',
+      statsLabelWords: 'Wörter',
+      statsLabelSentences: 'Sätze',
+      statsLabelLines: 'Zeilen',
+      languagesSupported: 'Unterstützte Sprachen:',
+      processingNote:
+        'Die Verarbeitung ist Unicode-fähig und funktioniert mit den oben genannten Sprachen (und den meisten anderen).',
+      uploadFile: 'Datei hochladen:',
+      italics: 'Kursiv',
+      dupWordsPrefix: 'Doppelte Wörter:',
+      noDupWords: 'Keine doppelten Wörter gefunden.',
+      noWordsToAnalyse: 'Keine Wörter zum Analysieren.',
+    },
+    Ελληνικά: {
+      title: 'Μετατροπέας πεζών/κεφαλαίων',
+      subtitle: 'Πληκτρολογήστε το κείμενό σας και διαλέξτε τη μορφή.',
+      inputLabel: 'Είσοδος',
+      inputPlaceholder: 'Πληκτρολογήστε ή επικολλήστε εδώ',
+      outputLabel: 'Έξοδος',
+      downloadFile: 'Λήψη αρχείου',
+      sentenceCase: 'Πρόταση',
+      lowerCase: 'πεζά',
+      upperCase: 'ΚΕΦΑΛΑΙΑ',
+      capitalizedCase: 'Κάθε Λέξη Κεφαλαίο',
+      alternatingCase: 'ΕναΛλαΣσόΜεΝα',
+      titleCase: 'Τίτλος',
+      downloadText: 'Λήψη κειμένου',
+      duplicateWordFinder: 'Εύρεση διπλών λέξεων',
+      removeDuplicateLines: 'Αφαίρεση διπλών γραμμών',
+      charsToRemove: 'Χαρακτήρες για αφαίρεση',
+      removeCharacters: 'Αφαίρεση χαρακτήρων',
+      wordFrequency: 'Συχνότητα λέξεων',
+      removeUnderscores: 'Αφαίρεση υπογράμμων',
+      sentenceCounter: 'Μετρητής προτάσεων',
+      find: 'Εύρεση',
+      replace: 'Αντικατάσταση',
+      replaceBtn: 'Αντικατάσταση',
+      copyToClipboard: 'Αντιγραφή στο πρόχειρο',
+      clear: 'Καθαρισμός',
+      removeTextFormatting: 'Αφαίρεση μορφοποίησης',
+      apply: 'Εφαρμογή',
+      statsLabelChars: 'Χαρακτήρες',
+      statsLabelWords: 'Λέξεις',
+      statsLabelSentences: 'Προτάσεις',
+      statsLabelLines: 'Γραμμές',
+      languagesSupported: 'Υποστηριζόμενες γλώσσες:',
+      processingNote:
+        'Η επεξεργασία είναι συμβατή με Unicode και λειτουργεί με τις παραπάνω γλώσσες (και τις περισσότερες άλλες).',
+      uploadFile: 'Μεταφόρτωση αρχείου:',
+      italics: 'Πλάγια',
+      dupWordsPrefix: 'Διπλές λέξεις:',
+      noDupWords: 'Δεν βρέθηκαν διπλές λέξεις.',
+      noWordsToAnalyse: 'Δεν υπάρχουν λέξεις για ανάλυση.',
+    },
+    Español: {
+      title: 'Convertidor de mayúsculas y minúsculas',
+      subtitle: 'Escribe tu texto y elige el formato deseado.',
+      inputLabel: 'Entrada',
+      inputPlaceholder: 'Escribe o pega tu contenido aquí',
+      outputLabel: 'Salida',
+      downloadFile: 'Descargar archivo',
+      sentenceCase: 'Mayúscula inicial',
+      lowerCase: 'minúsculas',
+      upperCase: 'MAYÚSCULAS',
+      capitalizedCase: 'Palabras Capitalizadas',
+      alternatingCase: 'AlTeRnAdO',
+      titleCase: 'Título Capitalizado',
+      downloadText: 'Descargar texto',
+      duplicateWordFinder: 'Buscar palabras duplicadas',
+      removeDuplicateLines: 'Eliminar líneas duplicadas',
+      charsToRemove: 'Caracteres a eliminar',
+      removeCharacters: 'Eliminar caracteres',
+      wordFrequency: 'Frecuencia de palabras',
+      removeUnderscores: 'Quitar guiones bajos',
+      sentenceCounter: 'Contador de oraciones',
+      find: 'Buscar',
+      replace: 'Reemplazar',
+      replaceBtn: 'Reemplazar',
+      copyToClipboard: 'Copiar al portapapeles',
+      clear: 'Limpiar',
+      removeTextFormatting: 'Eliminar formato de texto',
+      apply: 'Aplicar',
+      statsLabelChars: 'Caracteres',
+      statsLabelWords: 'Palabras',
+      statsLabelSentences: 'Oraciones',
+      statsLabelLines: 'Líneas',
+      languagesSupported: 'Idiomas disponibles:',
+      processingNote:
+        'El procesamiento es compatible con Unicode y funciona con los idiomas anteriores (y la mayoría de los demás).',
+      uploadFile: 'Subir archivo:',
+      italics: 'Cursiva',
+      dupWordsPrefix: 'Palabras duplicadas:',
+      noDupWords: 'No se encontraron palabras duplicadas.',
+      noWordsToAnalyse: 'No hay palabras para analizar.',
+    },
+    Filipino: {
+      title: 'Tagapagpalit ng Case',
+      subtitle: 'Ilagay ang iyong teksto at piliin ang nais na anyo.',
+      inputLabel: 'Input',
+      inputPlaceholder: 'Mag-type o mag-paste dito',
+      outputLabel: 'Output',
+      downloadFile: 'I-download ang file',
+      sentenceCase: 'Unang titik ng pangungusap',
+      lowerCase: 'maliit na titik',
+      upperCase: 'MALALAKING TITIK',
+      capitalizedCase: 'Bawat Salitang May Kapital',
+      alternatingCase: 'PaLiTaN',
+      titleCase: 'Case ng Pamagat',
+      downloadText: 'I-download ang teksto',
+      duplicateWordFinder: 'Hanapin ang dobleng salita',
+      removeDuplicateLines: 'Alisin ang dobleng linya',
+      charsToRemove: 'Mga karakter na aalisin',
+      removeCharacters: 'Alisin ang mga karakter',
+      wordFrequency: 'Dalas ng salita',
+      removeUnderscores: 'Alisin ang underscore',
+      sentenceCounter: 'Bilang ng pangungusap',
+      find: 'Hanapin',
+      replace: 'Palitan',
+      replaceBtn: 'Palitan',
+      copyToClipboard: 'Kopyahin sa clipboard',
+      clear: 'I-clear',
+      removeTextFormatting: 'Alisin ang format ng teksto',
+      apply: 'Ilapat',
+      statsLabelChars: 'Mga karakter',
+      statsLabelWords: 'Mga salita',
+      statsLabelSentences: 'Mga pangungusap',
+      statsLabelLines: 'Mga linya',
+      languagesSupported: 'Sinusuportahang wika:',
+      processingNote:
+        'Unicode-aware ang pagproseso at gumagana sa mga wikang nasa itaas (at karamihan pa).',
+      uploadFile: 'Mag-upload ng file:',
+      italics: 'Italic',
+      dupWordsPrefix: 'Dobleng salita:',
+      noDupWords: 'Walang nakitang dobleng salita.',
+      noWordsToAnalyse: 'Walang salitang susuriin.',
+    },
+    Français: {
+      title: 'Convertisseur de casse',
+      subtitle: 'Saisissez votre texte et choisissez le format souhaité.',
+      inputLabel: 'Entrée',
+      inputPlaceholder: 'Tapez ou collez votre contenu ici',
+      outputLabel: 'Sortie',
+      downloadFile: 'Télécharger le fichier',
+      sentenceCase: 'Phrase',
+      lowerCase: 'minuscules',
+      upperCase: 'MAJUSCULES',
+      capitalizedCase: 'Mots Capitalisés',
+      alternatingCase: 'AlTeRnÉ',
+      titleCase: 'Casse Titre',
+      downloadText: 'Télécharger le texte',
+      duplicateWordFinder: 'Mots en double',
+      removeDuplicateLines: 'Supprimer les lignes en double',
+      charsToRemove: 'Caractères à supprimer',
+      removeCharacters: 'Supprimer les caractères',
+      wordFrequency: 'Fréquence des mots',
+      removeUnderscores: 'Supprimer les underscores',
+      sentenceCounter: 'Compteur de phrases',
+      find: 'Rechercher',
+      replace: 'Remplacer',
+      replaceBtn: 'Remplacer',
+      copyToClipboard: 'Copier',
+      clear: 'Effacer',
+      removeTextFormatting: 'Supprimer la mise en forme',
+      apply: 'Appliquer',
+      statsLabelChars: 'Caractères',
+      statsLabelWords: 'Mots',
+      statsLabelSentences: 'Phrases',
+      statsLabelLines: 'Lignes',
+      languagesSupported: 'Langues prises en charge :',
+      processingNote:
+        'Le traitement est compatible Unicode et fonctionne avec les langues ci-dessus (et la plupart des autres).',
+      uploadFile: 'Télécharger :',
+      italics: 'Italique',
+      dupWordsPrefix: 'Mots en double :',
+      noDupWords: 'Aucun mot en double trouvé.',
+      noWordsToAnalyse: 'Aucun mot à analyser.',
+    },
+    Magyar: {
+      title: 'Kis- és nagybetű átalakító',
+      subtitle: 'Írja be a szöveget, és válassza ki a kívánt formát.',
+      inputLabel: 'Bemenet',
+      inputPlaceholder: 'Írja be vagy illessze be ide',
+      outputLabel: 'Kimenet',
+      downloadFile: 'Fájl letöltése',
+      sentenceCase: 'Mondatkezdő',
+      lowerCase: 'kisbetűs',
+      upperCase: 'NAGYBETŰS',
+      capitalizedCase: 'Minden Szó Nagy Kezdőbetű',
+      alternatingCase: 'VáLtAkOzÓ',
+      titleCase: 'Cím stílus',
+      downloadText: 'Szöveg letöltése',
+      duplicateWordFinder: 'Duplikált szavak keresése',
+      removeDuplicateLines: 'Duplikált sorok eltávolítása',
+      charsToRemove: 'Eltávolítandó karakterek',
+      removeCharacters: 'Karakterek eltávolítása',
+      wordFrequency: 'Szógyakoriság',
+      removeUnderscores: 'Aláhúzás jelek eltávolítása',
+      sentenceCounter: 'Mondatszámláló',
+      find: 'Keresés',
+      replace: 'Csere',
+      replaceBtn: 'Csere',
+      copyToClipboard: 'Másolás a vágólapra',
+      clear: 'Törlés',
+      removeTextFormatting: 'Formázás eltávolítása',
+      apply: 'Alkalmaz',
+      statsLabelChars: 'Karakter',
+      statsLabelWords: 'Szó',
+      statsLabelSentences: 'Mondat',
+      statsLabelLines: 'Sor',
+      languagesSupported: 'Támogatott nyelvek:',
+      processingNote:
+        'A feldolgozás Unicode-kompatibilis, és működik a fenti (és a legtöbb más) nyelvvel.',
+      uploadFile: 'Fájl feltöltése:',
+      italics: 'Dőlt',
+      dupWordsPrefix: 'Duplikált szavak:',
+      noDupWords: 'Nem találhatók duplikált szavak.',
+      noWordsToAnalyse: 'Nincs elemezhető szó.',
+    },
+    Italiano: {
+      title: 'Convertitore di maiuscole/minuscole',
+      subtitle: 'Inserisci il tuo testo e scegli il formato desiderato.',
+      inputLabel: 'Input',
+      inputPlaceholder: 'Digita o incolla qui',
+      outputLabel: 'Output',
+      downloadFile: 'Scarica file',
+      sentenceCase: 'Frase',
+      lowerCase: 'minuscolo',
+      upperCase: 'MAIUSCOLO',
+      capitalizedCase: 'Iniziali Maiuscole',
+      alternatingCase: 'AlTeRnAtO',
+      titleCase: 'Titolo',
+      downloadText: 'Scarica testo',
+      duplicateWordFinder: 'Trova parole duplicate',
+      removeDuplicateLines: 'Rimuovi righe duplicate',
+      charsToRemove: 'Caratteri da rimuovere',
+      removeCharacters: 'Rimuovi caratteri',
+      wordFrequency: 'Frequenza parole',
+      removeUnderscores: 'Rimuovi underscore',
+      sentenceCounter: 'Conteggio frasi',
+      find: 'Trova',
+      replace: 'Sostituisci',
+      replaceBtn: 'Sostituisci',
+      copyToClipboard: 'Copia negli appunti',
+      clear: 'Pulisci',
+      removeTextFormatting: 'Rimuovi formattazione',
+      apply: 'Applica',
+      statsLabelChars: 'Caratteri',
+      statsLabelWords: 'Parole',
+      statsLabelSentences: 'Frasi',
+      statsLabelLines: 'Righe',
+      languagesSupported: 'Lingue supportate:',
+      processingNote:
+        'L\'elaborazione è compatibile con Unicode e funziona con le lingue sopra (e molte altre).',
+      uploadFile: 'Carica file:',
+      italics: 'Corsivo',
+      dupWordsPrefix: 'Parole duplicate:',
+      noDupWords: 'Nessuna parola duplicata trovata.',
+      noWordsToAnalyse: 'Nessuna parola da analizzare.',
+    },
+    Polski: {
+      title: 'Konwerter wielkości liter',
+      subtitle: 'Wpisz tekst i wybierz żądaną formę zapisu.',
+      inputLabel: 'Wejście',
+      inputPlaceholder: 'Wpisz lub wklej tutaj',
+      outputLabel: 'Wyjście',
+      downloadFile: 'Pobierz plik',
+      sentenceCase: 'Zapis zdaniowy',
+      lowerCase: 'małe litery',
+      upperCase: 'WIELKIE LITERY',
+      capitalizedCase: 'Każde Słowo Wielką Literą',
+      alternatingCase: 'NaPrZeMiEnNiE',
+      titleCase: 'Zapis tytułowy',
+      downloadText: 'Pobierz tekst',
+      duplicateWordFinder: 'Znajdź duplikaty słów',
+      removeDuplicateLines: 'Usuń zduplikowane wiersze',
+      charsToRemove: 'Znaki do usunięcia',
+      removeCharacters: 'Usuń znaki',
+      wordFrequency: 'Częstość słów',
+      removeUnderscores: 'Usuń podkreślenia',
+      sentenceCounter: 'Licznik zdań',
+      find: 'Szukaj',
+      replace: 'Zastąp',
+      replaceBtn: 'Zastąp',
+      copyToClipboard: 'Kopiuj do schowka',
+      clear: 'Wyczyść',
+      removeTextFormatting: 'Usuń formatowanie',
+      apply: 'Zastosuj',
+      statsLabelChars: 'Znaki',
+      statsLabelWords: 'Słowa',
+      statsLabelSentences: 'Zdania',
+      statsLabelLines: 'Wiersze',
+      languagesSupported: 'Obsługiwane języki:',
+      processingNote:
+        'Przetwarzanie obsługuje Unicode i działa z powyższymi (i większością innych) językami.',
+      uploadFile: 'Prześlij plik:',
+      italics: 'Kursywa',
+      dupWordsPrefix: 'Zduplikowane słowa:',
+      noDupWords: 'Nie znaleziono zduplikowanych słów.',
+      noWordsToAnalyse: 'Brak słów do analizy.',
+    },
+    Português: {
+      title: 'Conversor de maiúsculas/minúsculas',
+      subtitle: 'Digite seu texto e escolha o formato desejado.',
+      inputLabel: 'Entrada',
+      inputPlaceholder: 'Digite ou cole aqui',
+      outputLabel: 'Saída',
+      downloadFile: 'Baixar arquivo',
+      sentenceCase: 'Frase',
+      lowerCase: 'minúsculas',
+      upperCase: 'MAIÚSCULAS',
+      capitalizedCase: 'Cada Palavra em Maiúscula',
+      alternatingCase: 'AlTeRnAdO',
+      titleCase: 'Título',
+      downloadText: 'Baixar texto',
+      duplicateWordFinder: 'Encontrar palavras duplicadas',
+      removeDuplicateLines: 'Remover linhas duplicadas',
+      charsToRemove: 'Caracteres para remover',
+      removeCharacters: 'Remover caracteres',
+      wordFrequency: 'Frequência de palavras',
+      removeUnderscores: 'Remover underscores',
+      sentenceCounter: 'Contador de frases',
+      find: 'Localizar',
+      replace: 'Substituir',
+      replaceBtn: 'Substituir',
+      copyToClipboard: 'Copiar para a área de transferência',
+      clear: 'Limpar',
+      removeTextFormatting: 'Remover formatação',
+      apply: 'Aplicar',
+      statsLabelChars: 'Caracteres',
+      statsLabelWords: 'Palavras',
+      statsLabelSentences: 'Frases',
+      statsLabelLines: 'Linhas',
+      languagesSupported: 'Idiomas suportados:',
+      processingNote:
+        'O processamento é compatível com Unicode e funciona com os idiomas acima (e a maioria dos outros).',
+      uploadFile: 'Enviar arquivo:',
+      italics: 'Itálico',
+      dupWordsPrefix: 'Palavras duplicadas:',
+      noDupWords: 'Nenhuma palavra duplicada encontrada.',
+      noWordsToAnalyse: 'Nenhuma palavra para analisar.',
+    },
+    Slovenščina: {
+      title: 'Pretvornik velikosti črk',
+      subtitle: 'Vnesite besedilo in izberite želeni zapis.',
+      inputLabel: 'Vnos',
+      inputPlaceholder: 'Vpišite ali prilepite tukaj',
+      outputLabel: 'Izhod',
+      downloadFile: 'Prenesi datoteko',
+      sentenceCase: 'Stavčni zapis',
+      lowerCase: 'male črke',
+      upperCase: 'VELIKE ČRKE',
+      capitalizedCase: 'Vsaka Beseda Velika',
+      alternatingCase: 'IzMeNjEvAlNo',
+      titleCase: 'Naslovni zapis',
+      downloadText: 'Prenesi besedilo',
+      duplicateWordFinder: 'Najdi podvojene besede',
+      removeDuplicateLines: 'Odstrani podvojene vrstice',
+      charsToRemove: 'Znaki za odstranitev',
+      removeCharacters: 'Odstrani znake',
+      wordFrequency: 'Pogostost besed',
+      removeUnderscores: 'Odstrani podčrtaje',
+      sentenceCounter: 'Števec stavkov',
+      find: 'Najdi',
+      replace: 'Zamenjaj',
+      replaceBtn: 'Zamenjaj',
+      copyToClipboard: 'Kopiraj v odložišče',
+      clear: 'Počisti',
+      removeTextFormatting: 'Odstrani oblikovanje besedila',
+      apply: 'Uporabi',
+      statsLabelChars: 'Znake',
+      statsLabelWords: 'Besede',
+      statsLabelSentences: 'Stavke',
+      statsLabelLines: 'Vrstice',
+      languagesSupported: 'Podprti jeziki:',
+      processingNote:
+        'Obdelava podpira Unicode in deluje z zgornjimi (in večino drugih) jeziki.',
+      uploadFile: 'Naloži datoteko:',
+      italics: 'Ležeče',
+      dupWordsPrefix: 'Podvojene besede:',
+      noDupWords: 'Ni najdenih podvojenih besed.',
+      noWordsToAnalyse: 'Ni besed za analizo.',
+    },
+    Türkçe: {
+      title: 'Büyük/Küçük Harf Dönüştürücü',
+      subtitle: 'Metninizi girin ve istediğiniz biçimi seçin.',
+      inputLabel: 'Girdi',
+      inputPlaceholder: 'Buraya yazın veya yapıştırın',
+      outputLabel: 'Çıktı',
+      downloadFile: 'Dosyayı indir',
+      sentenceCase: 'Cümle',
+      lowerCase: 'küçük harf',
+      upperCase: 'BÜYÜK HARF',
+      capitalizedCase: 'Her Kelime Büyük',
+      alternatingCase: 'AlTeRnAtIf',
+      titleCase: 'Başlık',
+      downloadText: 'Metni indir',
+      duplicateWordFinder: 'Yinelenen kelimeleri bul',
+      removeDuplicateLines: 'Yinelenen satırları kaldır',
+      charsToRemove: 'Kaldırılacak karakterler',
+      removeCharacters: 'Karakterleri kaldır',
+      wordFrequency: 'Kelime sıklığı',
+      removeUnderscores: 'Alt çizgileri kaldır',
+      sentenceCounter: 'Cümle sayacı',
+      find: 'Bul',
+      replace: 'Değiştir',
+      replaceBtn: 'Değiştir',
+      copyToClipboard: 'Panoya kopyala',
+      clear: 'Temizle',
+      removeTextFormatting: 'Biçimlendirmeyi kaldır',
+      apply: 'Uygula',
+      statsLabelChars: 'Karakter',
+      statsLabelWords: 'Kelime',
+      statsLabelSentences: 'Cümle',
+      statsLabelLines: 'Satır',
+      languagesSupported: 'Desteklenen diller:',
+      processingNote:
+        'İşleme Unicode uyumludur ve yukarıdaki (ve çoğu başka) dillerle çalışır.',
+      uploadFile: 'Dosya yükle:',
+      italics: 'İtalik',
+      dupWordsPrefix: 'Yinelenen kelimeler:',
+      noDupWords: 'Yinelenen kelime bulunamadı.',
+      noWordsToAnalyse: 'Analiz edilecek kelime yok.',
+    },
+    Українська: {
+      title: 'Перетворювач регістру',
+      subtitle: 'Введіть текст і оберіть потрібний формат.',
+      inputLabel: 'Ввід',
+      inputPlaceholder: 'Введіть або вставте тут',
+      outputLabel: 'Вивід',
+      downloadFile: 'Завантажити файл',
+      sentenceCase: 'Речення',
+      lowerCase: 'нижній регістр',
+      upperCase: 'ВЕРХНІЙ РЕГІСТР',
+      capitalizedCase: 'Кожне Слово З Великої',
+      alternatingCase: 'ЧеРгУвАнНя',
+      titleCase: 'Заголовок',
+      downloadText: 'Завантажити текст',
+      duplicateWordFinder: 'Пошук повторюваних слів',
+      removeDuplicateLines: 'Видалити повторювані рядки',
+      charsToRemove: 'Символи для видалення',
+      removeCharacters: 'Видалити символи',
+      wordFrequency: 'Частота слів',
+      removeUnderscores: 'Видалити підкреслення',
+      sentenceCounter: 'Лічильник речень',
+      find: 'Знайти',
+      replace: 'Замінити',
+      replaceBtn: 'Замінити',
+      copyToClipboard: 'Копіювати в буфер',
+      clear: 'Очистити',
+      removeTextFormatting: 'Видалити форматування',
+      apply: 'Застосувати',
+      statsLabelChars: 'Символи',
+      statsLabelWords: 'Слова',
+      statsLabelSentences: 'Речення',
+      statsLabelLines: 'Рядки',
+      languagesSupported: 'Підтримувані мови:',
+      processingNote:
+        'Обробка підтримує Unicode і працює з наведеними вище (та більшістю інших) мовами.',
+      uploadFile: 'Завантажити файл:',
+      italics: 'Курсив',
+      dupWordsPrefix: 'Повторювані слова:',
+      noDupWords: 'Повторюваних слів не знайдено.',
+      noWordsToAnalyse: 'Немає слів для аналізу.',
+    },
+    'अंग्रेजी': {
+      title: 'केस कन्वर्टर',
+      subtitle: 'अपना पाठ दर्ज करें और मनचाहा केस चुनें।',
+      inputLabel: 'इनपुट',
+      inputPlaceholder: 'यहाँ टाइप करें या पेस्ट करें',
+      outputLabel: 'आउटपुट',
+      downloadFile: 'फ़ाइल डाउनलोड करें',
+      sentenceCase: 'वाक्य केस',
+      lowerCase: 'छोटे अक्षर',
+      upperCase: 'बड़े अक्षर',
+      capitalizedCase: 'हर शब्द का पहला अक्षर बड़ा',
+      alternatingCase: 'आल्टरनेटिंग',
+      titleCase: 'शीर्षक केस',
+      downloadText: 'टेक्स्ट डाउनलोड करें',
+      duplicateWordFinder: 'डुप्लीकेट शब्द खोजें',
+      removeDuplicateLines: 'डुप्लीकेट लाइनें हटाएँ',
+      charsToRemove: 'हटाने के अक्षर',
+      removeCharacters: 'अक्षर हटाएँ',
+      wordFrequency: 'शब्द आवृत्ति',
+      removeUnderscores: 'अंडरस्कोर हटाएँ',
+      sentenceCounter: 'वाक्य काउंटर',
+      find: 'खोजें',
+      replace: 'बदलें',
+      replaceBtn: 'बदलें',
+      copyToClipboard: 'क्लिपबोर्ड पर कॉपी करें',
+      clear: 'साफ़ करें',
+      removeTextFormatting: 'टेक्स्ट फ़ॉर्मैटिंग हटाएँ',
+      apply: 'लागू करें',
+      statsLabelChars: 'अक्षर',
+      statsLabelWords: 'शब्द',
+      statsLabelSentences: 'वाक्य',
+      statsLabelLines: 'पंक्तियाँ',
+      languagesSupported: 'समर्थित भाषाएँ:',
+      processingNote:
+        'प्रोसेसिंग Unicode-सक्षम है और ऊपर दी गई (और अधिकांश अन्य) भाषाओं के साथ काम करती है।',
+      uploadFile: 'फ़ाइल अपलोड करें:',
+      italics: 'इटैलिक',
+      dupWordsPrefix: 'डुप्लीकेट शब्द:',
+      noDupWords: 'कोई डुप्लीकेट शब्द नहीं मिला।',
+      noWordsToAnalyse: 'विश्लेषण करने के लिए शब्द नहीं हैं।',
+    },
+  };
+
+  // Fallback for languages not explicitly translated.
+  const t = (key) => (messages[language] && messages[language][key]) || messages.English[key] || key;
+
+  // Map UI language to a locale tag for Intl.Segmenter.
+  const langToLocale = (lang) => {
+    const map = {
+      Deutsch: 'de',
+      Ελληνικά: 'el',
+      English: 'en',
+      Español: 'es',
+      Filipino: 'fil',
+      Français: 'fr',
+      Magyar: 'hu',
+      Italiano: 'it',
+      Polski: 'pl',
+      Português: 'pt',
+      Slovenščina: 'sl',
+      Türkçe: 'tr',
+      Українська: 'uk',
+      'अंग्रेजी': 'hi',
+    };
+    return map[lang] || 'und';
+  };
+
   // Recompute stats any time text changes (Unicode-aware).
   useEffect(() => {
     const source = (outputText || inputText) || '';
-    const chars = [...source].length;              // Unicode-safe char count
-    const words = tokenizeWords(source).length;    // Unicode-aware word count
+    const chars = [...source].length;
+    const words = tokenizeWords(source, langToLocale(language)).length;
     const sentencesMatch = source.match(/[^.!?]+[.!?]+/g);
     const sentences = sentencesMatch ? sentencesMatch.length : source.trim() ? 1 : 0;
     const lines = source.split(/\n/u).length;
     setStats({ chars, words, sentences, lines });
-  }, [inputText, outputText]);
+  }, [inputText, outputText, language]);
 
   function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -97,12 +699,13 @@ export default function Home() {
   }
 
   function duplicateWordFinder() {
-    const words = tokenizeWords(inputText).map(w => w.toLowerCase());
+    const words = tokenizeWords(inputText, langToLocale(language)).map((w) => w.toLowerCase());
     const counts = {};
     for (const w of words) counts[w] = (counts[w] || 0) + 1;
-    const duplicates = Object.keys(counts).filter(k => counts[k] > 1);
-    setOutputText(duplicates.length ? `Duplicate words: ${duplicates.join(', ')}` : 'No duplicate words found.');
+    const duplicates = Object.keys(counts).filter((k) => counts[k] > 1);
+    setOutputText(duplicates.length ? `${t('dupWordsPrefix')} ${duplicates.join(', ')}` : t('noDupWords'));
   }
+
   function removeDuplicateLines() {
     const lines = inputText.split(/\n/u);
     const seen = new Set();
@@ -148,9 +751,12 @@ export default function Home() {
   }
 
   function handleWordFrequency() {
-    const words = tokenizeWords(inputText).map(w => w.toLowerCase());
+    const words = tokenizeWords(inputText, langToLocale(language)).map((w) => w.toLowerCase());
     const total = words.length;
-    if (!total) { setOutputText('No words to analyse.'); return; }
+    if (!total) {
+      setOutputText(t('noWordsToAnalyse'));
+      return;
+    }
     const counts = {};
     for (const w of words) counts[w] = (counts[w] || 0) + 1;
     const lines = Object.entries(counts)
@@ -165,11 +771,13 @@ export default function Home() {
 
   function handleSentenceCount() {
     const chars = [...inputText].length;
-    const words = inputText.trim() ? inputText.trim().split(/\s+/u).length : 0;
+    const words = inputText.trim() ? tokenizeWords(inputText, langToLocale(language)).length : 0;
     const sentencesMatch = inputText.match(/[^.!?]+[.!?]+/g);
     const sentences = sentencesMatch ? sentencesMatch.length : inputText.trim() ? 1 : 0;
     const lines = inputText.split(/\n/u).length;
-    setOutputText(`Characters: ${chars}\nWords: ${words}\nSentences: ${sentences}\nLines: ${lines}`);
+    setOutputText(
+      `${t('statsLabelChars')}: ${chars}\n${t('statsLabelWords')}: ${words}\n${t('statsLabelSentences')}: ${sentences}\n${t('statsLabelLines')}: ${lines}`
+    );
   }
 
   function handleReplace() {
@@ -213,24 +821,22 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8 space-y-8">
-        <h1 className="text-3xl md:text-4xl font-semibold text-center">Case Converter</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-center">{t('title')}</h1>
 
         <AdPlaceholder className="mx-auto max-w-4xl h-20" />
 
-        <p className="text-center text-sm text-gray-400">
-          Simply enter your text and choose the case you want to convert it to.
-        </p>
+        <p className="text-center text-sm text-gray-400">{t('subtitle')}</p>
 
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="w-full lg:w-1/2">
-            <label className="block text-sm mb-2">Input</label>
+            <label className="block text-sm mb-2">{t('inputLabel')}</label>
             <textarea
               dir="auto"
               className={`w-full h-48 md:h-64 rounded-md p-3 bg-gray-800 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary ${isItalic ? 'italic' : ''
                 }`}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Type or paste your content here"
+              placeholder={t('inputPlaceholder')}
             />
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <label className="inline-flex items-center text-sm">
@@ -240,17 +846,17 @@ export default function Home() {
                   onChange={() => setIsItalic(!isItalic)}
                   className="mr-2"
                 />
-                Italics
+                {t('italics')}
               </label>
               <label className="inline-flex items-center text-sm">
-                <span className="mr-2">Upload File:</span>
+                <span className="mr-2">{t('uploadFile')}</span>
                 <input type="file" accept=".txt" onChange={handleFileUpload} className="text-sm" />
               </label>
             </div>
           </div>
 
           <div className="w-full lg:w-1/2">
-            <label className="block text-sm mb-2">Output</label>
+            <label className="block text-sm mb-2">{t('outputLabel')}</label>
             <textarea
               dir="auto"
               className={`w-full h-48 md:h-64 rounded-md p-3 bg-gray-800 border border-gray-700 focus:outline-none ${isItalic ? 'italic' : ''
@@ -263,7 +869,7 @@ export default function Home() {
                 onClick={handleDownloadFile}
                 className="px-4 py-2 bg-primary dark:bg-primary-dark text-white rounded-md text-sm hover:bg-primary-dark"
               >
-                Download File
+                {t('downloadFile')}
               </button>
             </div>
           </div>
@@ -271,118 +877,81 @@ export default function Home() {
 
         <div className="flex flex-wrap gap-2">
           <button onClick={() => handleCase('sentence')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            Sentence case
+            {t('sentenceCase')}
           </button>
           <button onClick={() => handleCase('lower')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            lower case
+            {t('lowerCase')}
           </button>
           <button onClick={() => handleCase('upper')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            UPPER CASE
+            {t('upperCase')}
           </button>
           <button onClick={() => handleCase('capitalized')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            Capitalized Case
+            {t('capitalizedCase')}
           </button>
           <button onClick={() => handleCase('alternating')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            aLtErNaTiNg cAsE
+            {t('alternatingCase')}
           </button>
           <button onClick={() => handleCase('title')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            Title Case
-          </button>
-          <button onClick={() => handleCase('inverse')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            InVeRsE CaSe
+            {t('titleCase')}
           </button>
 
           <button onClick={handleDownloadFile} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Download Text
+            {t('downloadText')}
           </button>
 
           <button onClick={duplicateWordFinder} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            Duplicate Word Finder
+            {t('duplicateWordFinder')}
           </button>
           <button onClick={removeDuplicateLines} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Remove Duplicate Lines
+            {t('removeDuplicateLines')}
           </button>
 
           <div className="flex items-center gap-2">
             <input
               type="text"
-              placeholder="Chars to remove"
+              placeholder={t('charsToRemove')}
               value={removeChars}
               onChange={(e) => setRemoveChars(e.target.value)}
               className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-32"
             />
             <button onClick={handleRemoveChars} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-              Remove Characters
+              {t('removeCharacters')}
             </button>
           </div>
 
-          <details className="bg-gray-800 border border-gray-700 rounded-md p-2 text-sm">
-            <summary className="cursor-pointer select-none">Remove Text Formatting</summary>
-            <div className="mt-2 space-y-1">
-              {Object.keys(formatOptions).map((key) => (
-                <label key={key} className="flex items-center text-xs">
-                  <input
-                    type="checkbox"
-                    checked={formatOptions[key]}
-                    onChange={() => setFormatOptions((opts) => ({ ...opts, [key]: !opts[key] }))}
-                    className="mr-2"
-                  />
-                  {humanReadable(key)}
-                </label>
-              ))}
-              <button
-                onClick={handleRemoveFormatting}
-                className="mt-2 px-2 py-1 bg-primary dark:bg-primary-dark text-white rounded"
-              >
-                Apply
-              </button>
-            </div>
-          </details>
-
           <button onClick={handleWordFrequency} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Word Frequency
+            {t('wordFrequency')}
           </button>
           <button onClick={handleRemoveUnderscores} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Remove Underscores
+            {t('removeUnderscores')}
           </button>
           <button onClick={handleSentenceCount} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Sentence Counter
+            {t('sentenceCounter')}
           </button>
 
           <div className="flex items-center gap-2">
             <input
               type="text"
-              placeholder="Find"
+              placeholder={t('find')}
               value={findText}
               onChange={(e) => setFindText(e.target.value)}
               className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-24"
             />
             <input
               type="text"
-              placeholder="Replace"
+              placeholder={t('replace')}
               value={replaceText}
               onChange={(e) => setReplaceText(e.target.value)}
               className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-24"
             />
             <button onClick={handleReplace} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-              Replace
+              {t('replaceBtn')}
             </button>
           </div>
 
           <button onClick={handleCopy} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            Copy to Clipboard
+            {t('copyToClipboard')}
           </button>
-
-          <a
-            href="https://www.buymeacoffee.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm flex items-center space-x-1"
-          >
-            <span role="img" aria-label="coffee">☕</span>
-            <span>Buy me a Coffee</span>
-          </a>
-
           <button
             onClick={() => {
               setInputText('');
@@ -405,12 +974,34 @@ export default function Home() {
             }}
             className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm"
           >
-            Clear
+            {t('clear')}
           </button>
+          <details className="bg-gray-800 border border-gray-700 rounded-md p-2 text-sm">
+            <summary className="cursor-pointer select-none">{t('removeTextFormatting')}</summary>
+            <div className="mt-2 space-y-1">
+              {Object.keys(formatOptions).map((key) => (
+                <label key={key} className="flex items-center text-xs">
+                  <input
+                    type="checkbox"
+                    checked={formatOptions[key]}
+                    onChange={() => setFormatOptions((opts) => ({ ...opts, [key]: !opts[key] }))}
+                    className="mr-2"
+                  />
+                  {humanReadable(key)}
+                </label>
+              ))}
+              <button
+                onClick={handleRemoveFormatting}
+                className="mt-2 px-2 py-1 bg-primary dark:bg-primary-dark text-white rounded"
+              >
+                {t('apply')}
+              </button>
+            </div>
+          </details>
         </div>
 
         <div className="mt-2 text-xs text-gray-400">
-          Character Count: {stats.chars} | Word Count: {stats.words} | Sentence Count: {stats.sentences} | Line Count: {stats.lines}
+          {t('statsLabelChars')}: {stats.chars} | {t('statsLabelWords')}: {stats.words} | {t('statsLabelSentences')}: {stats.sentences} | {t('statsLabelLines')}: {stats.lines}
         </div>
 
         <div className="mt-8">
@@ -418,7 +1009,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8">
-          <label className="block mb-2 text-sm">Languages supported:</label>
+          <label className="block mb-2 text-sm">{t('languagesSupported')}</label>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
@@ -430,26 +1021,29 @@ export default function Home() {
               </option>
             ))}
           </select>
-          <p className="mt-2 text-xs text-gray-500">
-            Processing is Unicode-aware and works with the languages listed above (and most others) using Unicode properties.
-          </p>
+          <p className="mt-2 text-xs text-gray-500">{t('processingNote')}</p>
         </div>
       </main>
       <Footer />
     </div>
   );
 }
+
 // Helper: Unicode-aware word tokenizer
 function tokenizeWords(text, locale = 'und') {
   const s = (text || '').normalize('NFC'); // normalize combining marks
   if (typeof Intl !== 'undefined' && Intl.Segmenter) {
-    const seg = new Intl.Segmenter(locale, { granularity: 'word' });
-    return Array.from(seg.segment(s))
-      .filter(({ isWordLike }) => isWordLike)
-      .map(({ segment }) => segment);
+    try {
+      const seg = new Intl.Segmenter(locale, { granularity: 'word' });
+      return Array.from(seg.segment(s))
+        .filter(({ isWordLike }) => isWordLike)
+        .map(({ segment }) => segment);
+    } catch (e) {
+      // Fallback if locale not supported by environment
+    }
   }
   // Fallback: sequences of letters/numbers in any script
-  return (s.match(/[\p{L}\p{N}]+/gu) || []);
+  return s.match(/[\p{L}\p{N}]+/gu) || [];
 }
 
 function humanReadable(key) {
