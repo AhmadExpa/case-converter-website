@@ -1,0 +1,15 @@
+/*
+ * Global styles for the Case Converter website.
+ *
+ * We import the core Tailwind directives here. Additional
+ * project‑wide styles can also live here. The body element uses
+ * Tailwind utility classes applied via `@apply` for a dark
+ * background and light text.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-900 text-gray-100 min-h-screen;
+}
