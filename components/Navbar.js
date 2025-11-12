@@ -15,12 +15,7 @@ export default function Navbar() {
       <Link href="/" className="text-xl font-semibold hover:text-primary">
         Case&nbsp;Converter
       </Link>
-      <div className="space-x-4 text-sm md:text-base">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <Link href="/about" className="hover:text-primary">About</Link>
-        <Link href="/contact" className="hover:text-primary">Contact</Link>
-        <Link href="/terms" className="hover:text-primary">Terms</Link>
-      </div>
+
     </nav>
   );
 }
