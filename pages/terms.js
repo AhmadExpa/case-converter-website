@@ -15,7 +15,7 @@ export default function Terms() {
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">Terms and Conditions</h1>
         <AdPlaceholder className="mx-auto max-w-4xl h-20" />
-        <div className="text-sm text-gray-300 space-y-4 leading-relaxed">
+        <div className="text-sm space-y-4 leading-relaxed">
           <p>
             The contents of this website are provided for general informational purposes only.
             While we endeavour to keep the information up to date and correct, we make no

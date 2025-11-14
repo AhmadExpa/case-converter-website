@@ -1,22 +1,18 @@
 import React from 'react';
 
 /**
- * A simple footer component. It shows the current year and provides
- * placeholder as for privacy policy and other legal pages. Feel free
- * to expand this component with additional as or information.
+ * A simple footer component.
  */
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-gray-800 text-gray-400 text-xs md:text-sm py-4 px-6 mt-12">
+    <footer className="bg-white/80 dark:bg-gray-900/80 border-t border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 text-xs md:text-sm py-4 px-6 mt-12">
       <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
         <span>&copy; {year} Case Converter. All rights reserved.</span>
         <div className="space-x-4">
-          {/* Placeholder as; these could point to real pages */}
-
-          <a href="/about" className="hover:text-gray-300">About</a>
-          <a href="/terms" className="hover:text-gray-300">T&C</a>
-          <a href="/contact" className="hover:text-gray-300">Contact</a>
+          <a href="/about" className="hover:text-gray-700 dark:hover:text-gray-200">About</a>
+          <a href="/terms" className="hover:text-gray-700 dark:hover:text-gray-200">T&amp;C</a>
+          <a href="/contact" className="hover:text-gray-700 dark:hover:text-gray-200">Contact</a>
         </div>
       </div>
     </footer>

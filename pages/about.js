@@ -16,7 +16,7 @@ export default function About() {
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">About Us</h1>
         <AdPlaceholder className="mx-auto max-w-4xl h-20" />
-        <div className="space-y-4 text-sm leading-relaxed text-gray-300">
+        <div className="space-y-4 text-sm leading-relaxed">
           <p>
             Welcome to our Case Converter website, your one‑stop destination for a suite of
             intuitive text transformation tools. Built by a small team of passionate

@@ -49,7 +49,8 @@ export default function Home() {
   const messages = {
     English: {
       title: 'Case Converter',
-      subtitle: 'Simply enter your text and choose the case you want to convert it to.',
+      subtitle:
+        'Convert your text instantly into multiple formats — sentence case, title case, UPPERCASE, lowercase, or even aLtErNaTiNg cAsE. Clean, format, and analyze your content with ease.',
       inputLabel: 'Input',
       inputPlaceholder: 'Type or paste your content here',
       outputLabel: 'Output',
@@ -284,12 +285,12 @@ export default function Home() {
       statsLabelWords: 'Mots',
       statsLabelSentences: 'Phrases',
       statsLabelLines: 'Lignes',
-      languagesSupported: 'Langues prises en charge :',
+      languagesSupported: 'Langues prises en charge :',
       processingNote:
         'Le traitement est compatible Unicode et fonctionne avec les langues ci-dessus (et la plupart des autres).',
-      uploadFile: 'Télécharger :',
+      uploadFile: 'Télécharger :',
       italics: 'Italique',
-      dupWordsPrefix: 'Mots en double :',
+      dupWordsPrefix: 'Mots en double :',
       noDupWords: 'Aucun mot en double trouvé.',
       noWordsToAnalyse: 'Aucun mot à analyser.',
     },
@@ -368,7 +369,7 @@ export default function Home() {
       statsLabelLines: 'Righe',
       languagesSupported: 'Lingue supportate:',
       processingNote:
-        'L\'elaborazione è compatibile con Unicode e funziona con le lingue sopra (e molte altre).',
+        "L'elaborazione è compatibile con Unicode e funziona con le lingue sopra (e molte altre).",
       uploadFile: 'Carica file:',
       italics: 'Corsivo',
       dupWordsPrefix: 'Parole duplicate:',
@@ -450,7 +451,7 @@ export default function Home() {
       statsLabelLines: 'Linhas',
       languagesSupported: 'Idiomas suportados:',
       processingNote:
-        'O processamento é compatível com Unicode e funciona com os idiomas acima (e a maioria dos outros).',
+        'O processamento é compatível com Unicode e funciona com os idiomas acima (and a maioria dos outros).',
       uploadFile: 'Enviar arquivo:',
       italics: 'Itálico',
       dupWordsPrefix: 'Palavras duplicadas:',
@@ -624,7 +625,8 @@ export default function Home() {
   };
 
   // Fallback for languages not explicitly translated.
-  const t = (key) => (messages[language] && messages[language][key]) || messages.English[key] || key;
+  const t = (key) =>
+    (messages[language] && messages[language][key]) || messages.English[key] || key;
 
   // Map UI language to a locale tag for Intl.Segmenter.
   const langToLocale = (lang) => {
@@ -689,7 +691,9 @@ export default function Home() {
         break;
       case 'inverse':
         text = [...text]
-          .map((char) => (char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()))
+          .map((char) =>
+            char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+          )
           .join('');
         break;
       default:
@@ -699,11 +703,15 @@ export default function Home() {
   }
 
   function duplicateWordFinder() {
-    const words = tokenizeWords(inputText, langToLocale(language)).map((w) => w.toLowerCase());
+    const words = tokenizeWords(inputText, langToLocale(language)).map((w) =>
+      w.toLowerCase()
+    );
     const counts = {};
     for (const w of words) counts[w] = (counts[w] || 0) + 1;
     const duplicates = Object.keys(counts).filter((k) => counts[k] > 1);
-    setOutputText(duplicates.length ? `${t('dupWordsPrefix')} ${duplicates.join(', ')}` : t('noDupWords'));
+    setOutputText(
+      duplicates.length ? `${t('dupWordsPrefix')} ${duplicates.join(', ')}` : t('noDupWords')
+    );
   }
 
   function removeDuplicateLines() {
@@ -744,14 +752,19 @@ export default function Home() {
         .join('\n');
     }
     if (formatOptions.stripTabs) text = text.replace(/\t/g, '');
-    if (formatOptions.removeNonAlphanumeric) text = text.replace(/[^\p{L}\p{N}\s]/gu, '');
-    if (formatOptions.removeEmojis) text = text.replace(/\p{Extended_Pictographic}/gu, '');
-    if (formatOptions.removePunctuation) text = text.replace(/[\p{P}\p{S}]/gu, '');
+    if (formatOptions.removeNonAlphanumeric)
+      text = text.replace(/[^\p{L}\p{N}\s]/gu, '');
+    if (formatOptions.removeEmojis)
+      text = text.replace(/\p{Extended_Pictographic}/gu, '');
+    if (formatOptions.removePunctuation)
+      text = text.replace(/[\p{P}\p{S}]/gu, '');
     setOutputText(text);
   }
 
   function handleWordFrequency() {
-    const words = tokenizeWords(inputText, langToLocale(language)).map((w) => w.toLowerCase());
+    const words = tokenizeWords(inputText, langToLocale(language)).map((w) =>
+      w.toLowerCase()
+    );
     const total = words.length;
     if (!total) {
       setOutputText(t('noWordsToAnalyse'));
@@ -771,12 +784,16 @@ export default function Home() {
 
   function handleSentenceCount() {
     const chars = [...inputText].length;
-    const words = inputText.trim() ? tokenizeWords(inputText, langToLocale(language)).length : 0;
+    const words = inputText.trim()
+      ? tokenizeWords(inputText, langToLocale(language)).length
+      : 0;
     const sentencesMatch = inputText.match(/[^.!?]+[.!?]+/g);
     const sentences = sentencesMatch ? sentencesMatch.length : inputText.trim() ? 1 : 0;
     const lines = inputText.split(/\n/u).length;
     setOutputText(
-      `${t('statsLabelChars')}: ${chars}\n${t('statsLabelWords')}: ${words}\n${t('statsLabelSentences')}: ${sentences}\n${t('statsLabelLines')}: ${lines}`
+      `${t('statsLabelChars')}: ${chars}\n${t('statsLabelWords')}: ${words}\n${t(
+        'statsLabelSentences'
+      )}: ${sentences}\n${t('statsLabelLines')}: ${lines}`
     );
   }
 
@@ -818,21 +835,25 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col text-gray-900 dark:text-gray-100">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8 space-y-8">
-        <h1 className="text-3xl md:text-4xl font-semibold text-center">{t('title')}</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-center">
+          {t('title')}
+        </h1>
 
         <AdPlaceholder className="mx-auto max-w-4xl h-20" />
 
-        <p className="text-center text-sm text-gray-400">{t('subtitle')}</p>
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          {t('subtitle')}
+        </p>
 
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="w-full lg:w-1/2">
             <label className="block text-sm mb-2">{t('inputLabel')}</label>
             <textarea
               dir="auto"
-              className={`w-full h-48 md:h-64 rounded-md p-3 bg-gray-800 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary ${isItalic ? 'italic' : ''
+              className={`w-full h-48 md:h-64 rounded-md p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary ${isItalic ? 'italic' : ''
                 }`}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
@@ -850,7 +871,12 @@ export default function Home() {
               </label>
               <label className="inline-flex items-center text-sm">
                 <span className="mr-2">{t('uploadFile')}</span>
-                <input type="file" accept=".txt" onChange={handleFileUpload} className="text-sm" />
+                <input
+                  type="file"
+                  accept=".txt"
+                  onChange={handleFileUpload}
+                  className="text-sm"
+                />
               </label>
             </div>
           </div>
@@ -859,7 +885,7 @@ export default function Home() {
             <label className="block text-sm mb-2">{t('outputLabel')}</label>
             <textarea
               dir="auto"
-              className={`w-full h-48 md:h-64 rounded-md p-3 bg-gray-800 border border-gray-700 focus:outline-none ${isItalic ? 'italic' : ''
+              className={`w-full h-48 md:h-64 rounded-md p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-none ${isItalic ? 'italic' : ''
                 }`}
               value={outputText}
               readOnly
@@ -875,133 +901,214 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          <button onClick={() => handleCase('sentence')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('sentenceCase')}
-          </button>
-          <button onClick={() => handleCase('lower')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('lowerCase')}
-          </button>
-          <button onClick={() => handleCase('upper')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('upperCase')}
-          </button>
-          <button onClick={() => handleCase('capitalized')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('capitalizedCase')}
-          </button>
-          <button onClick={() => handleCase('alternating')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('alternatingCase')}
-          </button>
-          <button onClick={() => handleCase('title')} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('titleCase')}
-          </button>
+        {/* Three attractive blocks */}
+        <div className="grid gap-4 md:grid-cols-3">
+          {/* Case Conversion */}
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-md flex flex-col gap-2">
+            <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              Case Conversion
+            </h2>
 
-          <button onClick={handleDownloadFile} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('downloadText')}
-          </button>
-
-          <button onClick={duplicateWordFinder} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-            {t('duplicateWordFinder')}
-          </button>
-          <button onClick={removeDuplicateLines} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('removeDuplicateLines')}
-          </button>
-
-          <div className="flex items-center gap-2">
-            <input
-              type="text"
-              placeholder={t('charsToRemove')}
-              value={removeChars}
-              onChange={(e) => setRemoveChars(e.target.value)}
-              className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-32"
-            />
-            <button onClick={handleRemoveChars} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-              {t('removeCharacters')}
+            <button
+              onClick={() => handleCase('sentence')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('sentenceCase')}
             </button>
-          </div>
-
-          <button onClick={handleWordFrequency} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('wordFrequency')}
-          </button>
-          <button onClick={handleRemoveUnderscores} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('removeUnderscores')}
-          </button>
-          <button onClick={handleSentenceCount} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('sentenceCounter')}
-          </button>
-
-          <div className="flex items-center gap-2">
-            <input
-              type="text"
-              placeholder={t('find')}
-              value={findText}
-              onChange={(e) => setFindText(e.target.value)}
-              className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-24"
-            />
-            <input
-              type="text"
-              placeholder={t('replace')}
-              value={replaceText}
-              onChange={(e) => setReplaceText(e.target.value)}
-              className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-sm w-24"
-            />
-            <button onClick={handleReplace} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm">
-              {t('replaceBtn')}
+            <button
+              onClick={() => handleCase('lower')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('lowerCase')}
             </button>
-          </div>
+            <button
+              onClick={() => handleCase('upper')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('upperCase')}
+            </button>
+            <button
+              onClick={() => handleCase('capitalized')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('capitalizedCase')}
+            </button>
+            <button
+              onClick={() => handleCase('alternating')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('alternatingCase')}
+            </button>
+            <button
+              onClick={() => handleCase('title')}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700"
+            >
+              {t('titleCase')}
+            </button>
+          </section>
 
-          <button onClick={handleCopy} className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm whitespace-nowrap">
-            {t('copyToClipboard')}
-          </button>
-          <button
-            onClick={() => {
-              setInputText('');
-              setOutputText('');
-              setRemoveChars('');
-              setFindText('');
-              setReplaceText('');
-              setFormatOptions({
-                trim: false,
-                trimLines: false,
-                removeWhitespace: false,
-                stripHTML: false,
-                stripExtraSpaces: false,
-                stripEmptyLines: false,
-                stripTabs: false,
-                removeNonAlphanumeric: false,
-                removeEmojis: false,
-                removePunctuation: false,
-              });
-            }}
-            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm"
-          >
-            {t('clear')}
-          </button>
-          <details className="bg-gray-800 border border-gray-700 rounded-md p-2 text-sm">
-            <summary className="cursor-pointer select-none">{t('removeTextFormatting')}</summary>
-            <div className="mt-2 space-y-1">
-              {Object.keys(formatOptions).map((key) => (
-                <label key={key} className="flex items-center text-xs">
-                  <input
-                    type="checkbox"
-                    checked={formatOptions[key]}
-                    onChange={() => setFormatOptions((opts) => ({ ...opts, [key]: !opts[key] }))}
-                    className="mr-2"
-                  />
-                  {humanReadable(key)}
-                </label>
-              ))}
+          {/* Text Cleanup */}
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-md flex flex-col gap-2">
+            <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              Text Cleanup
+            </h2>
+
+            <button
+              onClick={removeDuplicateLines}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200 shadow-sm hover:bg-green-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-green-900 dark:text-green-100 dark:border-green-700"
+            >
+              {t('removeDuplicateLines')}
+            </button>
+
+            <button
+              onClick={duplicateWordFinder}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200 shadow-sm hover:bg-green-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-green-900 dark:text-green-100 dark:border-green-700"
+            >
+              {t('duplicateWordFinder')}
+            </button>
+
+            <div className="flex flex-col gap-2 mt-1">
+              <input
+                type="text"
+                placeholder={t('charsToRemove')}
+                value={removeChars}
+                onChange={(e) => setRemoveChars(e.target.value)}
+                className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-2 py-1 text-sm"
+              />
               <button
-                onClick={handleRemoveFormatting}
-                className="mt-2 px-2 py-1 bg-primary dark:bg-primary-dark text-white rounded"
+                onClick={handleRemoveChars}
+                className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200 shadow-sm hover:bg-green-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-green-900 dark:text-green-100 dark:border-green-700"
               >
-                {t('apply')}
+                {t('removeCharacters')}
               </button>
             </div>
-          </details>
+
+            <button
+              onClick={handleRemoveUnderscores}
+              className="w-full mt-1 px-4 py-2 rounded-lg text-sm font-medium bg-green-50 text-green-800 border border-green-200 shadow-sm hover:bg-green-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-green-900 dark:text-green-100 dark:border-green-700"
+            >
+              {t('removeUnderscores')}
+            </button>
+          </section>
+
+          {/* Find, Replace & Analyze */}
+          <section className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-md flex flex-col gap-2">
+            <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              Find, Replace &amp; Analyze
+            </h2>
+
+            <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 w-full">
+                <input
+                  type="text"
+                  placeholder={t('find')}
+                  value={findText}
+                  onChange={(e) => setFindText(e.target.value)}
+                  className="flex-1 min-w-[120px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-2 py-1 text-sm"
+                />
+                <input
+                  type="text"
+                  placeholder={t('replace')}
+                  value={replaceText}
+                  onChange={(e) => setReplaceText(e.target.value)}
+                  className="flex-1 min-w-[120px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-2 py-1 text-sm"
+                />
+              </div>
+
+              <button
+                onClick={handleReplace}
+                className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+              >
+                {t('replaceBtn')}
+              </button>
+            </div>
+
+
+            <button
+              onClick={handleWordFrequency}
+              className="w-full mt-1 px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+            >
+              {t('wordFrequency')}
+            </button>
+            <button
+              onClick={handleSentenceCount}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+            >
+              {t('sentenceCounter')}
+            </button>
+            <button
+              onClick={handleDownloadFile}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+            >
+              {t('downloadText')}
+            </button>
+            <button
+              onClick={handleCopy}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+            >
+              {t('copyToClipboard')}
+            </button>
+            <button
+              onClick={() => {
+                setInputText('');
+                setOutputText('');
+                setRemoveChars('');
+                setFindText('');
+                setReplaceText('');
+                setFormatOptions({
+                  trim: false,
+                  trimLines: false,
+                  removeWhitespace: false,
+                  stripHTML: false,
+                  stripExtraSpaces: false,
+                  stripEmptyLines: false,
+                  stripTabs: false,
+                  removeNonAlphanumeric: false,
+                  removeEmojis: false,
+                  removePunctuation: false,
+                });
+              }}
+              className="w-full px-4 py-2 rounded-lg text-sm font-medium bg-yellow-50 text-yellow-800 border border-yellow-200 shadow-sm hover:bg-yellow-100 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-150 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700"
+            >
+              {t('clear')}
+            </button>
+
+            <details className="mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-2 text-sm">
+              <summary className="cursor-pointer select-none">
+                {t('removeTextFormatting')}
+              </summary>
+              <div className="mt-2 space-y-1">
+                {Object.keys(formatOptions).map((key) => (
+                  <label key={key} className="flex items-center text-xs">
+                    <input
+                      type="checkbox"
+                      checked={formatOptions[key]}
+                      onChange={() =>
+                        setFormatOptions((opts) => ({
+                          ...opts,
+                          [key]: !opts[key],
+                        }))
+                      }
+                      className="mr-2"
+                    />
+                    {humanReadable(key)}
+                  </label>
+                ))}
+                <button
+                  onClick={handleRemoveFormatting}
+                  className="mt-2 px-3 py-1 bg-primary dark:bg-primary-dark text-white rounded text-xs hover:bg-primary-dark"
+                >
+                  {t('apply')}
+                </button>
+              </div>
+            </details>
+          </section>
         </div>
 
         <div className="mt-2 text-xs text-gray-400">
-          {t('statsLabelChars')}: {stats.chars} | {t('statsLabelWords')}: {stats.words} | {t('statsLabelSentences')}: {stats.sentences} | {t('statsLabelLines')}: {stats.lines}
+          {t('statsLabelChars')}: {stats.chars} | {t('statsLabelWords')}:{' '}
+          {stats.words} | {t('statsLabelSentences')}: {stats.sentences} |{' '}
+          {t('statsLabelLines')}: {stats.lines}
         </div>
 
         <div className="mt-8">
@@ -1013,7 +1120,7 @@ export default function Home() {
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="bg-gray-800 border border-gray-700 rounded p-2 text-sm"
+            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded p-2 text-sm"
           >
             {languages.map((lang) => (
               <option key={lang} value={lang}>

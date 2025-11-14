@@ -15,7 +15,7 @@ export default function Contact() {
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">Contact Us</h1>
         <AdPlaceholder className="mx-auto max-w-4xl h-20" />
-        <div className="text-sm text-gray-300 space-y-3">
+        <div className="text-sm space-y-3">
           <p>
             We'd love to hear from you! Whether you have a suggestion, a bug report or
             simply want to say hello, feel free to reach out using the details below.
@@ -23,14 +23,9 @@ export default function Contact() {
           </p>
           <ul className="space-y-2">
             <li>
-              <strong>Email:</strong> <a href="mailto:support@example.com" className="text-primary hover:underline">support@example.com</a>
+              <strong>Email:</strong> <a href="mailto:new01sriram@gmail.com" className="text-primary hover:underline">new01sriram@gmail.com</a>
             </li>
-            <li>
-              <strong>Phone:</strong> <a href="tel:+921234567890" className="text-primary hover:underline">+92 123 456 7890</a>
-            </li>
-            <li>
-              <strong>Address:</strong> 123 Innovation Park, G–10/4, Islamabad, Pakistan
-            </li>
+
           </ul>
           <p>
             You can also follow us on social media for updates and tips. We regularly share

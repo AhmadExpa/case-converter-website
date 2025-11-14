@@ -1,21 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 /**
  * Primary navigation bar for the website.
  *
- * The navigation includes links to the home page, about page,
- * contact page and a terms page. The title on the left doubles as a
- * link back to the home page. All navigation items are styled for
- * dark mode.
+ * The bar now includes a dark/light mode toggle aligned to the
+ * right. The toggle updates a `dark` class on the root element so
+ * Tailwind's class-based dark mode styles can react accordingly and
+ * the preference is persisted in localStorage.
  */
 export default function Navbar() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const storedTheme = window.localStorage.getItem('theme');
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const initialDark =
+      storedTheme === 'dark' || (!storedTheme && prefersDark);
+
+    setIsDark(initialDark);
+    const root = document.documentElement;
+    if (initialDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev;
+      if (typeof window !== 'undefined') {
+        const root = document.documentElement;
+        if (next) {
+          root.classList.add('dark');
+          window.localStorage.setItem('theme', 'dark');
+        } else {
+          root.classList.remove('dark');
+          window.localStorage.setItem('theme', 'light');
+        }
+      }
+      return next;
+    });
+  };
+
   return (
-    <nav className="bg-gray-800 text-gray-100 py-4 px-6 flex justify-between items-center shadow-md">
-      <Link href="/" className="text-xl font-semibold hover:text-primary">
+    <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 py-4 px-6 flex items-center justify-between shadow-sm">
+      <Link href="/" className="text-xl font-semibold hover:text-primary dark:hover:text-primary">
         Case&nbsp;Converter
       </Link>
 
+      <button
+        type="button"
+        onClick={toggleTheme}
+        className="inline-flex items-center gap-2 px-3 py-1 text-xs sm:text-sm rounded-full border border-gray-300 bg-white shadow-sm hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition-colors"
+        aria-label="Toggle dark or light mode"
+      >
+        <span className="hidden sm:inline">
+          {isDark ? 'Dark mode' : 'Light mode'}
+        </span>
+        <span className="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-300 dark:bg-gray-600">
+          <span
+            className={
+              'inline-block h-4 w-4 rounded-full bg-white transform transition-transform ' +
+              (isDark ? 'translate-x-4' : 'translate-x-1')
+            }
+          />
+        </span>
+      </button>
     </nav>
   );
 }
