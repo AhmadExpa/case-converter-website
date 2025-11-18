@@ -14,7 +14,7 @@ export default function Terms() {
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">Terms and Conditions</h1>
-        <AdPlaceholder className="mx-auto max-w-4xl h-20" />
+        {/* <AdPlaceholder className="mx-auto max-w-4xl h-20" /> */}
         <div className="text-sm space-y-4 leading-relaxed">
           <p>
             The contents of this website are provided for general informational purposes only.
@@ -42,7 +42,7 @@ export default function Terms() {
             being temporarily unavailable due to technical issues beyond our control.
           </p>
         </div>
-        <AdPlaceholder className="mx-auto max-w-4xl h-20" />
+        {/* <AdPlaceholder className="mx-auto max-w-4xl h-20" /> */}
       </main>
       <Footer />
     </div>

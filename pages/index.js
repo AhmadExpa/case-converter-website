@@ -842,7 +842,7 @@ export default function Home() {
           {t('title')}
         </h1>
 
-        <AdPlaceholder className="mx-auto max-w-4xl h-20" />
+        {/* <AdPlaceholder className="mx-auto max-w-4xl h-20" /> */}
 
         <p className="text-center text-sm text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           {t('subtitle')}
@@ -1112,7 +1112,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8">
-          <AdPlaceholder className="w-full h-24" />
+          {/* <AdPlaceholder className="w-full h-24" /> */}
         </div>
 
         <div className="mt-8">

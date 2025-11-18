@@ -10,9 +10,10 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
         <span>&copy; {year} Case Converter. All rights reserved.</span>
         <div className="space-x-4">
-          <a href="/about" className="hover:text-gray-700 dark:hover:text-gray-200">About</a>
-          <a href="/terms" className="hover:text-gray-700 dark:hover:text-gray-200">T&amp;C</a>
-          <a href="/contact" className="hover:text-gray-700 dark:hover:text-gray-200">Contact</a>
+          <a href="/about" className="hover:text-gray-700 dark:hover:text-gray-200">About Us</a>
+          <a href="/terms" className="hover:text-gray-700 dark:hover:text-gray-200">Terms & Conditions</a>
+          <a href="/advertising" className="hover:text-gray-700 dark:hover:text-gray-200">Advertising Policy</a>
+          <a href="/privacy" className="hover:text-gray-700 dark:hover:text-gray-200">Privacy Policy</a>
         </div>
       </div>
     </footer>
