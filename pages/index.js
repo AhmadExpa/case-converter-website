@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { analyzeText } from '../utils/analytics';
 import { convertText } from '../utils/converters';
@@ -9,8 +8,12 @@ export default function Home() {
     const [text, setText] = useState('');
     const [convertedText, setConvertedText] = useState('');
     const [activeTab, setActiveTab] = useState('converter');
+    const [subTab, setSubTab] = useState('input');
     const [fileName, setFileName] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+
+    // Theme State
+    const [isDark, setIsDark] = useState(false);
 
     // Analytics State
     const [analytics, setAnalytics] = useState(analyzeText(''));
@@ -73,6 +76,44 @@ export default function Home() {
     useEffect(() => {
         setAnalytics(analyzeText(text));
     }, [text]);
+
+    // Theme Initialization
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const storedTheme = window.localStorage.getItem('theme');
+        const prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const initialDark =
+            storedTheme === 'dark' || (!storedTheme && prefersDark);
+
+        setIsDark(initialDark);
+        const root = document.documentElement;
+        if (initialDark) {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        setIsDark((prev) => {
+            const next = !prev;
+            if (typeof window !== 'undefined') {
+                const root = document.documentElement;
+                if (next) {
+                    root.classList.add('dark');
+                    window.localStorage.setItem('theme', 'dark');
+                } else {
+                    root.classList.remove('dark');
+                    window.localStorage.setItem('theme', 'light');
+                }
+            }
+            return next;
+        });
+    };
 
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
@@ -203,6 +244,7 @@ export default function Home() {
 
         const result = convertText(text, conversionOptions);
         setConvertedText(result);
+        setSubTab('output');
     };
 
     // Helper to toggle selected chars
@@ -260,15 +302,52 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col transition-colors duration-200">
+        <div className="min-h-screen flex flex-col transition-colors duration-200 dark:bg-gray-900">
             <Head>
                 <title>Precision Case Converter</title>
                 <meta name="description" content="A Precision Case Converter for Professional & Academic Writing" />
             </Head>
 
-            <Navbar />
+            {/* Theme Toggle Overlay */}
+            <div className="absolute top-4 right-4 z-50">
+                <button
+                    type="button"
+                    onClick={toggleTheme}
+                    className="inline-flex items-center gap-2 px-3 py-1 text-xs sm:text-sm rounded-full border border-gray-300 bg-white shadow-sm hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200"
+                    aria-label="Toggle dark or light mode"
+                >
 
-            <main className="flex-grow container mx-auto px-4 py-8">
+                    {/* Mobile: Icon Only */}
+                    <span className="sm:hidden text-lg">
+                        {isDark ? (
+                            // Moon Icon
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                            </svg>
+                        ) : (
+                            // Sun Icon
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                            </svg>
+                        )}
+                    </span>
+
+                    {/* Desktop: Text + Slider */}
+                    <span className="hidden sm:inline-flex items-center gap-2">
+                        <span>{isDark ? 'Dark mode' : 'Light mode'}</span>
+                        <span className="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-300 dark:bg-gray-600">
+                            <span
+                                className={
+                                    'inline-block h-4 w-4 rounded-full bg-white transform transition-transform ' +
+                                    (isDark ? 'translate-x-4' : 'translate-x-1')
+                                }
+                            />
+                        </span>
+                    </span>
+                </button>
+            </div>
+
+            <main className="flex-grow container mx-auto px-4 py-8 relative">
                 <div className="mb-8 text-center">
                     <h1 className="text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100">
                         A Precision Case Converter for Professional & Academic Writing
@@ -304,46 +383,112 @@ export default function Home() {
                 {activeTab === 'converter' && (
                     <div className="space-y-8">
 
-                        {/* File Upload Section */}
-                        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                            <h2 className="text-xl font-semibold mb-4 dark:text-white">1. Input Text / File Upload</h2>
-                            <div className="flex flex-col md:flex-row gap-4 items-start">
-                                <div className="flex-1 w-full">
-                                    <input
-                                        type="file"
-                                        accept=".txt"
-                                        onChange={handleFileUpload}
-                                        className="block w-full text-sm text-gray-500
-                                  file:mr-4 file:py-2 file:px-4
-                                  file:rounded-full file:border-0
-                                  file:text-sm file:font-semibold
-                                  file:bg-orange-50 file:text-orange-700
-                                  hover:file:bg-orange-100
-                                  dark:file:bg-gray-700 dark:file:text-orange-400
-                                "
-                                    />
-                                    {fileName && <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Loaded: {fileName}</p>}
-
-                                    <textarea
-                                        value={text}
-                                        onChange={(e) => setText(e.target.value)}
-                                        placeholder="Paste your text here or upload a file..."
-                                        className="mt-4 w-full h-48 p-4 rounded-md border border-gray-300 bg-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono"
-                                    />
-
-                                    <div className="flex justify-between items-center mt-2">
-                                        <button
-                                            onClick={handleClear}
-                                            className="px-4 py-2 text-sm text-red-600 hover:text-red-800 font-medium transition-colors"
-                                        >
-                                            Clear All
-                                        </button>
-                                        {errorMsg && <span className="text-red-500 text-sm font-bold">{errorMsg}</span>}
-                                    </div>
+                        <div className="flex flex-col md:flex-row gap-4 items-start">
+                            {/* Left Column: Input or Output View */}
+                            <div className="flex-1 w-full bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md transition-all duration-300">
+                                <div className="flex justify-between items-center mb-4 border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <h2 className="text-xl font-semibold dark:text-white">
+                                        {subTab === 'input' ? '1. Input Text / File Upload' : 'Output Result'}
+                                    </h2>
+                                    <button
+                                        onClick={() => setSubTab(subTab === 'input' ? 'output' : 'input')}
+                                        className="text-sm font-medium text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 flex items-center transition-colors"
+                                    >
+                                        {subTab === 'input' ? (
+                                            <>
+                                                View Output <span className="ml-1 text-lg">→</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span className="mr-1 text-lg">←</span> Back to Input
+                                            </>
+                                        )}
+                                    </button>
                                 </div>
 
-                                {/* Analytics Panel */}
-                                <div className="w-full md:w-1/3 bg-gray-50 dark:bg-gray-700 p-4 rounded-md text-sm">
+                                {subTab === 'input' ? (
+                                    /* Input View Content */
+                                    <div className="animate-fade-in-up">
+                                        <input
+                                            type="file"
+                                            accept=".txt"
+                                            onChange={handleFileUpload}
+                                            className="block w-full text-sm text-gray-500
+                                          file:mr-4 file:py-2 file:px-4
+                                          file:rounded-full file:border-0
+                                          file:text-sm file:font-semibold
+                                          file:bg-orange-50 file:text-orange-700
+                                          hover:file:bg-orange-100
+                                          dark:file:bg-gray-700 dark:file:text-orange-400
+                                        "
+                                        />
+                                        {fileName && <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Loaded: {fileName}</p>}
+
+                                        <textarea
+                                            value={text}
+                                            onChange={(e) => setText(e.target.value)}
+                                            placeholder="Paste your text or upload a Text File..."
+                                            className="mt-4 w-full h-96 p-4 rounded-md border border-gray-300 bg-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono resize-y"
+                                        />
+
+                                        <div className="flex justify-between items-center mt-2">
+                                            <button
+                                                onClick={handleClear}
+                                                className="px-4 py-2 text-sm text-red-600 hover:text-red-800 font-medium transition-colors"
+                                            >
+                                                Clear All
+                                            </button>
+                                            {errorMsg && <span className="text-red-500 text-sm font-bold">{errorMsg}</span>}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    /* Output View Content */
+                                    <div className="animate-fade-in-up">
+                                        <textarea
+                                            readOnly
+                                            value={convertedText}
+                                            className="w-full h-96 p-4 rounded-md border border-gray-300 bg-gray-100 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono resize-y"
+                                            placeholder="Converted text will appear here..."
+                                        />
+                                        <div className="mt-4 flex justify-end">
+                                            <button
+                                                onClick={() => navigator.clipboard.writeText(convertedText)}
+                                                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded text-sm font-medium transition-colors flex items-center"
+                                            >
+                                                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                                Copy to Clipboard
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Right Sidebar: Scope > Analytics > Convert (Persistent) */}
+                            <div className="w-full md:w-1/3 flex flex-col gap-4">
+
+                                {/* Scope Selection */}
+                                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md text-sm shadow-sm">
+                                    <h4 className="text-sm font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-2">Scope</h4>
+                                    <select
+                                        value={options.scope}
+                                        onChange={(e) => setOptions({ ...options, scope: e.target.value })}
+                                        className="w-full text-sm border-gray-300 rounded-md shadow-sm dark:bg-gray-600 dark:border-gray-500 dark:text-white p-2"
+                                    >
+                                        <option value="entire">Entire Text</option>
+                                        <option value="identifiers">Between identifiers ($$$...$$$)</option>
+                                        <option value="lines">Selected Lines Only</option>
+                                    </select>
+
+                                    {options.scope === 'lines' && (
+                                        <div className="mt-2 text-xs">
+                                            <input type="text" placeholder="Line Prefix (e.g. >)" value={options.linePrefix} onChange={(e) => setOptions({ ...options, linePrefix: e.target.value })} className="w-full border rounded p-1 mb-1 dark:bg-gray-600 dark:text-white dark:border-gray-500" />
+                                            <input type="text" placeholder="Line Keyword" value={options.lineKeyword} onChange={(e) => setOptions({ ...options, lineKeyword: e.target.value })} className="w-full border rounded p-1 dark:bg-gray-600 dark:text-white dark:border-gray-500" />
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Analytics */}
+                                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md text-sm shadow-sm">
                                     <h3 className="font-bold text-gray-700 dark:text-gray-200 mb-2 border-b pb-1">Analytics</h3>
                                     <div className="grid grid-cols-2 gap-2 text-gray-600 dark:text-gray-300">
                                         <div>Chars: <span className="font-mono font-bold">{analytics.charCount}</span></div>
@@ -391,11 +536,21 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </div>
+
+                                <button
+                                    onClick={handleConvert}
+                                    className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-lg transform transition hover:scale-105"
+                                >
+                                    Convert
+                                </button>
+                                <p className="text-xs text-gray-500 text-center">
+                                    By clicking convert, you agree to the applied settings overriding the current text.
+                                </p>
                             </div>
                         </div>
 
-                        {/* Controls Section */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Controls Section (2 Columns) - Now Persistent below the main row */}
+                        <div className="grid md:grid-cols-2 gap-6">
 
                             {/* Style Selection */}
                             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
@@ -606,113 +761,70 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            {/* Action & Scope */}
-                            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col gap-4">
-                                <div>
-                                    <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Scope</h4>
-                                    <select
-                                        value={options.scope}
-                                        onChange={(e) => setOptions({ ...options, scope: e.target.value })}
-                                        className="w-full text-sm border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white p-2"
-                                    >
-                                        <option value="entire">Entire Text</option>
-                                        <option value="identifiers">Between Identifiers ($$$...$$$)</option>
-                                        <option value="lines">Selected Lines Only</option>
-                                    </select>
-
-                                    {options.scope === 'lines' && (
-                                        <div className="mt-2 text-xs">
-                                            <input type="text" placeholder="Line Prefix (e.g. >)" value={options.linePrefix} onChange={(e) => setOptions({ ...options, linePrefix: e.target.value })} className="w-full border rounded p-1 mb-1" />
-                                            <input type="text" placeholder="Line Keyword" value={options.lineKeyword} onChange={(e) => setOptions({ ...options, lineKeyword: e.target.value })} className="w-full border rounded p-1" />
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="mt-auto">
-                                    <button
-                                        onClick={handleConvert}
-                                        className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-lg transform transition hover:scale-105"
-                                    >
-                                        Convert
-                                    </button>
-                                    <p className="mt-4 text-xs text-gray-500 text-center">
-                                        By clicking convert, you agree to the applied settings overriding the current text.
-                                    </p>
-                                </div>
-                            </div>
-
                         </div>
-
-                        {/* Output Section */}
-                        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                            <h2 className="text-xl font-semibold mb-4 dark:text-white">Output</h2>
-                            <textarea
-                                readOnly
-                                value={convertedText}
-                                className="w-full h-48 p-4 rounded-md border border-gray-300 bg-gray-200 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono"
-                                placeholder="Converted text will appear here..."
-                            />
-                            <div className="mt-4 flex justify-end">
-                                <button
-                                    onClick={() => navigator.clipboard.writeText(convertedText)}
-                                    className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded text-sm font-medium transition-colors"
-                                >
-                                    Copy to Clipboard
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
                 )}
 
                 {/* How It Works Tab */}
                 {activeTab === 'how-it-works' && (
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md prose dark:prose-invert max-w-none">
-                        <h2>How It Works</h2>
-                        <h3>Identifier-Based Conversion</h3>
-                        <ol>
-                            <li>Wrap target text using <code>$$$START$$$</code> and <code>$$$END$$$</code></li>
-                            <li>Paste the full content into the input box</li>
-                            <li>Select <strong>Between Identifiers</strong> in the Scope settings</li>
-                            <li>Choose your Case Format (e.g., AP Style)</li>
-                            <li>Click Convert - only the wrapped text changes!</li>
-                        </ol>
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl">
+                        <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 dark:text-white border-b pb-4">
+                            Master the Case Converter
+                        </h2>
 
-                        <h3>Advanced Controls</h3>
-                        <ul>
-                            <li><strong>Skip Logic:</strong> Prevent conversion of specific segments (first word, sentences, short words, etc).</li>
-                            <li><strong>Stop Words:</strong> Add comma-separated words to exclude from Title Casing (e.g. "of, the").</li>
-                            <li><strong>Structure:</strong> Preserve existing HTML tags or quoted strings while converting surrounding text.</li>
-                        </ul>
+                        <div className="grid md:grid-cols-2 gap-12">
+                            <div>
+                                <div className="flex items-center mb-4">
+                                    <div className="bg-orange-100 dark:bg-orange-900 p-2 rounded-full mr-3 text-orange-600 dark:text-orange-400">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">How It Works</h3>
+                                </div>
+                                <ol className="space-y-4 text-gray-600 dark:text-gray-300 ml-4 border-l-2 border-orange-200 dark:border-orange-800 pl-4">
+                                    <li className="relative">
+                                        <span className="absolute -left-6 bg-white dark:bg-gray-800 text-orange-500 font-bold border border-orange-200 dark:border-orange-900 rounded-full w-4 h-4 flex items-center justify-center text-xs mt-1">1</span>
+                                        <strong className="block text-gray-800 dark:text-gray-100">Scope Selection</strong>
+                                        Choose to convert the entire text, specific lines, or content wrapped in identifiers like <code>$$$START$$$</code>.
+                                    </li>
+                                    <li className="relative">
+                                        <span className="absolute -left-6 bg-white dark:bg-gray-800 text-orange-500 font-bold border border-orange-200 dark:border-orange-900 rounded-full w-4 h-4 flex items-center justify-center text-xs mt-1">2</span>
+                                        <strong className="block text-gray-800 dark:text-gray-100">Choose Your Style</strong>
+                                        Select from professional standards like <span className="text-orange-600 font-medium">AP, APA, Chicago</span>, or simple case transformations.
+                                    </li>
+                                    <li className="relative">
+                                        <span className="absolute -left-6 bg-white dark:bg-gray-800 text-orange-500 font-bold border border-orange-200 dark:border-orange-900 rounded-full w-4 h-4 flex items-center justify-center text-xs mt-1">3</span>
+                                        <strong className="block text-gray-800 dark:text-gray-100">Refine with Precision</strong>
+                                        Use selective controls to skip specific words, patterns (like URLs or ALL CAPS), or protect specific content.
+                                    </li>
+                                </ol>
+                            </div>
 
-                        <h3>Title Case Standards</h3>
-                        <ul>
-                            <li><strong>AP Style:</strong> Associated Press style. Capitalizes principal words. Prepositions of 4+ letters are capitalized.</li>
-                            <li><strong>APA Style:</strong> American Psychological Association. Capitalizes words of 4+ letters.</li>
-                            <li><strong>Chicago Style:</strong> Chicago Manual of Style. Standard for book publishing. Capitalizes major words.</li>
-                            <li><strong>MLA Style:</strong> Modern Language Association. Common in humanities. Similar to Chicago.</li>
-                            <li><strong>Bluebook Style:</strong> Legal citation style. Strict rules on prepositions 4 letters or fewer.</li>
-                            <li><strong>AMA Style:</strong> American Medical Association. Capitalizes major words, strict on 3-letter prepositions.</li>
-                        </ul>
-
-                        <h3>Selective Controls</h3>
-                        <ul>
-                            <li><strong>Skip Controls:</strong> Skip specific words or sentences by position (First/Last) or pattern (ALL CAPS, Numbers).</li>
-                            <li><strong>Convert Only:</strong> Apply conversion strictly to words matching a pattern (e.g., only Fix ALL CAPS words).</li>
-                            <li><strong>Character Filtering:</strong> Only modify specific character types (e.g., touch Capitals but leave Symbols alone).</li>
-                        </ul>
-
-                        <h3>Structure & Formatting</h3>
-                        <ul>
-                            <li><strong>Ignored Content:</strong> Text inside Quotes, HTML tags, Parentheses, etc., remains untouched.</li>
-                            <li><strong>Preserve Formatting:</strong> Prevents case changes completely, useful if just running analytics or minor cleanup.</li>
-                        </ul>
+                            <div>
+                                <div className="flex items-center mb-4">
+                                    <div className="bg-blue-100 dark:bg-blue-900 p-2 rounded-full mr-3 text-blue-600 dark:text-blue-400">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Styles Guide</h3>
+                                </div>
+                                <ul className="grid grid-cols-1 gap-3">
+                                    <li className="bg-gray-50 dark:bg-gray-700 p-3 rounded border-l-4 border-orange-500">
+                                        <span className="font-bold text-gray-800 dark:text-white">AP Style:</span> Capitalizes principal words, keeps prepositions lowercase unless 4+ letters.
+                                    </li>
+                                    <li className="bg-gray-50 dark:bg-gray-700 p-3 rounded border-l-4 border-blue-500">
+                                        <span className="font-bold text-gray-800 dark:text-white">Chicago Style:</span> Standard for publishing. Capitalizes major words.
+                                    </li>
+                                    <li className="bg-gray-50 dark:bg-gray-700 p-3 rounded border-l-4 border-green-500">
+                                        <span className="font-bold text-gray-800 dark:text-white">MLA Style:</span> Academic standard. Treats prepositions similarly to Chicago.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 )}
 
-            </main>
+            </main >
 
             <Footer />
-        </div>
+        </div >
     );
 }
