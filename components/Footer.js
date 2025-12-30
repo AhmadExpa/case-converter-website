@@ -1,16 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from '../utils/i18n';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Footer() {
+  const { t, locale } = useTranslation();
+
   return (
     <footer className="bg-white/90 dark:bg-gray-900/90 border-t border-gray-200 dark:border-gray-800 mt-12">
       <div className="container mx-auto px-4 py-4 md:py-5 flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="text-center md:text-left">
           <span className="block text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-100">
-            Case Converter
+            {t('common.brand')}
           </span>
           <span className="block text-xs md:text-sm text-gray-500 dark:text-gray-400">
-            Clean, fast tools for everyday text transformations.
+            {t('common.tagline')}
           </span>
         </div>
 
@@ -18,29 +22,35 @@ export default function Footer() {
 
           <Link
             href="/privacy"
+            locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            Privacy Policy
+            {t('common.nav.privacy')}
           </Link>
           <Link
             href="/terms"
+            locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            Terms of Service
+            {t('common.nav.terms')}
           </Link>
           <Link
             href="/advertising"
+            locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            Advertising Policy
+            {t('common.nav.advertising')}
           </Link>
           <Link
             href="/contact"
+            locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            Contact
+            {t('common.nav.contact')}
           </Link>
         </nav>
+
+        <LanguageSwitcher variant="footer" />
       </div>
     </footer>
   );

@@ -262,31 +262,42 @@ export const convertText = (text, options) => {
     return processSegment(text, preparedOptions);
 };
 
-export const parseLineSelection = (input, totalLines) => {
-    if (!input || !input.trim()) return { error: 'Enter line numbers or ranges like 1,2,5-10.', lines: [] };
+const defaultLineSelectionMessages = {
+    prompt: 'Enter line numbers or ranges like 1,2,5-10.',
+    atLeastOne: 'Enter at least one line number.',
+    positive: 'Line numbers must be positive. "{{token}}" is invalid.',
+    beyond: 'Line {{line}} is beyond the text length.',
+    rangeInvalid: 'Range "{{token}}" is invalid. Use start-end with start <= end.',
+    tokenInvalid: 'Token "{{token}}" is not a valid line number or range.',
+};
+
+export const parseLineSelection = (input, totalLines, messages = defaultLineSelectionMessages) => {
+    if (!input || !input.trim()) return { error: messages.prompt, lines: [] };
 
     const tokens = input.split(',').map((t) => t.trim()).filter(Boolean);
-    if (tokens.length === 0) return { error: 'Enter at least one line number.', lines: [] };
+    if (tokens.length === 0) return { error: messages.atLeastOne, lines: [] };
 
     const selected = new Set();
 
     for (const token of tokens) {
         if (/^\d+$/.test(token)) {
             const line = parseInt(token, 10);
-            if (line < 1) return { error: `Line numbers must be positive. "${token}" is invalid.`, lines: [] };
-            if (totalLines && line > totalLines) return { error: `Line ${line} is beyond the text length.`, lines: [] };
+            if (line < 1) return { error: messages.positive.replace('{{token}}', token), lines: [] };
+            if (totalLines && line > totalLines)
+                return { error: messages.beyond.replace('{{line}}', line), lines: [] };
             selected.add(line - 1);
         } else if (/^\d+-\d+$/.test(token)) {
             const [startStr, endStr] = token.split('-');
             const start = parseInt(startStr, 10);
             const end = parseInt(endStr, 10);
             if (start < 1 || end < 1 || end < start) {
-                return { error: `Range "${token}" is invalid. Use start-end with start <= end.`, lines: [] };
+                return { error: messages.rangeInvalid.replace('{{token}}', token), lines: [] };
             }
-            if (totalLines && end > totalLines) return { error: `Line ${end} is beyond the text length.`, lines: [] };
+            if (totalLines && end > totalLines)
+                return { error: messages.beyond.replace('{{line}}', end), lines: [] };
             for (let i = start; i <= end; i += 1) selected.add(i - 1);
         } else {
-            return { error: `Token "${token}" is not a valid line number or range.`, lines: [] };
+            return { error: messages.tokenInvalid.replace('{{token}}', token), lines: [] };
         }
     }
 

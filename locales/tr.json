@@ -1,0 +1,384 @@
+{
+  "common": {
+    "brand": "QuickTextFormatter",
+    "tagline": "Metni dönüştürmek için hızlı ve sade araçlar.",
+    "nav": {
+      "home": "Ana sayfa",
+      "about": "Hakkımızda",
+      "privacy": "Gizlilik politikası",
+      "terms": "Hizmet şartları",
+      "advertising": "Reklam politikası",
+      "contact": "İletişim"
+    },
+    "languageLabel": "Dil",
+    "theme": {
+      "dark": "Koyu mod",
+      "light": "Açık mod"
+    },
+    "ads": "Google Reklamları"
+  },
+  "meta": {
+    "home": {
+      "title": "Profesyonel QuickTextFormatter",
+      "description": "Hassas harf dönüşümleri için profesyonel QuickTextFormatter"
+    },
+    "about": {
+      "title": "Harf Dönüştürücü Hakkında",
+      "description": "Aracın arkasındaki ekip ve amacı öğrenin."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Geri bildirim gönderin, sorun bildirin veya yeni özellik isteyin."
+    },
+    "privacy": {
+      "title": "Gizlilik politikası",
+      "description": "Verileri, çerezleri ve reklamları nasıl yönettiğimizi öğrenin."
+    },
+    "terms": {
+      "title": "Şartlar ve koşullar",
+      "description": "Sitenin kullanım koşullarını okuyun."
+    },
+    "advertising": {
+      "title": "Reklam politikası",
+      "description": "Sitede reklamların nasıl gösterildiğini öğrenin."
+    }
+  },
+  "home": {
+    "heroTitle": "Profesyonel ve akademik yazım için hassas harf dönüştürücü",
+    "heroSubtitle": "Profesyonel başlık standartları, akıllı analiz ve hassas kontrollerle metni güvenle dönüştürün—tahmine değil, doğruluğa odaklı.",
+    "heroBullets": [
+      "AP, APA, Chicago, MLA, Bluebook ve AMA standartlarıyla profesyonel başlık dönüşümü",
+      "Harf, kelime, cümle, paragraf ve yapı için akıllı analiz",
+      "Yalnızca gerekli bölümleri değiştirmek için tanımlayıcı veya kapsam tabanlı dönüşüm",
+      "Kelimeler, cümleler ve desenler için seçmeli kurallar ve atlama kontrolleri",
+      "Mevcut büyük/küçük harf kullanımı ve yapıyı koruyan ayarlar",
+      "Güvenli ve doğru dönüşüm—yalnızca istediğinizi değiştirin"
+    ],
+    "tabs": {
+      "converter": "Dönüştürücü",
+      "howItWorks": "Nasıl çalışır"
+    },
+    "panels": {
+      "inputTitle": "1. Metin girişi / Dosya yükleme",
+      "outputTitle": "Sonuç",
+      "viewOutput": "Sonucu gör",
+      "backToInput": "Girdiğe dön",
+      "filePlaceholder": "Metninizi yapıştırın veya bir metin dosyası yükleyin...",
+      "outputPlaceholder": "Dönüştürülen metin burada görünecek...",
+      "clear": "Hepsini temizle",
+      "copy": "Panoya kopyala",
+      "download": ".txt indir",
+      "loadedFile": "Yüklendi: {{file}}",
+      "copied": "Kopyalandı!",
+      "cleared": "Temizlendi."
+    },
+    "errors": {
+      "missingText": "Dönüştürmek için metin ekleyin.",
+      "missingStyle": "Bir harf dönüşüm modu seçin.",
+      "markersMissing": "Hata: $$$START$$$ ve $$$END$$$ işaretleri bulunmalıdır.",
+      "markerOrder": "Hata: $$$START$$$ ifadesi $$$END$$$ öncesinde olmalıdır.",
+      "onlyTextFiles": "Yalnızca metin dosyalarına izin verilir.",
+      "lineSelection": {
+        "prompt": "1,2,5-10 gibi satır numarası veya aralık girin.",
+        "atLeastOne": "En az bir satır numarası girin.",
+        "positive": "Satır numaraları pozitif olmalıdır. \"{{token}}\" geçersiz.",
+        "beyond": "{{line}}. satır metin uzunluğunu aşıyor.",
+        "rangeInvalid": "\"{{token}}\" aralığı geçersiz. Başlangıç-bitiş ve başlangıç <= bitiş olmalı.",
+        "tokenInvalid": "\"{{token}}\" geçerli bir satır numarası veya aralık değil."
+      }
+    },
+    "scope": {
+      "title": "Kapsam",
+      "options": {
+        "entire": "Tüm metin (her şeyi dönüştür)",
+        "identifiers": "Tanımlayıcılar arasında ($$$...$$$) (yalnızca işaretlerin içi)",
+        "lines": "Sadece seçilen satırlar (aralık seç)"
+      },
+      "identifiersHelp": "Sadece $$$START$$$ ve $$$END$$$ arasındaki metni dönüştürür; işaretler kalır.",
+      "linesPlaceholder": "Numaralar veya aralıklar (örn. 1,2,5-10)",
+      "linesHelp": "Yalnızca bu satırlar dönüştürülür. Geçersiz referanslar işlemi engeller."
+    },
+    "analytics": {
+      "title": "Analiz",
+      "labels": {
+        "chars": "Harf",
+        "words": "Kelime",
+        "sentences": "Cümle",
+        "lines": "Satır",
+        "paragraphs": "Paragraf",
+        "uniqueWords": "Tekil kelime"
+      },
+      "topWords": "En yaygın kelimeler (İlk 3)",
+      "topLetters": "En yaygın harfler (İlk 3)",
+      "longestWords": "En uzun kelimeler (İlk 3)",
+      "sentenceStructure": "Cümle yapısı",
+      "sentenceDetail": "{{count}} cümle; {{words}} kelime, {{chars}} karakter"
+    },
+    "convert": {
+      "cta": "Dönüştür",
+      "disclaimer": "Dönüştür’e basarak ayarların mevcut metnin yerini almasını kabul edersiniz."
+    },
+    "caseModes": {
+      "title": "Harf modları",
+      "subtitle": "Tek seçim kartları; kaldırmak için tekrar tıklayın.",
+      "chip": "Aynı anda bir tane",
+      "titleLabel": "Başlık standartları",
+      "genericLabel": "Genel modlar",
+      "beta": "BETA",
+      "selected": "Seçildi",
+      "tap": "Kullanmak için dokun",
+      "titleStyles": [
+        {
+          "code": "AP",
+          "label": "AP stili (basitleştirilmiş)",
+          "detail": "BETA: Ana kelimeler büyük; kısa edatlar küçük kalır.",
+          "tooltip": "Basitleştirilmiş AP kuralları; sık cümlelerde Chicago ile benzer olabilir."
+        },
+        {
+          "code": "Chicago",
+          "label": "Chicago stili (basitleştirilmiş)",
+          "detail": "BETA: Büyük kelimeler büyük harf; küçük kelimeler küçük kalır.",
+          "tooltip": "Chicago’nun sade hali; çoğu metinde AP’ye benzer."
+        }
+      ],
+      "genericStyles": [
+        { "code": "UPPERCASE", "label": "BÜYÜK HARF", "detail": "Tüm harfler büyük yapılır." },
+        { "code": "lowercase", "label": "küçük harf", "detail": "Tüm harfler küçük yapılır." },
+        { "code": "Sentence case", "label": "Cümle biçimi", "detail": "Her cümlenin ilk kelimesi büyük, kalanlar küçük." }
+      ]
+    },
+    "controls": {
+      "title": "Seçmeli kontroller",
+      "subtitle": "Öncelik: Kapsam → Yapı → Atlama kuralları → Filtreler → Dönüştür.",
+      "apply": {
+        "title": "Dönüşümü uygula",
+        "hint": "Her şeyi dönüştürmek için işaretlemeyin.",
+        "numbers": "Sayı içeren kelimeler (örn. A1, v2)",
+        "symbols": "Sembol içeren kelimeler (örn. rock&roll)",
+        "accented": "Aksanlı harf içeren kelimeler (örn. é, ñ, ü)",
+        "emoji": "Emoji/Latin olmayan karakter içeren kelimeler (örn. 😀, 中文, عربى)"
+      },
+      "skip": {
+        "title": "Şunları atla",
+        "firstWord": "İlk kelime",
+        "lastWord": "Son kelime",
+        "firstSentence": "İlk cümle",
+        "lastSentence": "Son cümle",
+        "skipFirstNWords": "İlk N kelimeyi atla",
+        "skipLastNWords": "Son N kelimeyi atla",
+        "skipShorterThan": "X karakterden kısa olanları atla",
+        "skipLongerThan": "X karakterden uzun olanları atla",
+        "skipFirstNSentences": "İlk N cümleyi atla",
+        "skipLastNSentences": "Son N cümleyi atla",
+        "skipAllCaps": "Tümü büyük kelimeleri atla",
+        "skipLowercase": "Tamamı küçük kelimeleri atla",
+        "skipMixedCase": "Karışık büyük/küçük kelimeleri atla",
+        "skipNumbers": "Sayı içeren kelimeleri atla",
+        "skipSymbols": "Sembol içeren kelimeleri atla"
+      },
+      "structure": {
+        "title": "Yapıyı koru",
+        "subtitle": "Yok sayılan bölgeler kurallar uygulanmadan önce korunur.",
+        "quotes": "Tırnak işaretlerini \" \" yok say",
+        "parentheses": "Parantezleri ( ) yok say",
+        "brackets": "Köşeli parantezleri [ ] yok say",
+        "braces": "Kıvrık parantezleri { } yok say",
+        "html": "HTML etiketlerini yok say",
+        "preserveCaps": "Mevcut büyük/küçük harf kullanımını koru (CamelCase, marka yazımı)",
+        "stopWordsLabel": "Durak kelimeler (yalnızca başlık)",
+        "stopWordsPlaceholder": "örn. at, in, on (virgülle ayırın)",
+        "stopWordsNote": "İlk veya son kelime olmadıkça küçük kalırlar."
+      }
+    },
+    "howItWorks": {
+      "title": "Dönüştürücüye hakim olun",
+      "howTitle": "Nasıl çalışır",
+      "steps": [
+        {
+          "title": "Kapsamı seç",
+          "body": "Tüm metni, belirli satırları veya $$$START$$$ ve $$$END$$$ arasını dönüştür."
+        },
+        {
+          "title": "Stili seç",
+          "body": "AP, APA, Chicago gibi standartları veya basit dönüşümleri seçin."
+        },
+        {
+          "title": "Hassas ayar yap",
+          "body": "Kelimeleri, desenleri atlamak veya içeriği korumak için seçmeli kontrolleri kullanın."
+        }
+      ],
+      "styleGuideTitle": "Stil rehberi",
+      "styleGuide": [
+        { "label": "AP stili:", "body": "Ana kelimeler büyük; kısa edatlar küçük kalır." },
+        { "label": "Chicago stili:", "body": "Yayıncılık standardı; önemli kelimeler büyük." },
+        { "label": "MLA stili:", "body": "Akademik standart; edatlar Chicago'ya benzer şekilde ele alınır." }
+      ]
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "paragraphs": [
+      "Büyük/Küçük Harf Dönüştürücümüze hoş geldiniz; metin dönüştürme için sezgisel araçlar sunuyoruz. Küçük bir geliştirici ve yazar ekibiyiz ve araştırma, iş veya sosyal paylaşımlar için metni hazırlamayı kolaylaştırmak istiyoruz.",
+      "Kullanıcıların hızlı araç ihtiyacını görerek, rahatsız edici siteler yerine hafif ve birleşik bir platform kurduk. Özellikler gerçek iş akışlarından esinlenildi.",
+      "Önerileri dinliyoruz; çok dilli destek istendiğinde dil seçici ekledik ve aksanlı karakterler ile sağdan sola yazıları destekledik.",
+      "Arayüz de önemli: koyu mod göz yorgunluğunu azaltır, uyumlu tasarım her ekranda çalışır ve butonlar rahatça aralıklıdır.",
+      "Planlarımızda daha fazla araç, daha iyi içe/dışa aktarma ve iş birliği özellikleri var; sadelik ve gizlilik önceliğimiz olmaya devam edecek."
+    ]
+  },
+  "contact": {
+    "title": "İletişim",
+    "intro": "Geri bildirim paylaşın, sorun bildirin veya dönüştürücü için yeni özellik isteyin.",
+    "fields": {
+      "name": "Ad",
+      "email": "E-posta",
+      "message": "Mesaj"
+    },
+    "placeholders": {
+      "name": "Adınız",
+      "email": "you@example.com",
+      "message": "Dönüştürücüyü nasıl geliştirebiliriz?"
+    },
+    "submit": "Mesaj gönder",
+    "status": "Bize ulaştığınız için teşekkürler. Kısa süre içinde döneceğim."
+  },
+  "privacy": {
+    "title": "Gizlilik politikası",
+    "sections": [
+      {
+        "heading": "1. Topladığımız bilgiler",
+        "body": [
+          "Aracı kullanmak için hesap açmanız gerekmez. Ziyaret ettiğinizde temel teknik bilgiler toplanabilir.",
+          "Hizmeti çalıştırmak ve geliştirmek için kullanım verileri, cihaz bilgileri ve reklamla ilgili veriler toplanabilir.",
+          "Girdiğiniz metin yalnızca dönüştürme için işlenir ve kimlik tespiti için kullanılmaz."
+        ]
+      },
+      {
+        "heading": "2. Çerezler ve benzer teknolojiler",
+        "body": [
+          "Hizmeti çalıştırmak, geliştirmek ve reklamı desteklemek için çerezler kullanılır. Tarayıcı ayarlarından yönetebilirsiniz."
+        ]
+      },
+      {
+        "heading": "3. Reklam (Google Ads / AdSense)",
+        "body": [
+          "Google Ads / AdSense ve diğer ortaklarla reklam gösteriyoruz; ziyaretlerinize göre reklam sunmak ve ölçmek için çerez kullanılabilir."
+        ]
+      },
+      {
+        "heading": "4. Bilgilerin kullanımı",
+        "body": [
+          "Hizmeti işletmek, bakım yapmak, iyileştirmek, performansı izlemek, sahtekarlığı önlemek ve reklamları ölçmek için bilgiler kullanılır."
+        ]
+      },
+      {
+        "heading": "5. Üçüncü taraf hizmetleri",
+        "body": [
+          "Sitede kendi politikalarına sahip üçüncü taraf bağlantıları veya hizmetleri olabilir; uygulamalarından biz sorumlu değiliz."
+        ]
+      },
+      {
+        "heading": "6. Veri saklama",
+        "body": [
+          "Belirtilen amaçlar için kullanım verileri gerekli süre boyunca tutulur; yasa daha uzun süre isterse uzatılabilir."
+        ]
+      },
+      {
+        "heading": "7. Çocukların gizliliği",
+        "body": [
+          "Hizmet 13 yaş altına (veya eşdeğer yaş) yönelik değildir ve bu yaş grubunun verilerini bilerek toplamıyoruz."
+        ]
+      },
+      {
+        "heading": "8. Güvenlik",
+        "body": [
+          "Makul güvenlik önlemleri alınır, ancak internet üzerinde hiçbir yöntem %100 güvenli değildir."
+        ]
+      },
+      {
+        "heading": "9. Haklarınız",
+        "body": [
+          "Bölgenize göre erişim, düzeltme veya silme haklarınız olabilir. Kullanmak için bizimle iletişime geçin."
+        ]
+      },
+      {
+        "heading": "10. Politika değişiklikleri",
+        "body": [
+          "Bu politika güncellenebilir ve \"Son güncelleme\" tarihiyle yayınlanır."
+        ]
+      }
+    ],
+    "lastUpdated": "Son güncelleme: {{date}}"
+  },
+  "terms": {
+    "title": "Şartlar ve koşullar",
+    "paragraphs": [
+      "Bu site yalnızca genel bilgilendirme amaçlıdır. Tamlık veya doğruluk garantisi vermiyoruz.",
+      "Site kullanımından doğacak kayıplardan site sahipleri veya katkıda bulunanlar sorumlu değildir. Önemli sonuçları daima kontrol edin.",
+      "Kontrolümüz dışında olan diğer sitelere bağlantılar bulunabilir; bunlar tavsiye veya onay anlamına gelmez.",
+      "Siteyi erişilebilir tutmaya çalışıyoruz ancak kontrolümüz dışındaki teknik sorunlardan sorumlu değiliz."
+    ]
+  },
+  "advertising": {
+    "title": "Reklam politikası",
+    "intro": "Bu politika reklamlara, reklamverenlerin etkileşimine ve kullanıcıların deneyimi kontrol etmesine dair bilgileri açıklar.",
+    "sections": [
+      {
+        "heading": "1. Reklam kullanımı",
+        "body": [
+          "Reklamlar barındırma ve geliştirmeyi finanse eder. Banner, satır içi veya uyumlu bloklarda gösterilebilir.",
+          "Reklamlar Google Ads / AdSense veya onaylı diğer ağlarca sunulabilir."
+        ]
+      },
+      {
+        "heading": "2. Reklam ortakları",
+        "body": [
+          "Üçüncü taraf satıcılar çerez veya cihaz tanımlayıcılarıyla reklam gösterebilir ve ölçebilir.",
+          "Bu, alakalı reklamlar göstermeye, kampanyaları ölçmeye ve sıklığı sınırlamaya yardımcı olur."
+        ]
+      },
+      {
+        "heading": "3. Reklam türleri",
+        "body": [
+          "Örnekler: metin reklamları, banner, uyumlu birimler ve rahatsız edici olmayan ilgi reklamları. Açılır pencere veya yanıltıcı içerik yok."
+        ]
+      },
+      {
+        "heading": "4. Sponsorlu içerik",
+        "body": [
+          "Sponsorlu içerik açıkça işaretlenir ve kalite ve güvenlik standartlarına uymalıdır."
+        ]
+      },
+      {
+        "heading": "5. Reklam verileri",
+        "body": [
+          "Ortaklar cihaz bilgisi, IP, tıklamalar ve gezinme verisi toplayarak uygunluk sağlar ve kötüye kullanımı önler."
+        ]
+      },
+      {
+        "heading": "6. Kullanıcı kontrolü",
+        "body": [
+          "Tarayıcı ayarlarından veya vazgeçme bağlantılarından kişiselleştirilmiş reklamları kapatabilirsiniz; bu durumda reklamlar daha az alakalı olabilir."
+        ]
+      },
+      {
+        "heading": "7. Kısıtlamalar",
+        "body": [
+          "Kötü amaçlı yazılım, yanıltıcı içerik, müstehcen materyal veya dolandırıcılık içeren reklamlara izin vermeyiz."
+        ]
+      },
+      {
+        "heading": "8. Onay yok",
+        "body": [
+          "Bir reklam göstermek, reklamverenin ürün veya hizmetlerini onayladığımız anlamına gelmez."
+        ]
+      },
+      {
+        "heading": "9. Politika değişiklikleri",
+        "body": [
+          "Bu politika güncellenebilir; \"Son güncelleme\" tarihiyle yayınlanır."
+        ]
+      }
+    ],
+    "lastUpdated": "Son güncelleme: {{date}}"
+  }
+}

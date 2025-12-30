@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import AdPlaceholder from '../components/AdPlaceholder';
+import SeoHead from '../components/SeoHead';
+import { useTranslation } from '../utils/i18n';
 
 export default function Contact() {
+  const { t, locale, dir } = useTranslation();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -19,25 +21,27 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // TODO: connect to your API / email service
-    console.log('Contact form submitted:', form);
-    setStatus('Thanks for reaching out. I will get back to you soon.');
+    setStatus(t('contact.status'));
     setForm({ name: '', email: '', message: '' });
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" dir={dir}>
+      <SeoHead
+        title={t('meta.contact.title')}
+        description={t('meta.contact.description')}
+        path="/contact"
+        locale={locale}
+      />
       <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-8">
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-2">
-          Contact
+          {t('contact.title')}
         </h1>
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 text-center mb-8 max-w-xl mx-auto">
-          Share feedback, report an issue, or ask for a new feature for Case Converter.
+          {t('contact.intro')}
         </p>
-
-        {/* <AdPlaceholder className="mx-auto max-w-4xl h-20 mb-8" /> */}
 
         <div className="max-w-xl mx-auto">
           <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 md:p-8 shadow-sm">
@@ -47,7 +51,7 @@ export default function Contact() {
                   htmlFor="name"
                   className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
                 >
-                  Name
+                  {t('contact.fields.name')}
                 </label>
                 <input
                   id="name"
@@ -57,7 +61,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-                  placeholder="Your name"
+                  placeholder={t('contact.placeholders.name')}
                 />
               </div>
 
@@ -66,7 +70,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
                 >
-                  Email
+                  {t('contact.fields.email')}
                 </label>
                 <input
                   id="email"
@@ -76,7 +80,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-                  placeholder="you@example.com"
+                  placeholder={t('contact.placeholders.email')}
                 />
               </div>
 
@@ -85,7 +89,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block mb-1 font-medium text-gray-700 dark:text-gray-300"
                 >
-                  Message
+                  {t('contact.fields.message')}
                 </label>
                 <textarea
                   id="message"
@@ -95,7 +99,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm resize-none"
-                  placeholder="Tell me how I can improve the case converter…"
+                  placeholder={t('contact.placeholders.message')}
                 />
               </div>
 
@@ -103,7 +107,7 @@ export default function Contact() {
                 type="submit"
                 className="inline-flex items-center justify-center rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 text-sm transition-colors w-full sm:w-auto"
               >
-                Send message
+                {t('contact.submit')}
               </button>
 
               {status && (

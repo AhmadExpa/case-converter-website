@@ -1,0 +1,384 @@
+{
+  "common": {
+    "brand": "QuickTextFormatter",
+    "tagline": "Herramientas rápidas y limpias para transformar texto.",
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre nosotros",
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio",
+      "advertising": "Política de publicidad",
+      "contact": "Contacto"
+    },
+    "languageLabel": "Idioma",
+    "theme": {
+      "dark": "Modo oscuro",
+      "light": "Modo claro"
+    },
+    "ads": "Anuncios de Google"
+  },
+  "meta": {
+    "home": {
+      "title": "QuickTextFormatter profesional",
+      "description": "QuickTextFormatter profesional para conversiones precisas."
+    },
+    "about": {
+      "title": "Sobre Convertidor de Mayúsculas",
+      "description": "Conoce el equipo y la misión detrás del convertidor."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Envía comentarios, reporta un problema o solicita una nueva función."
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "description": "Entiende cómo manejamos datos, cookies y publicidad."
+    },
+    "terms": {
+      "title": "Términos y condiciones",
+      "description": "Lee las condiciones de uso del sitio."
+    },
+    "advertising": {
+      "title": "Política de publicidad",
+      "description": "Detalles sobre cómo aparecen los anuncios en el sitio."
+    }
+  },
+  "home": {
+    "heroTitle": "Un convertidor de mayúsculas preciso para escritura profesional y académica",
+    "heroSubtitle": "Convierte texto con confianza usando estándares profesionales, analítica inteligente y controles finos: diseñado para la exactitud, no para la suerte.",
+    "heroBullets": [
+      "Conversión profesional a mayúsculas iniciales con estándares AP, APA, Chicago, MLA, Bluebook y AMA",
+      "Analítica inteligente de caracteres, palabras, oraciones, párrafos y estructura",
+      "Conversión delimitada por identificadores y alcance para modificar solo lo necesario",
+      "Reglas selectivas y controles de omisión para palabras, oraciones y patrones",
+      "Preservación de formato para proteger la capitalización y la estructura existentes",
+      "Transformación segura y precisa: convierte exactamente lo que quieres, nada más"
+    ],
+    "tabs": {
+      "converter": "Convertidor",
+      "howItWorks": "Cómo funciona"
+    },
+    "panels": {
+      "inputTitle": "1. Texto de entrada / Cargar archivo",
+      "outputTitle": "Resultado",
+      "viewOutput": "Ver resultado",
+      "backToInput": "Volver a entrada",
+      "filePlaceholder": "Pega tu texto o sube un archivo de texto...",
+      "outputPlaceholder": "El texto convertido aparecerá aquí...",
+      "clear": "Limpiar todo",
+      "copy": "Copiar al portapapeles",
+      "download": "Descargar .txt",
+      "loadedFile": "Cargado: {{file}}",
+      "copied": "¡Copiado!",
+      "cleared": "Contenido borrado."
+    },
+    "errors": {
+      "missingText": "Agrega texto para convertir.",
+      "missingStyle": "Selecciona un modo de mayúsculas para convertir.",
+      "markersMissing": "Error: los marcadores $$$START$$$ y $$$END$$$ deben estar presentes.",
+      "markerOrder": "Error: $$$START$$$ debe aparecer antes de $$$END$$$.",
+      "onlyTextFiles": "Solo se permiten archivos de texto.",
+      "lineSelection": {
+        "prompt": "Ingresa números o rangos de líneas como 1,2,5-10.",
+        "atLeastOne": "Ingresa al menos un número de línea.",
+        "positive": "Los números de línea deben ser positivos. \"{{token}}\" no es válido.",
+        "beyond": "La línea {{line}} excede la longitud del texto.",
+        "rangeInvalid": "El rango \"{{token}}\" no es válido. Usa inicio-fin con inicio <= fin.",
+        "tokenInvalid": "El elemento \"{{token}}\" no es un número o rango válido."
+      }
+    },
+    "scope": {
+      "title": "Alcance",
+      "options": {
+        "entire": "Texto completo (convierte todo)",
+        "identifiers": "Entre identificadores ($$$...$$$) (solo dentro de los marcadores)",
+        "lines": "Solo líneas seleccionadas (elige rangos)"
+      },
+      "identifiersHelp": "Convierte solo el texto entre $$$START$$$ y $$$END$$$; los marcadores se mantienen.",
+      "linesPlaceholder": "Números o rangos (ej. 1,2,5-10)",
+      "linesHelp": "Solo se convertirán estas líneas. Referencias inválidas bloquearán la conversión con un mensaje claro."
+    },
+    "analytics": {
+      "title": "Analítica",
+      "labels": {
+        "chars": "Caracteres",
+        "words": "Palabras",
+        "sentences": "Oraciones",
+        "lines": "Líneas",
+        "paragraphs": "Párrafos",
+        "uniqueWords": "Palabras únicas"
+      },
+      "topWords": "Palabras comunes (Top 3)",
+      "topLetters": "Letras comunes (Top 3)",
+      "longestWords": "Palabras más largas (Top 3)",
+      "sentenceStructure": "Estructura de oraciones",
+      "sentenceDetail": "{{count}} oración(es) con {{words}} palabras y {{chars}} caracteres"
+    },
+    "convert": {
+      "cta": "Convertir",
+      "disclaimer": "Al convertir, aceptas que la configuración aplicada reemplace el texto actual."
+    },
+    "caseModes": {
+      "title": "Modos de mayúsculas",
+      "subtitle": "Tarjetas de selección única; haz clic otra vez para deseleccionar.",
+      "chip": "Una activa a la vez",
+      "titleLabel": "Estándares de títulos",
+      "genericLabel": "Modos genéricos",
+      "beta": "BETA",
+      "selected": "Seleccionado",
+      "tap": "Toca para usar",
+      "titleStyles": [
+        {
+          "code": "AP",
+          "label": "Estilo AP (simplificado)",
+          "detail": "BETA: palabras principales en mayúscula; preposiciones cortas en minúscula.",
+          "tooltip": "Reglas AP simplificadas; a veces coincide con Chicago en frases comunes."
+        },
+        {
+          "code": "Chicago",
+          "label": "Estilo Chicago (simplificado)",
+          "detail": "BETA: palabras mayores en mayúscula; menores en minúscula.",
+          "tooltip": "Versión simplificada de Chicago; a menudo idéntica a AP en texto habitual."
+        }
+      ],
+      "genericStyles": [
+        { "code": "UPPERCASE", "label": "MAYÚSCULAS", "detail": "Todas las letras en mayúscula." },
+        { "code": "lowercase", "label": "minúsculas", "detail": "Todas las letras en minúscula." },
+        { "code": "Sentence case", "label": "Oración", "detail": "Mayúscula la primera palabra de cada oración; el resto en minúscula." }
+      ]
+    },
+    "controls": {
+      "title": "Controles selectivos",
+      "subtitle": "Prioridad: Alcance → Estructura → Reglas de omisión → Filtros → Convertir.",
+      "apply": {
+        "title": "Aplicar conversión a",
+        "hint": "Deja todo sin marcar para convertir todo.",
+        "numbers": "Palabras con números (ej. A1, v2)",
+        "symbols": "Palabras con símbolos (ej. rock&roll, end-to-end)",
+        "accented": "Palabras con acentos (ejemplos: é, ñ, ü)",
+        "emoji": "Palabras con emoji/no latinas (ejemplos: 😀, 中文, عربى)"
+      },
+      "skip": {
+        "title": "Omitir conversión para",
+        "firstWord": "Primera palabra",
+        "lastWord": "Última palabra",
+        "firstSentence": "Primera oración",
+        "lastSentence": "Última oración",
+        "skipFirstNWords": "Omitir primeras N palabras",
+        "skipLastNWords": "Omitir últimas N palabras",
+        "skipShorterThan": "Omitir menores a X caracteres",
+        "skipLongerThan": "Omitir mayores a X caracteres",
+        "skipFirstNSentences": "Omitir primeras N oraciones",
+        "skipLastNSentences": "Omitir últimas N oraciones",
+        "skipAllCaps": "Omitir palabras en MAYÚSCULAS",
+        "skipLowercase": "Omitir palabras en minúsculas",
+        "skipMixedCase": "Omitir palabras mixtas",
+        "skipNumbers": "Omitir palabras con números",
+        "skipSymbols": "Omitir palabras con símbolos"
+      },
+      "structure": {
+        "title": "Preservar estructura",
+        "subtitle": "Las zonas ignoradas quedan intactas antes de aplicar reglas.",
+        "quotes": "Ignorar comillas \" \"",
+        "parentheses": "Ignorar paréntesis ( )",
+        "brackets": "Ignorar corchetes [ ]",
+        "braces": "Ignorar llaves { }",
+        "html": "Ignorar etiquetas HTML",
+        "preserveCaps": "Conservar capitalización existente (CamelCase, marcas)",
+        "stopWordsLabel": "Stop words (solo títulos)",
+        "stopWordsPlaceholder": "ej. at, in, on (separadas por coma)",
+        "stopWordsNote": "Permanecen en minúscula salvo si son la primera o última palabra del título."
+      }
+    },
+    "howItWorks": {
+      "title": "Domina el convertidor",
+      "howTitle": "Cómo funciona",
+      "steps": [
+        {
+          "title": "Elegir alcance",
+          "body": "Convierte todo el texto, solo líneas específicas o el contenido entre $$$START$$$ y $$$END$$$."
+        },
+        {
+          "title": "Elige el estilo",
+          "body": "Selecciona estándares profesionales como AP, APA o Chicago, o transformaciones sencillas."
+        },
+        {
+          "title": "Afina con precisión",
+          "body": "Usa controles selectivos para omitir palabras, patrones o proteger contenido."
+        }
+      ],
+      "styleGuideTitle": "Guía de estilos",
+      "styleGuide": [
+        { "label": "Estilo AP:", "body": "Mayúscula en palabras principales; preposiciones cortas en minúscula." },
+        { "label": "Estilo Chicago:", "body": "Estándar editorial; mayúscula en palabras importantes." },
+        { "label": "Estilo MLA:", "body": "Estándar académico; trata preposiciones similar a Chicago." }
+      ]
+    }
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "paragraphs": [
+      "Bienvenido a nuestro Convertidor de Mayúsculas, tu destino para herramientas intuitivas de transformación de texto. Somos un pequeño equipo de desarrolladores y escritores que quiere simplificar la preparación de texto para informes, tareas o publicaciones en redes.",
+      "Vimos que muchos usuarios buscaban utilidades rápidas para cambiar mayúsculas. En lugar de depender de sitios con anuncios intrusivos, creamos una plataforma cohesionada inspirada en flujos de trabajo reales.",
+      "Escuchamos con atención las sugerencias. Cuando se pidió soporte para idiomas internacionales, añadimos selectores y nos aseguramos de manejar caracteres acentuados y escritura de derecha a izquierda.",
+      "Cuidamos la presentación: el modo oscuro reduce el cansancio visual y el diseño adaptable funciona en cualquier pantalla. Controles y botones están espaciados para táctil y teclado.",
+      "Nuestro plan incluye más herramientas, mejores opciones de importación/exportación y funciones de colaboración. La simplicidad y privacidad seguirán guiándonos. Gracias por usar el sitio y compartir tus ideas."
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "intro": "Comparte comentarios, reporta un problema o pide una nueva función para el convertidor.",
+    "fields": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje"
+    },
+    "placeholders": {
+      "name": "Tu nombre",
+      "email": "tu@ejemplo.com",
+      "message": "Cuéntame cómo puedo mejorar el convertidor…"
+    },
+    "submit": "Enviar mensaje",
+    "status": "Gracias por escribir. Responderé pronto."
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "sections": [
+      {
+        "heading": "1. Información que recopilamos",
+        "body": [
+          "No necesitas crear una cuenta para usar la herramienta. Podemos recopilar información técnica básica cuando visitas el sitio.",
+          "Datos de uso, datos técnicos del dispositivo y datos publicitarios de socios pueden recopilarse para operar y mejorar el servicio.",
+          "El texto que ingresas se procesa solo para convertirlo y no se usa para identificarte."
+        ]
+      },
+      {
+        "heading": "2. Cookies y tecnologías similares",
+        "body": [
+          "Usamos cookies para operar y mejorar el servicio y para admitir publicidad. Puedes controlarlas en la configuración del navegador."
+        ]
+      },
+      {
+        "heading": "3. Publicidad (Google Ads / AdSense)",
+        "body": [
+          "Mostramos anuncios mediante Google Ads / AdSense y otros socios. Estos pueden usar cookies para mostrar y medir anuncios según tus visitas."
+        ]
+      },
+      {
+        "heading": "4. Cómo usamos tu información",
+        "body": [
+          "Operar, mantener y mejorar el servicio; monitorear uso y rendimiento; proteger contra fraude; y mostrar y medir anuncios."
+        ]
+      },
+      {
+        "heading": "5. Servicios y enlaces de terceros",
+        "body": [
+          "El sitio puede contener enlaces o servicios de terceros con sus propias políticas de privacidad."
+        ]
+      },
+      {
+        "heading": "6. Retención de datos",
+        "body": [
+          "Conservamos la información de uso el tiempo necesario para los fines descritos, salvo que la ley requiera más tiempo."
+        ]
+      },
+      {
+        "heading": "7. Privacidad de menores",
+        "body": [
+          "El servicio no está dirigido a menores de 13 años (o edad equivalente) y no recopilamos datos de ellos a sabiendas."
+        ]
+      },
+      {
+        "heading": "8. Seguridad",
+        "body": [
+          "Tomamos medidas razonables para proteger la información, pero ninguna transmisión o almacenamiento es 100% seguro."
+        ]
+      },
+      {
+        "heading": "9. Tus opciones y derechos",
+        "body": [
+          "Según tu región, puedes tener derechos de acceso, corrección o eliminación. Contáctanos para ejercerlos."
+        ]
+      },
+      {
+        "heading": "10. Cambios a esta política",
+        "body": [
+          "Podemos actualizar esta política. Los cambios se publicarán con una fecha de \"Última actualización\"."
+        ]
+      }
+    ],
+    "lastUpdated": "Última actualización: {{date}}"
+  },
+  "terms": {
+    "title": "Términos y condiciones",
+    "paragraphs": [
+      "El contenido de este sitio se ofrece solo con fines informativos generales. No garantizamos la exactitud o integridad.",
+      "Los propietarios o colaboradores no serán responsables de pérdidas o daños derivados del uso del sitio. Verifica siempre los resultados importantes.",
+      "Puedes encontrar enlaces a otros sitios fuera de nuestro control; no implican recomendación o respaldo.",
+      "Trabajamos para mantener el sitio disponible, pero no somos responsables por caídas temporales fuera de nuestro control."
+    ]
+  },
+  "advertising": {
+    "title": "Política de publicidad",
+    "intro": "Esta política explica cómo se muestran los anuncios, cómo interactúan los anunciantes y cómo los usuarios pueden controlar la experiencia.",
+    "sections": [
+      {
+        "heading": "1. Uso de publicidad",
+        "body": [
+          "Los anuncios financian el hosting y el desarrollo. Pueden aparecer en banners, colocaciones en línea o bloques adaptativos.",
+          "Los anuncios pueden ser servidos por Google Ads / AdSense u otras redes aprobadas."
+        ]
+      },
+      {
+        "heading": "2. Socios publicitarios",
+        "body": [
+          "Vendedores externos pueden usar cookies o identificadores de dispositivo para mostrar anuncios y medirlos.",
+          "Ayudan a mostrar anuncios relevantes, medir campañas y limitar frecuencia."
+        ]
+      },
+      {
+        "heading": "3. Tipos de anuncios",
+        "body": [
+          "Ejemplos: anuncios de texto, banners, unidades responsivas y anuncios de interés no intrusivos. No permitimos ventanas emergentes ni contenido engañoso."
+        ]
+      },
+      {
+        "heading": "4. Contenido patrocinado",
+        "body": [
+          "El contenido patrocinado se marca claramente y debe cumplir estándares de calidad y seguridad."
+        ]
+      },
+      {
+        "heading": "5. Datos relacionados con anuncios",
+        "body": [
+          "Los socios pueden recopilar información del dispositivo, IP, clics y navegación para mejorar relevancia y prevenir abuso."
+        ]
+      },
+      {
+        "heading": "6. Control del usuario",
+        "body": [
+          "Puedes desactivar anuncios personalizados en la configuración del navegador o enlaces de exclusión. Deshabilitarlos puede reducir la relevancia."
+        ]
+      },
+      {
+        "heading": "7. Restricciones",
+        "body": [
+          "No permitimos anuncios con malware, contenido engañoso, material explícito o esquemas fraudulentos."
+        ]
+      },
+      {
+        "heading": "8. Sin respaldo",
+        "body": [
+          "Mostrar un anuncio no implica que respaldemos los productos o servicios del anunciante."
+        ]
+      },
+      {
+        "heading": "9. Cambios en la política",
+        "body": [
+          "Podemos actualizar esta política y mostraremos la fecha de \"Última actualización\"."
+        ]
+      }
+    ],
+    "lastUpdated": "Última actualización: {{date}}"
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "common": {
+    "brand": "QuickTextFormatter",
+    "tagline": "Clean, fast tools for everyday text transformations.",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "advertising": "Advertising Policy",
+      "contact": "Contact"
+    },
+    "languageLabel": "Language",
+    "theme": {
+      "dark": "Dark mode",
+      "light": "Light mode"
+    },
+    "ads": "Google Ads"
+  },
+  "meta": {
+    "home": {
+      "title": "Professional QuickTextFormatter",
+      "description": "Professional QuickTextFormatter for precise case conversions"
+    },
+    "about": {
+      "title": "About Case Converter",
+      "description": "Learn about the team and mission behind the Case Converter."
+    },
+    "contact": {
+      "title": "Contact Case Converter",
+      "description": "Share feedback, report an issue, or ask for a new feature."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Understand how we handle data, cookies, and advertising."
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "description": "Read the terms for using the Case Converter website."
+    },
+    "advertising": {
+      "title": "Advertising Policy",
+      "description": "Details on how ads appear on the Case Converter website."
+    }
+  },
+  "home": {
+    "heroTitle": "A Precision Case Converter for Professional & Academic Writing",
+    "heroSubtitle": "Convert text with confidence using professional title-case standards, smart analytics, and precision controls—designed for accuracy, not guesswork.",
+    "heroBullets": [
+      "Professional Title Case Conversion using AP, APA, Chicago, MLA, Bluebook, and AMA standards",
+      "Smart Text Analytics for characters, words, sentences, paragraphs, and structure",
+      "Identifier-Based & Scoped Conversion to modify only selected portions of text",
+      "Selective Rules & Skip Controls for words, sentences, and patterns",
+      "Formatting Preservation to protect existing capitalization and structure",
+      "Safe, Accurate Transformation—convert exactly what you intend, nothing more"
+    ],
+    "tabs": {
+      "converter": "Converter",
+      "howItWorks": "How It Works!"
+    },
+    "panels": {
+      "inputTitle": "1. Input Text / File Upload",
+      "outputTitle": "Output Result",
+      "viewOutput": "View Output",
+      "backToInput": "Back to Input",
+      "filePlaceholder": "Paste your text or upload a Text File...",
+      "outputPlaceholder": "Converted text will appear here...",
+      "clear": "Clear All",
+      "copy": "Copy to Clipboard",
+      "download": "Download .txt",
+      "loadedFile": "Loaded: {{file}}",
+      "copied": "Copied!",
+      "cleared": "Cleared."
+    },
+    "errors": {
+      "missingText": "Add text to convert.",
+      "missingStyle": "Select a case mode to convert.",
+      "markersMissing": "Error: $$$START$$$ and $$$END$$$ markers must both be present.",
+      "markerOrder": "Error: $$$START$$$ must appear before $$$END$$$.",
+      "onlyTextFiles": "Only text files are allowed.",
+      "lineSelection": {
+        "prompt": "Enter line numbers or ranges like 1,2,5-10.",
+        "atLeastOne": "Enter at least one line number.",
+        "positive": "Line numbers must be positive. \"{{token}}\" is invalid.",
+        "beyond": "Line {{line}} is beyond the text length.",
+        "rangeInvalid": "Range \"{{token}}\" is invalid. Use start-end with start <= end.",
+        "tokenInvalid": "Token \"{{token}}\" is not a valid line number or range."
+      }
+    },
+    "scope": {
+      "title": "Scope",
+      "options": {
+        "entire": "Entire Text (convert everything)",
+        "identifiers": "Between identifiers ($$$...$$$) (only inside markers)",
+        "lines": "Selected Lines Only (choose ranges)"
+      },
+      "identifiersHelp": "Converts only the text between $$$START$$$ and $$$END$$$ markers; markers stay intact.",
+      "linesPlaceholder": "Line numbers or ranges (e.g., 1,2,5-10)",
+      "linesHelp": "Only these lines will be converted. Invalid references will block conversion with a clear message."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "labels": {
+        "chars": "Chars",
+        "words": "Words",
+        "sentences": "Sentences",
+        "lines": "Lines",
+        "paragraphs": "Paragraphs",
+        "uniqueWords": "Unique Words"
+      },
+      "topWords": "Common Words (Top 3)",
+      "topLetters": "Common Letters (Top 3)",
+      "longestWords": "Longest Words (Top 3)",
+      "sentenceStructure": "Sentence Structure",
+      "sentenceDetail": "{{count}} sentence(s) with {{words}} words, {{chars}} characters"
+    },
+    "convert": {
+      "cta": "Convert",
+      "disclaimer": "By clicking convert, you agree to the applied settings overriding the current text."
+    },
+    "caseModes": {
+      "title": "Case Modes",
+      "subtitle": "Single-select cards; click again to deselect.",
+      "chip": "One active at a time",
+      "titleLabel": "Title Case Standards",
+      "genericLabel": "Generic Case",
+      "beta": "BETA",
+      "selected": "Selected",
+      "tap": "Tap to use",
+      "titleStyles": [
+        {
+          "code": "AP",
+          "label": "AP Style (simplified)",
+          "detail": "BETA: principal words capitalized; short prepositions stay lowercase.",
+          "tooltip": "Simplified AP rules; results may match Chicago for common phrases."
+        },
+        {
+          "code": "Chicago",
+          "label": "Chicago Style (simplified)",
+          "detail": "BETA: major words capitalized; minor words stay lowercase.",
+          "tooltip": "Simplified Chicago rules; often identical to AP on normal text."
+        }
+      ],
+      "genericStyles": [
+        { "code": "UPPERCASE", "label": "UPPERCASE", "detail": "Every letter to uppercase." },
+        { "code": "lowercase", "label": "lowercase", "detail": "Every letter to lowercase." },
+        { "code": "Sentence case", "label": "Sentence case", "detail": "Capitalize the first word of each sentence; lower the rest." }
+      ]
+    },
+    "controls": {
+      "title": "Selective Controls",
+      "subtitle": "Precedence: Scope → Structure → Skip rules → Apply filters → Convert.",
+      "apply": {
+        "title": "Apply Conversion To",
+        "hint": "Leave all unchecked to convert everything.",
+        "numbers": "Words containing numbers (e.g., A1, v2)",
+        "symbols": "Words containing symbols (e.g., rock&roll, end-to-end)",
+        "accented": "Words containing accented letters (examples: é, ñ, ü)",
+        "emoji": "Words containing emoji/non-Latin characters (examples: 😀, 中文, عربى)"
+      },
+      "skip": {
+        "title": "Skip Conversion For",
+        "firstWord": "First word",
+        "lastWord": "Last word",
+        "firstSentence": "First sentence",
+        "lastSentence": "Last sentence",
+        "skipFirstNWords": "Skip first N words",
+        "skipLastNWords": "Skip last N words",
+        "skipShorterThan": "Skip shorter than X characters",
+        "skipLongerThan": "Skip longer than X characters",
+        "skipFirstNSentences": "Skip first N sentences",
+        "skipLastNSentences": "Skip last N sentences",
+        "skipAllCaps": "Skip ALL-CAPS words",
+        "skipLowercase": "Skip lowercase words",
+        "skipMixedCase": "Skip mixed-case words",
+        "skipNumbers": "Skip words with numbers",
+        "skipSymbols": "Skip words with symbols"
+      },
+      "structure": {
+        "title": "Structure Preservation",
+        "subtitle": "Ignored regions remain untouched before skip/apply rules run.",
+        "quotes": "Ignore quotes \" \"",
+        "parentheses": "Ignore parentheses ( )",
+        "brackets": "Ignore brackets [ ]",
+        "braces": "Ignore braces { }",
+        "html": "Ignore HTML tags",
+        "preserveCaps": "Preserve existing capitalization (CamelCase, brand caps)",
+        "stopWordsLabel": "Stop Words (Title Case only)",
+        "stopWordsPlaceholder": "e.g. at, in, on (comma separated)",
+        "stopWordsNote": "Words stay lowercase unless they are the first or last word in the title segment."
+      }
+    },
+    "howItWorks": {
+      "title": "Master the Case Converter",
+      "howTitle": "How It Works",
+      "steps": [
+        {
+          "title": "Scope Selection",
+          "body": "Choose to convert the entire text, specific lines, or content wrapped in identifiers like $$$START$$$."
+        },
+        {
+          "title": "Choose Your Style",
+          "body": "Select from professional standards like AP, APA, Chicago, or simple case transformations."
+        },
+        {
+          "title": "Refine with Precision",
+          "body": "Use selective controls to skip specific words, patterns, or protect specific content."
+        }
+      ],
+      "styleGuideTitle": "Styles Guide",
+      "styleGuide": [
+        { "label": "AP Style:", "body": "Capitalizes principal words, keeps short prepositions lowercase." },
+        { "label": "Chicago Style:", "body": "Standard for publishing. Capitalizes major words." },
+        { "label": "MLA Style:", "body": "Academic standard. Treats prepositions similarly to Chicago." }
+      ]
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "paragraphs": [
+      "Welcome to our Case Converter website, your one-stop destination for intuitive text transformation tools. Built by a small team of passionate developers and writers, this site was created to streamline how you edit and prepare text for everything from research papers to social media posts.",
+      "Over the years, we noticed people repeatedly searching for quick utilities to convert their text. Rather than juggling multiple sites with intrusive ads and inconsistent interfaces, we imagined a single, cohesive platform. Every feature you see here was inspired by real workflows across writing, research, and engineering.",
+      "Our commitment to continuous improvement means that we listen carefully to user suggestions. When another user requested support for international languages, we added selectors and ensured our code properly handles accented characters and right-to-left scripts.",
+      "Beyond the features themselves, we care deeply about presentation. Our dark theme reduces eye strain, and responsive design ensures the interface looks great everywhere. Buttons and controls are thoughtfully spaced for touch and pointer devices alike.",
+      "As we look ahead, our roadmap includes more tools, rich import/export options, and collaboration features. Simplicity, privacy, and respect for your time will always guide us. Thank you for choosing our website and for sharing your suggestions with us."
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Share feedback, report an issue, or ask for a new feature for Case Converter.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@example.com",
+      "message": "Tell me how I can improve the case converter…"
+    },
+    "submit": "Send message",
+    "status": "Thanks for reaching out. I will get back to you soon."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": [
+      {
+        "heading": "1. Information We Collect",
+        "body": [
+          "We do not require you to create an account to use the core functionality. We may collect certain information automatically when you visit the website.",
+          "Usage data such as pages visited and interactions, technical data like browser type and device, and ad-related data from third-party partners may be collected.",
+          "Any text you input into the case converter tool is processed only to perform the conversion operation. We do not intentionally use this content to personally identify you."
+        ]
+      },
+      {
+        "heading": "2. Cookies and Similar Technologies",
+        "body": [
+          "We use cookies and similar technologies to operate and improve the Service and to support advertising. You can control or delete cookies through your browser settings."
+        ]
+      },
+      {
+        "heading": "3. Advertising (Google Ads / AdSense)",
+        "body": [
+          "We display advertisements using Google Ads / AdSense and possibly other partners. These partners may use cookies to serve and measure ads based on your visits."
+        ]
+      },
+      {
+        "heading": "4. How We Use Your Information",
+        "body": [
+          "We use the information we collect to operate, maintain, and improve the Service; monitor usage and performance; protect against fraud; and display and measure ads."
+        ]
+      },
+      {
+        "heading": "5. Third-Party Services and Links",
+        "body": [
+          "Our website may contain links to other websites and may use third-party services. These third parties have their own privacy policies, and we are not responsible for their practices."
+        ]
+      },
+      {
+        "heading": "6. Data Retention",
+        "body": [
+          "We retain usage and analytics information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law."
+        ]
+      },
+      {
+        "heading": "7. Children's Privacy",
+        "body": [
+          "Our Service is not directed to children under the age of 13 (or the equivalent age in your region), and we do not knowingly collect personal information from children."
+        ]
+      },
+      {
+        "heading": "8. Security",
+        "body": [
+          "We take reasonable measures to protect the information we collect. However, no method of transmission over the internet or electronic storage is 100% secure."
+        ]
+      },
+      {
+        "heading": "9. Your Choices and Rights",
+        "body": [
+          "Depending on your location, you may have rights regarding your personal data, such as access, correction, deletion, or objection to certain processing. Contact us to exercise these rights."
+        ]
+      },
+      {
+        "heading": "10. Changes to This Privacy Policy",
+        "body": [
+          "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated \"Last updated\" date."
+        ]
+      }
+    ],
+    "lastUpdated": "Last updated: {{date}}"
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "paragraphs": [
+      "The contents of this website are provided for general informational purposes only. We make no warranties about completeness or accuracy.",
+      "Under no circumstances shall the owners or contributors of this site be liable for any loss or damage arising from the use of this website. Use the tools provided here at your discretion and always double-check important results.",
+      "Through this website you may link to other websites which are not under our control. The inclusion of any links does not necessarily imply a recommendation or endorsement.",
+      "We aim to keep the website running smoothly, but we are not liable for temporary unavailability due to technical issues beyond our control."
+    ]
+  },
+  "advertising": {
+    "title": "Advertising Policy",
+    "intro": "This Advertising Policy explains how ads are displayed on our case converter website, how advertisers may interact with the platform, and how users can understand or control their ad experience.",
+    "sections": [
+      {
+        "heading": "1. Use of Advertising",
+        "body": [
+          "Ads support hosting, maintenance, and ongoing development. Ads may appear in banners, inline placements, or responsive ad blocks.",
+          "Advertisements may be served by third-party providers such as Google Ads / Google AdSense or other approved ad networks."
+        ]
+      },
+      {
+        "heading": "2. Third-Party Advertising Partners",
+        "body": [
+          "We use third-party vendors to display ads. These vendors may use cookies, device identifiers, or similar technologies to collect information about your visits.",
+          "These technologies help advertisers display relevant ads, measure campaign effectiveness, and limit how often a specific ad is shown."
+        ]
+      },
+      {
+        "heading": "3. Types of Ads We Display",
+        "body": [
+          "Examples include text-based ads, display banners, responsive units, and non-intrusive interest-based ads. We do not allow pop-ups, misleading ads, malware, or disruptive formats."
+        ]
+      },
+      {
+        "heading": "4. Sponsored Content",
+        "body": [
+          "Sponsored content is clearly marked and must comply with our quality and safety standards."
+        ]
+      },
+      {
+        "heading": "5. Data Collection Related to Ads",
+        "body": [
+          "Advertising partners may collect device information, IP address, clicks and ad interaction metrics, and navigation behavior to improve relevancy and prevent abuse."
+        ]
+      },
+      {
+        "heading": "6. User Control Over Ads",
+        "body": [
+          "Users may be able to opt out of personalized ads through device or browser settings, ad network opt-out links, or Google Ads personalization settings. Disabling personalized ads may result in less relevant advertising."
+        ]
+      },
+      {
+        "heading": "7. Restrictions on Advertisers",
+        "body": [
+          "We do not permit ads that contain malware, deceptive content, explicit material, or fraudulent schemes."
+        ]
+      },
+      {
+        "heading": "8. No Endorsement",
+        "body": [
+          "Displaying an advertisement does not imply our endorsement of the advertiser’s products, services, or content."
+        ]
+      },
+      {
+        "heading": "9. Changes to This Advertising Policy",
+        "body": [
+          "We may update this policy periodically. Updates will appear on this page with an updated \"Last updated\" date."
+        ]
+      }
+    ],
+    "lastUpdated": "Last updated: {{date}}"
+  }
+}
