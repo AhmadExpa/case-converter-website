@@ -36,6 +36,13 @@ export function middleware(request) {
 
   if (!hasLocale) {
     const locale = resolveLocale(request);
+
+    // Fix: If the resolved locale is the default locale (e.g. 'en'), 
+    // do NOT redirect. Next.js handles the default locale at the root.
+    if (locale === defaultLocale) {
+      return NextResponse.next();
+    }
+
     const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url);
     return NextResponse.redirect(newUrl);
   }

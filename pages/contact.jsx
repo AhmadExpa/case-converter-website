@@ -21,6 +21,13 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!form.name || !form.email || !form.message) return;
+
+    const subject = `Contact from ${form.name} - QuickTextFormatter`;
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
+
+    window.location.href = `mailto:contact@quicktextformatter.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     setStatus(t('contact.status'));
     setForm({ name: '', email: '', message: '' });
   }

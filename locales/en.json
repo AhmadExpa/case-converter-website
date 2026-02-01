@@ -17,7 +17,8 @@
     },
     "ads": "Google Ads",
     "cookie": {
-      "message": "We use cookies to ensure you get the best experience on our website.",
+      "title": "We use cookies",
+      "message": "We use cookies to improve your experience and analyze site usage. By clicking \"Accept\", you agree to our use of cookies.",
       "accept": "Accept",
       "decline": "Decline"
     }
