@@ -15,7 +15,12 @@
       "dark": "Dark mode",
       "light": "Light mode"
     },
-    "ads": "Google Ads"
+    "ads": "Google Ads",
+    "cookie": {
+      "message": "We use cookies to ensure you get the best experience on our website.",
+      "accept": "Accept",
+      "decline": "Decline"
+    }
   },
   "meta": {
     "home": {
@@ -47,7 +52,7 @@
     "heroTitle": "A Precision Case Converter for Professional & Academic Writing",
     "heroSubtitle": "Convert text with confidence using professional title-case standards, smart analytics, and precision controls—designed for accuracy, not guesswork.",
     "heroBullets": [
-      "Professional Title Case Conversion using AP, APA, Chicago, MLA, Bluebook, and AMA standards",
+      "Professional Title Case Conversion using AP and Chicago standards",
       "Smart Text Analytics for characters, words, sentences, paragraphs, and structure",
       "Identifier-Based & Scoped Conversion to modify only selected portions of text",
       "Selective Rules & Skip Controls for words, sentences, and patterns",
@@ -200,7 +205,7 @@
         },
         {
           "title": "Choose Your Style",
-          "body": "Select from professional standards like AP, APA, Chicago, or simple case transformations."
+          "body": "Select from professional standards like AP and Chicago, or simple case transformations."
         },
         {
           "title": "Refine with Precision",
@@ -210,8 +215,8 @@
       "styleGuideTitle": "Styles Guide",
       "styleGuide": [
         { "label": "AP Style:", "body": "Capitalizes principal words, keeps short prepositions lowercase." },
-        { "label": "Chicago Style:", "body": "Standard for publishing. Capitalizes major words." },
-        { "label": "MLA Style:", "body": "Academic standard. Treats prepositions similarly to Chicago." }
+        { "label": "Chicago Style:", "body": "Standard for publishing. Capitalizes major words." }
+
       ]
     }
   },

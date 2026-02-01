@@ -19,6 +19,7 @@ export default function SeoHead({ title, description, path = '/', locale = 'en' 
       ))}
       <link rel="alternate" hrefLang="x-default" href={defaultHref} />
       <meta name="og:locale" content={locale} />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </Head>
   );
 }

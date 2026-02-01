@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import CookieConsent from '../components/CookieConsent';
 
 /**
  * Custom App component. Next.js uses this to initialize pages. We
@@ -6,5 +7,10 @@ import '../styles/globals.css';
  * available throughout the application.
  */
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+      <CookieConsent />
+    </>
+  );
 }
