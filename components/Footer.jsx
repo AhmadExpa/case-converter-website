@@ -25,14 +25,14 @@ export default function Footer() {
             locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            {t('common.nav.privacy')}
+            Privacy Policy
           </Link>
           <Link
             href="/terms"
             locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"
           >
-            {t('common.nav.terms')}
+            Terms of Use
           </Link>
           <Link
             href="/advertising"
