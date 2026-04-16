@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SeoHead from '../components/SeoHead';
 import { useTranslation } from '../utils/i18n';
+import { CONTACT_EMAIL, SITE_NAME } from '../utils/legal-content';
 
 export default function Contact() {
   const { t, locale, dir } = useTranslation();
@@ -23,10 +24,10 @@ export default function Contact() {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
 
-    const subject = `Contact from ${form.name} - QuickTextFormatter`;
+    const subject = `Contact from ${form.name} - ${SITE_NAME}`;
     const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
 
-    window.location.href = `mailto:contact@quicktextformatter.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     setStatus(t('contact.status'));
     setForm({ name: '', email: '', message: '' });

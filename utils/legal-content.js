@@ -1,7 +1,10 @@
-export const COMPANY_NAME = "GROVA TRANSFORM LLC";
-export const COMPANY_ADDRESS = "30 N Gould St Ste R Sheridan WY 82801";
+export const SITE_NAME = "QuickTextFormatter";
+export const SITE_REFERENCE = "https://www.quicktextformatter.com";
+export const CONTACT_EMAIL = "contact@quicktextformatter.com";
+export const COMPANY_NAME = "Grova Wellbeing LLC";
+export const COMPANY_ADDRESS = "30 N Gould St, Ste R, Sheridan, WY 82801";
 export const INCORPORATION_STATE = "Wyoming";
-export const EFFECTIVE_DATE = "April 11, 2026";
+export const EFFECTIVE_DATE = "April 17, 2026";
 export const LAST_UPDATED = "February 22, 2026";
 
 const VENUE = "Sheridan County, Wyoming";
@@ -449,7 +452,11 @@ const buildPrivacyHtml = ({ contactEmail }) =>
     ),
   ].join("");
 
-export function createLegalContent({ siteName, siteReference, contactEmail }) {
+export function createLegalContent({
+  siteName = SITE_NAME,
+  siteReference = SITE_REFERENCE,
+  contactEmail = CONTACT_EMAIL,
+} = {}) {
   return {
     siteName,
     siteReference,
