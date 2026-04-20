@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import CookieConsent from '../components/CookieConsent';
+import { Analytics } from '@vercel/analytics/next';
 
 /**
  * Custom App component. Next.js uses this to initialize pages. We
@@ -11,6 +12,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <CookieConsent />
+      <Analytics />
     </>
   );
 }
