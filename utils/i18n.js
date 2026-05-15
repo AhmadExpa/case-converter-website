@@ -7,6 +7,7 @@ import es from '../locales/es.json';
 import hi from '../locales/hi.json';
 import tr from '../locales/tr.json';
 import { DEFAULT_LOCALE, LANGUAGES, getLanguageConfig, isSupportedLocale } from './languageConfig';
+import { getAlternateLinks as getSiteAlternateLinks } from './site';
 
 const dictionaries = { en, ar, hi, tr, el, es };
 
@@ -81,10 +82,17 @@ export const useTranslation = () => {
 };
 
 export const getAlternateLinks = (path = '/', baseUrl = '') => {
-  const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return LANGUAGES.map((lang) => ({
-    hrefLang: lang.code,
-    href: `${normalizedBase}/${lang.code}${normalizedPath === '/' ? '' : normalizedPath}`,
-  }));
+  if (baseUrl) {
+    const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+    const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+    return LANGUAGES.map((lang) => ({
+      hrefLang: lang.code,
+      href:
+        lang.code === DEFAULT_LOCALE
+          ? `${normalizedBase}${normalizedPath === '/' ? '' : normalizedPath}`
+          : `${normalizedBase}/${lang.code}${normalizedPath === '/' ? '' : normalizedPath}`,
+    }));
+  }
+
+  return getSiteAlternateLinks(path);
 };

@@ -22,6 +22,14 @@
       "title": "Profesyonel QuickTextFormatter",
       "description": "Hassas harf dönüşümleri için profesyonel QuickTextFormatter"
     },
+    "guide": {
+      "title": "Büyük/Küçük Harf ve Biçimlendirme Rehberi | QuickTextFormatter",
+      "description": "Hangi stili seçeceğinizi, kapsamı nasıl sınırlayacağınızı ve korunması gereken metni nasıl saklayacağınızı öğrenin."
+    },
+    "analyticsGuide": {
+      "title": "Metin Analiz Rehberi | QuickTextFormatter",
+      "description": "Sayaçları, cümle yapısını ve analiz panelini nasıl kullanacağınızı öğrenin."
+    },
     "about": {
       "title": "Harf Dönüştürücü Hakkında",
       "description": "Aracın arkasındaki ekip ve amacı öğrenin."
@@ -46,6 +54,31 @@
   "home": {
     "heroTitle": "Profesyonel ve akademik yazım için hassas harf dönüştürücü",
     "heroSubtitle": "Profesyonel başlık standartları, akıllı analiz ve hassas kontrollerle metni güvenle dönüştürün—tahmine değil, doğruluğa odaklı.",
+    "heroSupport": {
+      "intro": "Araç hakkında daha fazla ayrıntı mı lazım?",
+      "about": "QuickTextFormatter hakkında",
+      "advertising": "Reklam politikası",
+      "privacy": "Gizlilik politikası",
+      "contact": "İletişim"
+    },
+    "context": {
+      "title": "Daha fazla bağlam",
+      "subtitle": "Dönüştürücünün nasıl çalıştığını ve analiz panelinin ne gösterdiğini öğrenin.",
+      "cards": [
+        {
+          "title": "Büyük/Küçük Harf ve Biçimlendirme Rehberi",
+          "description": "AP, Chicago, sentence case ve temel stilleri ne zaman kullanmanız gerektiğini görün.",
+          "href": "/guide",
+          "cta": "Rehberi oku"
+        },
+        {
+          "title": "Metin Analiz Rehberi",
+          "description": "Sayaçları anlayın ve dışa aktarmadan önce metni inceleyin.",
+          "href": "/analytics-guide",
+          "cta": "Analizi aç"
+        }
+      ]
+    },
     "heroBullets": [
       "AP, APA, Chicago, MLA, Bluebook ve AMA standartlarıyla profesyonel başlık dönüşümü",
       "Harf, kelime, cümle, paragraf ve yapı için akıllı analiz",
@@ -223,7 +256,82 @@
       "Önerileri dinliyoruz; çok dilli destek istendiğinde dil seçici ekledik ve aksanlı karakterler ile sağdan sola yazıları destekledik.",
       "Arayüz de önemli: koyu mod göz yorgunluğunu azaltır, uyumlu tasarım her ekranda çalışır ve butonlar rahatça aralıklıdır.",
       "Planlarımızda daha fazla araç, daha iyi içe/dışa aktarma ve iş birliği özellikleri var; sadelik ve gizlilik önceliğimiz olmaya devam edecek."
-    ]
+    ],
+    "contactPrompt": "eğer bir soru sormak veya istekte bulunmak istiyorsanız."
+  },
+  "guide": {
+    "title": "Büyük/Küçük Harf ve Biçimlendirme Rehberi",
+    "intro": "Bu rehber, AP, Chicago, sentence case, uppercase, lowercase ve kapsamlı biçimlendirme için dönüştürücünün nasıl kullanılacağını açıklar.",
+    "sections": [
+      {
+        "heading": "1. Doğru stili seçin",
+        "body": [
+          "Başlıklar için temiz ve tutarlı bir görünüm istiyorsanız AP veya Chicago kullanın.",
+          "Sade metin için sentence case; tek tip görünüm için uppercase veya lowercase seçin."
+        ]
+      },
+      {
+        "heading": "2. Kapsamı belirleyin",
+        "body": [
+          "Tüm metni, seçili satırları veya $$$START$$$ ile $$$END$$$ arasını dönüştürün.",
+          "Bu, yalnızca bir başlık, alıntı veya bloğun değişmesi gerektiğinde yararlıdır."
+        ]
+      },
+      {
+        "heading": "3. Değişmemesi gereken metni koruyun",
+        "body": [
+          "Çift tırnak, parantez, köşeli parantez, süslü parantez ve HTML etiketlerini yok saymak için yapı kontrollerini kullanın.",
+          "Marka adları, CamelCase terimler veya teknik tanımlayıcılar aynı kalmalıysa mevcut harf yapısını koruyun."
+        ]
+      },
+      {
+        "heading": "4. Dışa aktarmadan önce kontrol edin",
+        "body": [
+          "Karakter, kelime, cümle ve satır sayılarını kontrol edin.",
+          "Sonuç çok geniş görünüyorsa kapsamı daraltın veya atlama kurallarını ayarlayın."
+        ]
+      }
+    ],
+    "ctaTitle": "Analiz görünümüne de ihtiyacınız var mı?",
+    "ctaBody": "Sayaçlar, sık kelimeler ve cümle yapısı için eşlik eden rehberi açın.",
+    "ctaLabel": "Analiz rehberini aç"
+  },
+  "analyticsGuide": {
+    "title": "Metin Analiz Rehberi",
+    "intro": "Analiz paneli, dışa aktarmadan önce metnin boyutunu ve yapısını anlamanıza yardımcı olur.",
+    "sections": [
+      {
+        "heading": "1. Sayaçlar ne anlama gelir",
+        "body": [
+          "Harf, kelime, cümle, satır, paragraf ve benzersiz kelime sayıları metni hızlıca özetler.",
+          "Başlıklar, açıklamalar, meta veriler veya uzunluk sınırı olan içerikler için faydalıdır."
+        ]
+      },
+      {
+        "heading": "2. Frekans görünümlerini kullanın",
+        "body": [
+          "Sık kelimeler, harfler ve en uzun kelimeler tekrarları ve uzun terimleri gösterir.",
+          "Böylece metnin doğru konuyu anlatmaya devam edip etmediğini görmek kolaylaşır."
+        ]
+      },
+      {
+        "heading": "3. Cümle yapısını okuyun",
+        "body": [
+          "Cümle yapısı listesi, metnin dengeli olup olmadığını görmek için cümleleri kelime ve karakter sayısına göre gruplar.",
+          "Metni sadeleştirirken, sürümleri karşılaştırırken veya biçim değişikliklerini incelerken çok yararlıdır."
+        ]
+      },
+      {
+        "heading": "4. Analitiği hızlı kontrol olarak kullanın",
+        "body": [
+          "Beklenmeyen değerler veya büyük sayım farkları görürseniz dışa aktarmadan önce girişi gözden geçirin.",
+          "Analiz paneli, kapsam ve stil ayarlarıyla birlikte hızlı bir kalite kontrolü olarak en iyi sonucu verir."
+        ]
+      }
+    ],
+    "ctaTitle": "Biçimlendirme yardımı da gerekli mi?",
+    "ctaBody": "Stil seçenekleri, kapsam kontrolleri ve koruma ipuçları için biçimlendirme rehberini açın.",
+    "ctaLabel": "Biçimlendirme rehberini aç"
   },
   "contact": {
     "title": "İletişim",

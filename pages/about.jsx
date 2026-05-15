@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SeoHead from '../components/SeoHead';
@@ -25,6 +26,16 @@ export default function About() {
           {paragraphs.map((p, idx) => (
             <p key={idx}>{p}</p>
           ))}
+          <p>
+            <Link
+              href="/contact"
+              locale={locale}
+              className="font-medium text-orange-700 underline decoration-orange-400 underline-offset-4 dark:text-orange-300"
+            >
+              {t('common.nav.contact')}
+            </Link>{' '}
+            {t('about.contactPrompt')}
+          </p>
         </div>
       </main>
       <Footer />

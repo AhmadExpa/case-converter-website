@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SeoHead from '../components/SeoHead';
@@ -205,6 +206,7 @@ export default function Home() {
   const heroBullets = t('home.heroBullets') || [];
   const howSteps = t('home.howItWorks.steps') || [];
   const styleGuide = t('home.howItWorks.styleGuide') || [];
+  const contextCards = t('home.context.cards') || [];
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-200 dark:bg-gray-900" dir={dir}>
@@ -213,6 +215,7 @@ export default function Home() {
         description={t('meta.home.description')}
         path="/"
         locale={locale}
+        includeDefaultSchemas
       />
 
       <Navbar />
@@ -233,6 +236,26 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-sm text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              {t('home.heroSupport.intro')}
+            </span>{' '}
+            <Link href="/about" locale={locale} className="text-orange-700 underline decoration-orange-400 underline-offset-4 dark:text-orange-300">
+              {t('home.heroSupport.about')}
+            </Link>
+            {' · '}
+            <Link href="/advertising" locale={locale} className="text-orange-700 underline decoration-orange-400 underline-offset-4 dark:text-orange-300">
+              {t('home.heroSupport.advertising')}
+            </Link>
+            {' · '}
+            <Link href="/privacy" locale={locale} className="text-orange-700 underline decoration-orange-400 underline-offset-4 dark:text-orange-300">
+              {t('home.heroSupport.privacy')}
+            </Link>
+            {' · '}
+            <Link href="/contact" locale={locale} className="text-orange-700 underline decoration-orange-400 underline-offset-4 dark:text-orange-300">
+              {t('home.heroSupport.contact')}
+            </Link>
+          </p>
         </div>
 
         <div className="flex justify-center mb-6">
@@ -736,6 +759,43 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        <section className="mt-10">
+          <div className="text-center max-w-3xl mx-auto mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+              {t('home.context.title')}
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-gray-600 dark:text-gray-300">
+              {t('home.context.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {contextCards.map((card, idx) => (
+              <Link
+                key={idx}
+                href={card.href}
+                locale={locale}
+                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:bg-gray-800"
+              >
+                <div className="flex h-full flex-col justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      {card.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                      {card.description}
+                    </p>
+                  </div>
+                  <span className="inline-flex w-fit items-center text-sm font-medium text-orange-700 dark:text-orange-300">
+                    {card.cta}
+                    <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

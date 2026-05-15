@@ -22,6 +22,14 @@
       "title": "QuickTextFormatter profesional",
       "description": "QuickTextFormatter profesional para conversiones precisas."
     },
+    "guide": {
+      "title": "Guía de mayúsculas y formato | QuickTextFormatter",
+      "description": "Aprende a elegir un estilo, limitar el alcance y proteger el texto que no debe cambiar."
+    },
+    "analyticsGuide": {
+      "title": "Guía de analítica de texto | QuickTextFormatter",
+      "description": "Entiende los contadores, la estructura de las oraciones y cómo usar el panel de analítica."
+    },
     "about": {
       "title": "Sobre Convertidor de Mayúsculas",
       "description": "Conoce el equipo y la misión detrás del convertidor."
@@ -46,6 +54,31 @@
   "home": {
     "heroTitle": "Un convertidor de mayúsculas preciso para escritura profesional y académica",
     "heroSubtitle": "Convierte texto con confianza usando estándares profesionales, analítica inteligente y controles finos: diseñado para la exactitud, no para la suerte.",
+    "heroSupport": {
+      "intro": "¿Necesitas más contexto sobre la herramienta?",
+      "about": "Sobre QuickTextFormatter",
+      "advertising": "Política de publicidad",
+      "privacy": "Política de privacidad",
+      "contact": "Contacto"
+    },
+    "context": {
+      "title": "Más contexto",
+      "subtitle": "Aprende cómo funciona el convertidor y qué muestra el panel de analítica.",
+      "cards": [
+        {
+          "title": "Guía de mayúsculas y formato",
+          "description": "Cuándo usar AP, Chicago, sentence case o las transformaciones básicas.",
+          "href": "/guide",
+          "cta": "Leer la guía"
+        },
+        {
+          "title": "Guía de analítica de texto",
+          "description": "Entiende los conteos y revisa el texto antes de exportarlo.",
+          "href": "/analytics-guide",
+          "cta": "Ver la analítica"
+        }
+      ]
+    },
     "heroBullets": [
       "Conversión profesional a mayúsculas iniciales con estándares AP, APA, Chicago, MLA, Bluebook y AMA",
       "Analítica inteligente de caracteres, palabras, oraciones, párrafos y estructura",
@@ -223,7 +256,82 @@
       "Escuchamos con atención las sugerencias. Cuando se pidió soporte para idiomas internacionales, añadimos selectores y nos aseguramos de manejar caracteres acentuados y escritura de derecha a izquierda.",
       "Cuidamos la presentación: el modo oscuro reduce el cansancio visual y el diseño adaptable funciona en cualquier pantalla. Controles y botones están espaciados para táctil y teclado.",
       "Nuestro plan incluye más herramientas, mejores opciones de importación/exportación y funciones de colaboración. La simplicidad y privacidad seguirán guiándonos. Gracias por usar el sitio y compartir tus ideas."
-    ]
+    ],
+    "contactPrompt": "si quieres hacer una pregunta o compartir una solicitud."
+  },
+  "guide": {
+    "title": "Guía de mayúsculas y formato",
+    "intro": "Esta guía explica cómo usar el convertidor para AP, Chicago, sentence case, mayúsculas, minúsculas y conversiones con alcance limitado.",
+    "sections": [
+      {
+        "heading": "1. Elige el estilo correcto",
+        "body": [
+          "Usa AP o Chicago para títulos y encabezados que deban verse pulidos y consistentes.",
+          "Usa sentence case para texto sencillo, y mayúsculas o minúsculas cuando quieras una presentación uniforme."
+        ]
+      },
+      {
+        "heading": "2. Define el alcance",
+        "body": [
+          "Convierte todo el texto, solo ciertas líneas o el contenido entre $$$START$$$ y $$$END$$$.",
+          "Esto es útil cuando solo una cita, encabezado o bloque debe cambiar."
+        ]
+      },
+      {
+        "heading": "3. Protege el texto que no debe cambiar",
+        "body": [
+          "Usa los controles de estructura para ignorar comillas, paréntesis, corchetes, llaves y etiquetas HTML.",
+          "Mantén la capitalización existente cuando deban conservarse marcas, CamelCase o identificadores técnicos."
+        ]
+      },
+      {
+        "heading": "4. Revisa antes de exportar",
+        "body": [
+          "Comprueba los contadores para ver caracteres, palabras, oraciones y líneas antes de copiar o descargar.",
+          "Si el resultado es demasiado amplio, ajusta el alcance o las reglas de omisión."
+        ]
+      }
+    ],
+    "ctaTitle": "¿También quieres la vista de analítica?",
+    "ctaBody": "Lee la guía complementaria para ver los contadores, palabras frecuentes y estructura de oraciones.",
+    "ctaLabel": "Abrir guía de analítica"
+  },
+  "analyticsGuide": {
+    "title": "Guía de analítica de texto",
+    "intro": "El panel de analítica te ayuda a entender el tamaño y la estructura del texto antes de exportarlo.",
+    "sections": [
+      {
+        "heading": "1. Qué significan los contadores",
+        "body": [
+          "Los contadores de caracteres, palabras, oraciones, líneas, párrafos y palabras únicas ofrecen una visión rápida del texto.",
+          "Son útiles para títulos, descripciones, metadatos o cualquier contenido con límites de longitud."
+        ]
+      },
+      {
+        "heading": "2. Usa las vistas de frecuencia",
+        "body": [
+          "Las palabras comunes, letras comunes y palabras más largas ayudan a detectar repeticiones y términos largos.",
+          "Así es más fácil revisar si el texto sigue hablando del tema correcto."
+        ]
+      },
+      {
+        "heading": "3. Lee la estructura de las oraciones",
+        "body": [
+          "La lista de estructura agrupa oraciones por palabras y caracteres para mostrar si el texto está equilibrado.",
+          "Sirve para simplificar texto, comparar versiones o revisar cambios de formato."
+        ]
+      },
+      {
+        "heading": "4. Usa la analítica como verificación",
+        "body": [
+          "Si ves valores extraños o saltos grandes en el conteo, revisa la entrada antes de exportar.",
+          "La analítica funciona mejor como una comprobación rápida junto con el alcance y el estilo."
+        ]
+      }
+    ],
+    "ctaTitle": "¿Necesitas ayuda con el formato?",
+    "ctaBody": "Abre la guía de mayúsculas y formato para ver opciones de estilo, alcance y preservación.",
+    "ctaLabel": "Abrir guía de formato"
   },
   "contact": {
     "title": "Contacto",

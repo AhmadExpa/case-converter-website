@@ -22,6 +22,14 @@
       "title": "प्रोफेशनल QuickTextFormatter",
       "description": "सटीक केस कन्वर्ज़न के लिए प्रोफेशनल QuickTextFormatter"
     },
+    "guide": {
+      "title": "केस और फ़ॉर्मेटिंग गाइड | QuickTextFormatter",
+      "description": "जानें कौन सा स्टाइल चुनना है, दायरा कैसे सीमित करना है, और किस टेक्स्ट को बदलने से बचाना है।"
+    },
+    "analyticsGuide": {
+      "title": "टेक्स्ट एनालिटिक्स गाइड | QuickTextFormatter",
+      "description": "काउंट, वाक्य संरचना और एनालिटिक्स पैनल का उपयोग कैसे करें, यह समझें।"
+    },
     "about": {
       "title": "केस कन्वर्टर के बारे में",
       "description": "केस कन्वर्टर के पीछे टीम और मिशन जानें।"
@@ -46,6 +54,31 @@
   "home": {
     "heroTitle": "व्यावसायिक और शैक्षणिक लेखन के लिए सटीक केस कन्वर्टर",
     "heroSubtitle": "प्रोफेशनल मानकों, स्मार्ट एनालिटिक्स और सटीक नियंत्रण के साथ भरोसे से टेक्स्ट बदलें—अनुमान नहीं, शुद्धता के लिए बनाया गया।",
+    "heroSupport": {
+      "intro": "टूल के बारे में और जानकारी चाहिए?",
+      "about": "QuickTextFormatter के बारे में",
+      "advertising": "विज्ञापन नीति",
+      "privacy": "गोपनीयता नीति",
+      "contact": "संपर्क"
+    },
+    "context": {
+      "title": "और संदर्भ",
+      "subtitle": "जानें कन्वर्टर कैसे काम करता है और एनालिटिक्स पैनल क्या दिखाता है।",
+      "cards": [
+        {
+          "title": "केस और फ़ॉर्मेटिंग गाइड",
+          "description": "AP, Chicago, sentence case और बेसिक स्टाइल्स कब इस्तेमाल करें।",
+          "href": "/guide",
+          "cta": "गाइड पढ़ें"
+        },
+        {
+          "title": "टेक्स्ट एनालिटिक्स गाइड",
+          "description": "काउंट समझें और एक्सपोर्ट से पहले टेक्स्ट की समीक्षा करें।",
+          "href": "/analytics-guide",
+          "cta": "एनालिटिक्स देखें"
+        }
+      ]
+    },
     "heroBullets": [
       "AP, APA, Chicago, MLA, Bluebook और AMA मानकों पर आधारित टाइटल केस रूपांतरण",
       "अक्षर, शब्द, वाक्य, पैराग्राफ और संरचना के लिए स्मार्ट विश्लेषण",
@@ -223,7 +256,82 @@
       "हम सुझाव सुनते हैं; बहुभाषी समर्थन के लिए अनुरोध पर हमने भाषा चयन जोड़ा और दाएं-से-बाएं लिपि व उच्चारणों को संभाला।",
       "हम रूप-रंग का भी ध्यान रखते हैं: डार्क मोड आँखों की थकान घटाता है और प्रतिक्रियाशील डिज़ाइन हर स्क्रीन पर काम करता है।",
       "हमारी योजना में और उपकरण, बेहतर आयात/निर्यात विकल्प और सहयोग सुविधाएँ शामिल हैं, जबकि सादगी और गोपनीयता प्राथमिक रहेंगी।"
-    ]
+    ],
+    "contactPrompt": "अगर आप कोई सवाल पूछना या अनुरोध साझा करना चाहते हैं।"
+  },
+  "guide": {
+    "title": "केस और फ़ॉर्मेटिंग गाइड",
+    "intro": "यह गाइड बताती है कि AP, Chicago, sentence case, uppercase, lowercase और scoped formatting के लिए कन्वर्टर का उपयोग कैसे करें।",
+    "sections": [
+      {
+        "heading": "1. सही स्टाइल चुनें",
+        "body": [
+          "हेडिंग और टाइटल के लिए AP या Chicago इस्तेमाल करें जब आपको साफ और सुसंगत रूप चाहिए।",
+          "साधारण टेक्स्ट के लिए sentence case, और एक जैसे रूप के लिए uppercase या lowercase चुनें।"
+        ]
+      },
+      {
+        "heading": "2. दायरा तय करें",
+        "body": [
+          "पूरा टेक्स्ट, चुनी हुई लाइनें, या $$$START$$$ और $$$END$$$ के बीच का टेक्स्ट बदलें।",
+          "यह तब उपयोगी है जब सिर्फ एक हेडिंग, उद्धरण या ब्लॉक बदलना हो।"
+        ]
+      },
+      {
+        "heading": "3. जिस टेक्स्ट को नहीं बदलना है उसे सुरक्षित रखें",
+        "body": [
+          "quotes, parentheses, brackets, braces और HTML tags को ignore करने के लिए structure controls का उपयोग करें।",
+          "brand names, CamelCase terms या technical identifiers को वैसा ही रखने के लिए existing capitalization preserve करें।"
+        ]
+      },
+      {
+        "heading": "4. एक्सपोर्ट से पहले जांचें",
+        "body": [
+          "काउंट पैनल से characters, words, sentences और lines जांचें।",
+          "अगर परिणाम बहुत बड़ा लगे, तो दायरा घटाएँ या skip rules समायोजित करें।"
+        ]
+      }
+    ],
+    "ctaTitle": "एनालिटिक्स व्यू भी चाहिए?",
+    "ctaBody": "काउंट, common words और sentence structure के लिए साथी गाइड पढ़ें।",
+    "ctaLabel": "एनालिटिक्स गाइड खोलें"
+  },
+  "analyticsGuide": {
+    "title": "टेक्स्ट एनालिटिक्स गाइड",
+    "intro": "एनालिटिक्स पैनल आपको एक्सपोर्ट से पहले टेक्स्ट का आकार और संरचना समझने में मदद करता है।",
+    "sections": [
+      {
+        "heading": "1. काउंट्स का मतलब",
+        "body": [
+          "Characters, words, sentences, lines, paragraphs और unique words के काउंट से आपको टेक्स्ट का जल्दी अंदाज़ा मिलता है।",
+          "यह titles, metadata या लंबाई-सीमित content के लिए उपयोगी है।"
+        ]
+      },
+      {
+        "heading": "2. frequency views का उपयोग करें",
+        "body": [
+          "Common words, letters और longest words आपको दोहराव और लंबे शब्द जल्दी दिखाते हैं।",
+          "इससे विषय और शब्दावली की जांच आसान होती है।"
+        ]
+      },
+      {
+        "heading": "3. sentence structure पढ़ें",
+        "body": [
+          "Sentence structure सूची शब्दों और characters के हिसाब से sentences को समूहित करती है।",
+          "यह text simplification, version comparison और formatting review में मदद करती है।"
+        ]
+      },
+      {
+        "heading": "4. analytics को quality check की तरह उपयोग करें",
+        "body": [
+          "यदि counts असामान्य हों या line breaks अलग दिखें, तो export से पहले input जांचें।",
+          "Analytics का सबसे अच्छा उपयोग scope और style settings के साथ quick verification है।"
+        ]
+      }
+    ],
+    "ctaTitle": "फ़ॉर्मेटिंग मदद भी चाहिए?",
+    "ctaBody": "स्टाइल विकल्प, scope controls और preservation tips के लिए formatting guide खोलें।",
+    "ctaLabel": "फ़ॉर्मेटिंग गाइड खोलें"
   },
   "contact": {
     "title": "संपर्क",

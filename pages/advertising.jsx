@@ -3,15 +3,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SeoHead from '../components/SeoHead';
 import { useTranslation } from '../utils/i18n';
+import { LAST_UPDATED } from '../utils/legal-content';
 
 export default function Advertising() {
   const { t, locale, dir } = useTranslation();
   const sections = t('advertising.sections') || [];
-  const formattedDate = new Intl.DateTimeFormat(locale || 'en', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(new Date());
 
   return (
     <div className="min-h-screen flex flex-col" dir={dir}>
@@ -43,7 +39,7 @@ export default function Advertising() {
           ))}
 
           <p className="italic">
-            {t('advertising.lastUpdated', { date: formattedDate })}
+            {t('advertising.lastUpdated', { date: LAST_UPDATED })}
           </p>
         </div>
       </main>

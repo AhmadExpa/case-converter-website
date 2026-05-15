@@ -6,7 +6,7 @@
       "home": "Home",
       "about": "About",
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
+      "terms": "Terms of Use",
       "advertising": "Advertising Policy",
       "contact": "Contact"
     },
@@ -25,33 +25,66 @@
   },
   "meta": {
     "home": {
-      "title": "Professional QuickTextFormatter",
-      "description": "Professional QuickTextFormatter for precise case conversions"
+      "title": "Case Converter for Professional & Academic Writing | QuickTextFormatter",
+      "description": "Convert text, title case, and sentence case with precision controls, analytics, and scoped formatting."
+    },
+    "guide": {
+      "title": "Title Case and Formatting Guide | QuickTextFormatter",
+      "description": "Learn how to choose a case style, limit the conversion scope, and protect text that should stay unchanged."
+    },
+    "analyticsGuide": {
+      "title": "Text Analytics Guide | QuickTextFormatter",
+      "description": "Understand character counts, word counts, sentence structure, and how to use the analytics panel."
     },
     "about": {
-      "title": "About Case Converter",
-      "description": "Learn about the team and mission behind the Case Converter."
+      "title": "About QuickTextFormatter | Case Converter Tool",
+      "description": "Learn how QuickTextFormatter helps you convert text with precise case controls and multilingual support."
     },
     "contact": {
-      "title": "Contact Case Converter",
-      "description": "Share feedback, report an issue, or ask for a new feature."
+      "title": "Contact QuickTextFormatter | Send Feedback",
+      "description": "Share feedback, report an issue, or request a feature for the case converter."
     },
     "privacy": {
-      "title": "Privacy Policy",
-      "description": "Understand how we handle data, cookies, and advertising."
+      "title": "Privacy Policy | QuickTextFormatter",
+      "description": "Read how QuickTextFormatter handles data, cookies, analytics, and advertising."
     },
     "terms": {
-      "title": "Terms and Conditions",
-      "description": "Read the terms for using the Case Converter website."
+      "title": "Terms of Use | QuickTextFormatter",
+      "description": "Review the terms for using the QuickTextFormatter case converter website."
     },
     "advertising": {
-      "title": "Advertising Policy",
-      "description": "Details on how ads appear on the Case Converter website."
+      "title": "Advertising Policy | QuickTextFormatter",
+      "description": "Learn how ads are displayed on QuickTextFormatter and how advertising partners may use data."
     }
   },
   "home": {
-    "heroTitle": "A Precision Case Converter for Professional & Academic Writing",
-    "heroSubtitle": "Convert text with confidence using professional title-case standards, smart analytics, and precision controls—designed for accuracy, not guesswork.",
+    "heroTitle": "Case Converter for Professional & Academic Writing",
+    "heroSubtitle": "Convert text with confidence using title case standards, smart analytics, and precision controls designed for accuracy, not guesswork.",
+    "heroSupport": {
+      "intro": "Need the details behind the tool?",
+      "about": "About QuickTextFormatter",
+      "advertising": "Advertising Policy",
+      "privacy": "Privacy Policy",
+      "contact": "Contact"
+    },
+    "context": {
+      "title": "More context",
+      "subtitle": "Learn how the converter works and what the analytics panel tells you.",
+      "cards": [
+        {
+          "title": "Title Case and Formatting Guide",
+          "description": "See when to use AP, Chicago, sentence case, or simple uppercase and lowercase styles.",
+          "href": "/guide",
+          "cta": "Read the guide"
+        },
+        {
+          "title": "Text Analytics Guide",
+          "description": "Understand counts, sentence structure, and how to review text before you export it.",
+          "href": "/analytics-guide",
+          "cta": "Learn the analytics"
+        }
+      ]
+    },
     "heroBullets": [
       "Professional Title Case Conversion using AP and Chicago standards",
       "Smart Text Analytics for characters, words, sentences, paragraphs, and structure",
@@ -121,7 +154,7 @@
       "sentenceDetail": "{{count}} sentence(s) with {{words}} words, {{chars}} characters"
     },
     "convert": {
-      "cta": "Convert",
+      "cta": "Convert Text",
       "disclaimer": "By clicking convert, you agree to the applied settings overriding the current text."
     },
     "caseModes": {
@@ -197,20 +230,20 @@
       }
     },
     "howItWorks": {
-      "title": "Master the Case Converter",
+      "title": "How the Case Converter Works",
       "howTitle": "How It Works",
       "steps": [
         {
           "title": "Scope Selection",
-          "body": "Choose to convert the entire text, specific lines, or content wrapped in identifiers like $$$START$$$."
+          "body": "Choose to convert the entire text, specific lines, or content wrapped in identifiers like $$$START$$$ and $$$END$$$."
         },
         {
           "title": "Choose Your Style",
-          "body": "Select from professional standards like AP and Chicago, or simple case transformations."
+          "body": "Select from professional title case standards like AP and Chicago, or use simple uppercase, lowercase, and sentence case transformations."
         },
         {
           "title": "Refine with Precision",
-          "body": "Use selective controls to skip specific words, patterns, or protect specific content."
+          "body": "Use selective controls to skip specific words, protect formatted text, or preserve brand capitalization."
         }
       ],
       "styleGuideTitle": "Styles Guide",
@@ -222,18 +255,93 @@
     }
   },
   "about": {
-    "title": "About Us",
+    "title": "About QuickTextFormatter",
     "paragraphs": [
-      "Welcome to our Case Converter website, your one-stop destination for intuitive text transformation tools. Built by a small team of passionate developers and writers, this site was created to streamline how you edit and prepare text for everything from research papers to social media posts.",
-      "Over the years, we noticed people repeatedly searching for quick utilities to convert their text. Rather than juggling multiple sites with intrusive ads and inconsistent interfaces, we imagined a single, cohesive platform. Every feature you see here was inspired by real workflows across writing, research, and engineering.",
-      "Our commitment to continuous improvement means that we listen carefully to user suggestions. When another user requested support for international languages, we added selectors and ensured our code properly handles accented characters and right-to-left scripts.",
-      "Beyond the features themselves, we care deeply about presentation. Our dark theme reduces eye strain, and responsive design ensures the interface looks great everywhere. Buttons and controls are thoughtfully spaced for touch and pointer devices alike.",
-      "As we look ahead, our roadmap includes more tools, rich import/export options, and collaboration features. Simplicity, privacy, and respect for your time will always guide us. Thank you for choosing our website and for sharing your suggestions with us."
-    ]
+      "QuickTextFormatter is a case converter built for fast text cleanup, title case formatting, sentence case conversion, and uppercase or lowercase transformations.",
+      "Use it when you need to edit text for drafts, academic writing, content preparation, or quick formatting changes without rebuilding your document from scratch.",
+      "The tool supports scoped conversion, selective skip rules, and text analytics so you can change only the content you intend to change.",
+      "Multilingual support helps the interface work across left-to-right and right-to-left languages, while the clean layout keeps the workflow simple.",
+      "If you need help, want to report an issue, or have a feature request, please use the contact page."
+    ],
+    "contactPrompt": "if you'd like to ask a question or share a request."
+  },
+  "guide": {
+    "title": "Title Case and Formatting Guide",
+    "intro": "This guide explains how to use the converter for title case, sentence case, uppercase, lowercase, and scoped formatting without changing the text you want to preserve.",
+    "sections": [
+      {
+        "heading": "1. Pick the right case style",
+        "body": [
+          "Use AP or Chicago when you want title case behavior for headings, article titles, or content that should look polished and readable.",
+          "Use Sentence case for simple paragraph-style text, and switch to uppercase or lowercase when you need a uniform visual treatment."
+        ]
+      },
+      {
+        "heading": "2. Set the conversion scope",
+        "body": [
+          "Convert the entire text, only selected lines, or only the text between $$$START$$$ and $$$END$$$ markers.",
+          "Scoped conversion is useful when only one heading, excerpt, or block should change while the rest stays untouched."
+        ]
+      },
+      {
+        "heading": "3. Protect text that should remain unchanged",
+        "body": [
+          "Use the structure controls to ignore quotes, parentheses, brackets, braces, and HTML tags before conversion runs.",
+          "Preserve existing capitalization when brand names, CamelCase terms, or technical identifiers need to stay exactly as written."
+        ]
+      },
+      {
+        "heading": "4. Review before export",
+        "body": [
+          "Check the analytics panel to confirm character count, word count, sentence count, and line count before downloading or copying.",
+          "If the result looks too broad, narrow the scope or adjust the skip rules and try again."
+        ]
+      }
+    ],
+    "ctaTitle": "Need the analytics view too?",
+    "ctaBody": "Read the companion guide for the counters, word frequency, and sentence structure panel.",
+    "ctaLabel": "Open the analytics guide"
+  },
+  "analyticsGuide": {
+    "title": "Text Analytics Guide",
+    "intro": "The analytics panel helps you understand the size and structure of your text before you export the result.",
+    "sections": [
+      {
+        "heading": "1. What the counters mean",
+        "body": [
+          "Character, word, sentence, line, paragraph, and unique word counts give you a quick overview of the input text.",
+          "These counters are useful when you are preparing titles, product copy, metadata, or any text with length limits."
+        ]
+      },
+      {
+        "heading": "2. Use the frequency views",
+        "body": [
+          "Common words, common letters, and longest words help you spot repeated terms and unusually long terms at a glance.",
+          "That makes it easier to catch overused wording or confirm that the text still matches the expected topic."
+        ]
+      },
+      {
+        "heading": "3. Read sentence structure data carefully",
+        "body": [
+          "The sentence structure list groups sentences by word count and character count so you can see whether your text stays balanced.",
+          "It is especially useful when you are simplifying copy, checking formatting changes, or comparing versions of the same text."
+        ]
+      },
+      {
+        "heading": "4. Use analytics as a workflow check",
+        "body": [
+          "If the text includes unexpected values, unusual line breaks, or a large jump in word count, review the input before exporting.",
+          "The analytics panel works best as a quick quality check alongside the scope and style settings."
+        ]
+      }
+    ],
+    "ctaTitle": "Need formatting help too?",
+    "ctaBody": "Open the title case and formatting guide for style choices, scope controls, and preservation tips.",
+    "ctaLabel": "Open the formatting guide"
   },
   "contact": {
-    "title": "Contact",
-    "intro": "Share feedback, report an issue, or ask for a new feature for Case Converter.",
+    "title": "Contact QuickTextFormatter",
+    "intro": "Share feedback, report an issue, or request a new feature for the case converter.",
     "fields": {
       "name": "Name",
       "email": "Email",
