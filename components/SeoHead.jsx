@@ -20,7 +20,7 @@ export default function SeoHead({
   keywords = [],
 }) {
   const normalizedPath = normalizePath(path);
-  const alternates = getAlternateLinks(normalizedPath);
+  const alternates = getAlternateLinks(normalizedPath, locale);
   const canonicalUrl = getCanonicalUrl(normalizedPath, locale);
   const defaultHref = getCanonicalUrl(normalizedPath, 'en');
   const normalizedKeywords = [...new Set([].concat(keywords).flatMap((value) => {

@@ -19,7 +19,7 @@
   },
   "meta": {
     "home": {
-      "title": "QuickTextFormatter profesional",
+      "title": "Convertidor de texto y títulos | QuickTextFormatter",
       "description": "QuickTextFormatter profesional para conversiones precisas.",
       "keywords": [
         "convertidor de mayúsculas",
@@ -127,6 +127,32 @@
           "description": "Entiende los conteos y revisa el texto antes de exportarlo.",
           "href": "/analytics-guide",
           "cta": "Ver la analítica"
+        }
+      ]
+    },
+    "seo": {
+      "kicker": "Por qué usar esta herramienta",
+      "title": "Convertidor práctico para títulos, texto limpio y ediciones precisas",
+      "paragraphs": [
+        "QuickTextFormatter está pensado para personas que necesitan limpiar títulos y normalizar texto entre title case, sentence case, mayúsculas y minúsculas sin reescribir a mano. Es útil para escritores, estudiantes, editores, marketers y desarrolladores.",
+        "La página principal combina el convertidor con analítica para que puedas revisar longitud, estructura y patrones de palabras antes de exportar. Eso ayuda con títulos de artículos, nombres de productos, metadatos y publicaciones sociales donde importan la precisión y la consistencia."
+      ],
+      "faqs": [
+        {
+          "question": "¿Qué convierte QuickTextFormatter?",
+          "answer": "Convierte texto entre title case, sentence case, mayúsculas, minúsculas y otros modos relacionados."
+        },
+        {
+          "question": "¿Por qué usar el panel de analítica?",
+          "answer": "Muestra caracteres, palabras, oraciones y estructura para revisar el texto antes de exportarlo."
+        },
+        {
+          "question": "¿Puedo proteger palabras concretas?",
+          "answer": "Sí, puedes omitir palabras exactas, rangos de oraciones, texto entre comillas, HTML y patrones especiales."
+        },
+        {
+          "question": "¿Para quién es esta herramienta?",
+          "answer": "Es adecuada para escritores, estudiantes, editores, equipos SEO y product managers."
         }
       ]
     },

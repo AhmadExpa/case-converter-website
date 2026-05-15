@@ -19,7 +19,7 @@
   },
   "meta": {
     "home": {
-      "title": "प्रोफेशनल QuickTextFormatter",
+      "title": "केस कन्वर्टर और टाइटल केस टूल | QuickTextFormatter",
       "description": "सटीक केस कन्वर्ज़न के लिए प्रोफेशनल QuickTextFormatter",
       "keywords": [
         "केस कन्वर्टर",
@@ -127,6 +127,32 @@
           "description": "काउंट समझें और एक्सपोर्ट से पहले टेक्स्ट की समीक्षा करें।",
           "href": "/analytics-guide",
           "cta": "एनालिटिक्स देखें"
+        }
+      ]
+    },
+    "seo": {
+      "kicker": "यह टूल क्यों उपयोगी है",
+      "title": "शीर्षक, कॉपी और सटीक संपादन के लिए व्यावहारिक कन्वर्टर",
+      "paragraphs": [
+        "QuickTextFormatter उन लोगों के लिए बनाया गया है जिन्हें headings, clean copy और text cleanup जल्दी करना होता है। यह title case, sentence case, uppercase और lowercase के बीच बिना हाथ से दोबारा लिखे बदलाव करने में मदद करता है।",
+        "होमपेज पर converter के साथ analytics भी है, जिससे आप export करने से पहले length, structure और word patterns देख सकते हैं। Article titles, product names, metadata, social captions और किसी भी सीमित-लंबाई वाले text में यह बहुत काम आता है।"
+      ],
+      "faqs": [
+        {
+          "question": "QuickTextFormatter क्या बदलता है?",
+          "answer": "यह title case, sentence case, uppercase, lowercase और related formatting modes के बीच text convert करता है।"
+        },
+        {
+          "question": "Analytics panel क्यों उपयोग करें?",
+          "answer": "यह characters, words, sentences और structure दिखाता है ताकि आप export से पहले text को check कर सकें।"
+        },
+        {
+          "question": "क्या specific words protect कर सकते हैं?",
+          "answer": "हाँ, आप exact words, sentence ranges, quoted text, HTML और special patterns को skip कर सकते हैं।"
+        },
+        {
+          "question": "यह tool किसके लिए है?",
+          "answer": "यह writers, students, editors, SEO teams और product managers के लिए उपयोगी है।"
         }
       ]
     },

@@ -19,7 +19,7 @@
   },
   "meta": {
     "home": {
-      "title": "Profesyonel QuickTextFormatter",
+      "title": "Harf Dönüştürücü ve Başlık Aracı | QuickTextFormatter",
       "description": "Hassas harf dönüşümleri için profesyonel QuickTextFormatter",
       "keywords": [
         "harf dönüştürücü",
@@ -127,6 +127,32 @@
           "description": "Sayaçları anlayın ve dışa aktarmadan önce metni inceleyin.",
           "href": "/analytics-guide",
           "cta": "Analizi aç"
+        }
+      ]
+    },
+    "seo": {
+      "kicker": "Bu araç neden önemli",
+      "title": "Başlıklar, temiz metin ve hassas düzenleme için pratik dönüştürücü",
+      "paragraphs": [
+        "QuickTextFormatter, başlıkları düzenlemek, metni temizlemek ve title case, sentence case, uppercase ile lowercase arasında hızlı geçiş yapmak isteyen kullanıcılar için tasarlandı. Elle yeniden yazmadan kontrollü biçimlendirme sunar.",
+        "Ana sayfa, dönüştürücü ile birlikte analiz panelini de gösterir; böylece metni dışa aktarmadan önce uzunluk, yapı ve kelime örüntülerini kontrol edebilirsiniz. Makale başlıkları, ürün adları, meta veriler ve sosyal medya metinleri için kullanışlıdır."
+      ],
+      "faqs": [
+        {
+          "question": "QuickTextFormatter neyi dönüştürür?",
+          "answer": "Title case, sentence case, uppercase, lowercase ve ilgili biçimler arasında metin dönüştürür."
+        },
+        {
+          "question": "Analiz paneli neden önemli?",
+          "answer": "Karakter, kelime, cümle ve yapı özetleri göstererek dışa aktarmadan önce kontrol etmenizi sağlar."
+        },
+        {
+          "question": "Belirli kelimeleri koruyabilir miyim?",
+          "answer": "Evet, belirli kelimeleri, cümle aralıklarını, alıntıları, HTML'yi ve özel desenleri atlayabilirsiniz."
+        },
+        {
+          "question": "Bu araç kimler için?",
+          "answer": "Yazarlar, öğrenciler, editörler, SEO ekipleri ve ürün yöneticileri için uygundur."
         }
       ]
     },

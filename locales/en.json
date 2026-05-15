@@ -25,7 +25,7 @@
   },
   "meta": {
     "home": {
-      "title": "Case Converter for Professional & Academic Writing | QuickTextFormatter",
+      "title": "Case Converter and Title Case Tool | QuickTextFormatter",
       "description": "Convert text, title case, and sentence case with precision controls, analytics, and scoped formatting.",
       "keywords": [
         "case converter",
@@ -133,6 +133,32 @@
           "description": "Understand counts, sentence structure, and how to review text before you export it.",
           "href": "/analytics-guide",
           "cta": "Learn the analytics"
+        }
+      ]
+    },
+    "seo": {
+      "kicker": "Why this tool matters",
+      "title": "A practical case converter for titles, clean copy, and precise edits",
+      "paragraphs": [
+        "QuickTextFormatter is built for people who need a fast way to clean up headings, normalize copy, and switch between title case, sentence case, uppercase, and lowercase without rewriting text by hand. The tool is useful for writers, students, editors, marketers, and developers who want controlled formatting instead of a one-size-fits-all transformation.",
+        "The homepage combines the converter with analytics so you can inspect the length, structure, and word patterns of your text before you export it. That matters when you are preparing article titles, product names, metadata, social captions, or any other text where accuracy, readability, and consistent style are important. Scoped conversion, skip rules, and preservation controls help keep brand names, acronyms, and special phrases intact."
+      ],
+      "faqs": [
+        {
+          "question": "What does QuickTextFormatter convert?",
+          "answer": "It converts text between title case, sentence case, uppercase, lowercase, and related formatting modes while keeping scope controls available when you only want to change part of a document."
+        },
+        {
+          "question": "Why use the analytics panel?",
+          "answer": "The analytics panel shows character counts, word counts, sentence structure, and other quick summaries so you can check whether your text fits a limit or needs a final edit before export."
+        },
+        {
+          "question": "Can I protect specific words?",
+          "answer": "Yes. You can skip exact words, specific sentence ranges, quoted text, HTML, or words with symbols and numbers, which helps preserve brands, acronyms, and code-like text."
+        },
+        {
+          "question": "Who is this tool for?",
+          "answer": "It is designed for anyone who formats text regularly, including content writers, students, editors, SEO teams, and product managers who want a dependable browser-based case converter."
         }
       ]
     },

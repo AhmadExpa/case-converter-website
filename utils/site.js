@@ -25,11 +25,19 @@ export const buildLocalizedPath = (path = '/', locale = DEFAULT_SITE_LOCALE) => 
 export const getCanonicalUrl = (path = '/', locale = DEFAULT_SITE_LOCALE) =>
   `${SITE_URL}${buildLocalizedPath(path, locale)}`;
 
-export const getAlternateLinks = (path = '/') =>
-  LANGUAGES.map((lang) => ({
+export const getAlternateLinks = (path = '/', currentLocale = DEFAULT_SITE_LOCALE) => {
+  const selfLink = {
+    hrefLang: currentLocale,
+    href: getCanonicalUrl(path, currentLocale),
+  };
+
+  const otherLinks = LANGUAGES.filter((lang) => lang.code !== currentLocale).map((lang) => ({
     hrefLang: lang.code,
     href: getCanonicalUrl(path, lang.code),
   }));
+
+  return [selfLink, ...otherLinks];
+};
 
 export const getOpenGraphLocale = (locale = DEFAULT_SITE_LOCALE) => {
   const map = {
@@ -103,4 +111,19 @@ export const buildWebPageSchema = ({ path = '/', title = '', description = '', l
     name: SITE_NAME,
     url: getCanonicalUrl('/', DEFAULT_SITE_LOCALE),
   },
+});
+
+export const buildFaqSchema = (questions = []) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: questions
+    .filter((item) => item?.question && item?.answer)
+    .map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
 });

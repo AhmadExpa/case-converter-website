@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useDeferredValue, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -6,6 +6,7 @@ import SeoHead from '../components/SeoHead';
 import { analyzeText } from '../utils/analytics';
 import { convertText, parseLineSelection } from '../utils/converters';
 import { useTranslation } from '../utils/i18n';
+import { buildFaqSchema } from '../utils/site';
 
 const defaultOptions = {
   style: '',
@@ -48,12 +49,9 @@ export default function Home() {
   const [fileName, setFileName] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [infoMsg, setInfoMsg] = useState('');
-  const [analytics, setAnalytics] = useState(analyzeText(''));
   const [options, setOptions] = useState({ ...defaultOptions });
-
-  useEffect(() => {
-    setAnalytics(analyzeText(text));
-  }, [text]);
+  const deferredText = useDeferredValue(text);
+  const analytics = useMemo(() => analyzeText(deferredText), [deferredText]);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -207,6 +205,8 @@ export default function Home() {
   const howSteps = t('home.howItWorks.steps') || [];
   const styleGuide = t('home.howItWorks.styleGuide') || [];
   const contextCards = t('home.context.cards') || [];
+  const seoFaqs = t('home.seo.faqs') || [];
+  const seoSchema = buildFaqSchema(seoFaqs);
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-200 dark:bg-gray-900" dir={dir}>
@@ -216,6 +216,7 @@ export default function Home() {
         path="/"
         locale={locale}
         keywords={t('meta.home.keywords') || []}
+        schema={[seoSchema]}
         includeDefaultSchemas
       />
 
@@ -795,6 +796,41 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800 md:p-10">
+          <div className="mx-auto max-w-4xl space-y-6">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-600 dark:text-orange-300">
+                {t('home.seo.kicker')}
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+                {t('home.seo.title')}
+              </h2>
+            </div>
+
+            <div className="space-y-4 text-sm md:text-base leading-7 text-gray-600 dark:text-gray-300">
+              {(t('home.seo.paragraphs') || []).map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {(seoFaqs || []).map((faq, idx) => (
+                <article
+                  key={idx}
+                  className="rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-900"
+                >
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-gray-600 dark:text-gray-300">
+                    {faq.answer}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>
