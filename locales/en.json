@@ -26,35 +26,86 @@
   "meta": {
     "home": {
       "title": "Case Converter for Professional & Academic Writing | QuickTextFormatter",
-      "description": "Convert text, title case, and sentence case with precision controls, analytics, and scoped formatting."
+      "description": "Convert text, title case, and sentence case with precision controls, analytics, and scoped formatting.",
+      "keywords": [
+        "case converter",
+        "title case converter",
+        "sentence case converter",
+        "text formatting tool",
+        "QuickTextFormatter"
+      ]
     },
     "guide": {
       "title": "Title Case and Formatting Guide | QuickTextFormatter",
-      "description": "Learn how to choose a case style, limit the conversion scope, and protect text that should stay unchanged."
+      "description": "Learn how to choose a case style, limit the conversion scope, and protect text that should stay unchanged.",
+      "keywords": [
+        "title case guide",
+        "formatting guide",
+        "AP style title case",
+        "Chicago style title case",
+        "text preservation"
+      ]
     },
     "analyticsGuide": {
       "title": "Text Analytics Guide | QuickTextFormatter",
-      "description": "Understand character counts, word counts, sentence structure, and how to use the analytics panel."
+      "description": "Understand character counts, word counts, sentence structure, and how to use the analytics panel.",
+      "keywords": [
+        "text analytics guide",
+        "character count",
+        "word count",
+        "sentence structure",
+        "text analytics panel"
+      ]
     },
     "about": {
       "title": "About QuickTextFormatter | Case Converter Tool",
-      "description": "Learn how QuickTextFormatter helps you convert text with precise case controls and multilingual support."
+      "description": "Learn how QuickTextFormatter helps you convert text with precise case controls and multilingual support.",
+      "keywords": [
+        "about QuickTextFormatter",
+        "case converter tool",
+        "text transformation tool",
+        "multilingual text formatting"
+      ]
     },
     "contact": {
       "title": "Contact QuickTextFormatter | Send Feedback",
-      "description": "Share feedback, report an issue, or request a feature for the case converter."
+      "description": "Share feedback, report an issue, or request a feature for the case converter.",
+      "keywords": [
+        "contact QuickTextFormatter",
+        "feedback",
+        "feature request",
+        "report an issue"
+      ]
     },
     "privacy": {
       "title": "Privacy Policy | QuickTextFormatter",
-      "description": "Read how QuickTextFormatter handles data, cookies, analytics, and advertising."
+      "description": "Read how QuickTextFormatter handles data, cookies, analytics, and advertising.",
+      "keywords": [
+        "privacy policy",
+        "data handling",
+        "cookies",
+        "analytics",
+        "advertising"
+      ]
     },
     "terms": {
       "title": "Terms of Use | QuickTextFormatter",
-      "description": "Review the terms for using the QuickTextFormatter case converter website."
+      "description": "Review the terms for using the QuickTextFormatter case converter website.",
+      "keywords": [
+        "terms of use",
+        "website terms",
+        "text converter terms"
+      ]
     },
     "advertising": {
       "title": "Advertising Policy | QuickTextFormatter",
-      "description": "Learn how ads are displayed on QuickTextFormatter and how advertising partners may use data."
+      "description": "Learn how ads are displayed on QuickTextFormatter and how advertising partners may use data.",
+      "keywords": [
+        "advertising policy",
+        "ad disclosure",
+        "sponsored content",
+        "advertising partners"
+      ]
     }
   },
   "home": {

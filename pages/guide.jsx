@@ -12,6 +12,7 @@ export default function GuidePage() {
       description={t('meta.guide.description')}
       path="/guide"
       locale={locale}
+      keywords={t('meta.guide.keywords') || []}
       dir={dir}
       pageTitle={t('guide.title')}
       intro={t('guide.intro')}

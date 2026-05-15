@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import {
   buildOrganizationSchema,
+  buildWebPageSchema,
   buildWebSiteSchema,
   getAlternateLinks,
   getCanonicalUrl,
@@ -16,13 +17,22 @@ export default function SeoHead({
   locale = 'en',
   schema = [],
   includeDefaultSchemas = false,
+  keywords = [],
 }) {
   const normalizedPath = normalizePath(path);
   const alternates = getAlternateLinks(normalizedPath);
   const canonicalUrl = getCanonicalUrl(normalizedPath, locale);
   const defaultHref = getCanonicalUrl(normalizedPath, 'en');
+  const normalizedKeywords = [...new Set([].concat(keywords).flatMap((value) => {
+    if (!value) return [];
+    return String(value)
+      .split(',')
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+  }))];
   const schemas = [
     ...(includeDefaultSchemas ? [buildWebSiteSchema(), buildOrganizationSchema()] : []),
+    buildWebPageSchema({ path: normalizedPath, title, description, locale }),
     ...[].concat(schema).filter(Boolean),
   ];
 
@@ -30,6 +40,9 @@ export default function SeoHead({
     <Head>
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
+      {normalizedKeywords.length > 0 && (
+        <meta name="keywords" content={normalizedKeywords.join(', ')} />
+      )}
       <meta
         name="robots"
         content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"

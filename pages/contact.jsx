@@ -40,6 +40,7 @@ export default function Contact() {
         description={t('meta.contact.description')}
         path="/contact"
         locale={locale}
+        keywords={t('meta.contact.keywords') || []}
       />
       <Navbar />
 

@@ -20,10 +20,17 @@ export default function ContextDetailPage({
   ctaLabelSecondary,
   ctaHrefSecondary,
   homeLabel = 'Home',
+  keywords = [],
 }) {
   return (
     <div className="min-h-screen flex flex-col" dir={dir}>
-      <SeoHead title={title} description={description} path={path} locale={locale} />
+      <SeoHead
+        title={title}
+        description={description}
+        path={path}
+        locale={locale}
+        keywords={keywords}
+      />
       <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-10">

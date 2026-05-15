@@ -20,35 +20,86 @@
   "meta": {
     "home": {
       "title": "QuickTextFormatter profesional",
-      "description": "QuickTextFormatter profesional para conversiones precisas."
+      "description": "QuickTextFormatter profesional para conversiones precisas.",
+      "keywords": [
+        "convertidor de mayúsculas",
+        "convertidor de title case",
+        "convertidor de sentence case",
+        "herramienta de formato de texto",
+        "QuickTextFormatter"
+      ]
     },
     "guide": {
       "title": "Guía de mayúsculas y formato | QuickTextFormatter",
-      "description": "Aprende a elegir un estilo, limitar el alcance y proteger el texto que no debe cambiar."
+      "description": "Aprende a elegir un estilo, limitar el alcance y proteger el texto que no debe cambiar.",
+      "keywords": [
+        "guía de mayúsculas",
+        "guía de formato",
+        "title case",
+        "estilo Chicago",
+        "protección de texto"
+      ]
     },
     "analyticsGuide": {
       "title": "Guía de analítica de texto | QuickTextFormatter",
-      "description": "Entiende los contadores, la estructura de las oraciones y cómo usar el panel de analítica."
+      "description": "Entiende los contadores, la estructura de las oraciones y cómo usar el panel de analítica.",
+      "keywords": [
+        "guía de analítica de texto",
+        "conteo de caracteres",
+        "conteo de palabras",
+        "estructura de oraciones",
+        "panel de analítica"
+      ]
     },
     "about": {
       "title": "Sobre Convertidor de Mayúsculas",
-      "description": "Conoce el equipo y la misión detrás del convertidor."
+      "description": "Conoce el equipo y la misión detrás del convertidor.",
+      "keywords": [
+        "sobre QuickTextFormatter",
+        "herramienta de conversión de texto",
+        "formato multilingüe",
+        "convertidor de mayúsculas"
+      ]
     },
     "contact": {
       "title": "Contacto",
-      "description": "Envía comentarios, reporta un problema o solicita una nueva función."
+      "description": "Envía comentarios, reporta un problema o solicita una nueva función.",
+      "keywords": [
+        "contacto QuickTextFormatter",
+        "comentarios",
+        "solicitud de función",
+        "reportar un problema"
+      ]
     },
     "privacy": {
       "title": "Política de privacidad",
-      "description": "Entiende cómo manejamos datos, cookies y publicidad."
+      "description": "Entiende cómo manejamos datos, cookies y publicidad.",
+      "keywords": [
+        "política de privacidad",
+        "manejo de datos",
+        "cookies",
+        "analítica",
+        "publicidad"
+      ]
     },
     "terms": {
       "title": "Términos y condiciones",
-      "description": "Lee las condiciones de uso del sitio."
+      "description": "Lee las condiciones de uso del sitio.",
+      "keywords": [
+        "términos de uso",
+        "términos del sitio",
+        "términos del convertidor de texto"
+      ]
     },
     "advertising": {
       "title": "Política de publicidad",
-      "description": "Detalles sobre cómo aparecen los anuncios en el sitio."
+      "description": "Detalles sobre cómo aparecen los anuncios en el sitio.",
+      "keywords": [
+        "política de publicidad",
+        "divulgación de anuncios",
+        "contenido patrocinado",
+        "socios publicitarios"
+      ]
     }
   },
   "home": {

@@ -16,6 +16,7 @@ export default function About() {
         description={t('meta.about.description')}
         path="/about"
         locale={locale}
+        keywords={t('meta.about.keywords') || []}
       />
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">

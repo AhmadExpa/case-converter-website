@@ -84,3 +84,17 @@ export const buildOrganizationSchema = (path = '/') => ({
   name: SITE_NAME,
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
 });
+
+export const buildWebPageSchema = ({ path = '/', title = '', description = '', locale = DEFAULT_SITE_LOCALE } = {}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title || SITE_NAME,
+  description,
+  url: getCanonicalUrl(path, locale),
+  inLanguage: locale,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: getCanonicalUrl('/', DEFAULT_SITE_LOCALE),
+  },
+});

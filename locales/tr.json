@@ -20,35 +20,86 @@
   "meta": {
     "home": {
       "title": "Profesyonel QuickTextFormatter",
-      "description": "Hassas harf dönüşümleri için profesyonel QuickTextFormatter"
+      "description": "Hassas harf dönüşümleri için profesyonel QuickTextFormatter",
+      "keywords": [
+        "harf dönüştürücü",
+        "başlık biçimi dönüştürücü",
+        "cümle biçimi dönüştürücü",
+        "metin biçimlendirme aracı",
+        "QuickTextFormatter"
+      ]
     },
     "guide": {
       "title": "Büyük/Küçük Harf ve Biçimlendirme Rehberi | QuickTextFormatter",
-      "description": "Hangi stili seçeceğinizi, kapsamı nasıl sınırlayacağınızı ve korunması gereken metni nasıl saklayacağınızı öğrenin."
+      "description": "Hangi stili seçeceğinizi, kapsamı nasıl sınırlayacağınızı ve korunması gereken metni nasıl saklayacağınızı öğrenin.",
+      "keywords": [
+        "harf rehberi",
+        "biçimlendirme rehberi",
+        "başlık biçimi",
+        "Chicago stili",
+        "metin koruma"
+      ]
     },
     "analyticsGuide": {
       "title": "Metin Analiz Rehberi | QuickTextFormatter",
-      "description": "Sayaçları, cümle yapısını ve analiz panelini nasıl kullanacağınızı öğrenin."
+      "description": "Sayaçları, cümle yapısını ve analiz panelini nasıl kullanacağınızı öğrenin.",
+      "keywords": [
+        "metin analiz rehberi",
+        "karakter sayısı",
+        "kelime sayısı",
+        "cümle yapısı",
+        "analiz paneli"
+      ]
     },
     "about": {
       "title": "Harf Dönüştürücü Hakkında",
-      "description": "Aracın arkasındaki ekip ve amacı öğrenin."
+      "description": "Aracın arkasındaki ekip ve amacı öğrenin.",
+      "keywords": [
+        "QuickTextFormatter hakkında",
+        "harf dönüştürücü aracı",
+        "metin dönüştürme aracı",
+        "çok dilli biçimlendirme"
+      ]
     },
     "contact": {
       "title": "İletişim",
-      "description": "Geri bildirim gönderin, sorun bildirin veya yeni özellik isteyin."
+      "description": "Geri bildirim gönderin, sorun bildirin veya yeni özellik isteyin.",
+      "keywords": [
+        "QuickTextFormatter iletişim",
+        "geri bildirim",
+        "özellik isteği",
+        "sorun bildir"
+      ]
     },
     "privacy": {
       "title": "Gizlilik politikası",
-      "description": "Verileri, çerezleri ve reklamları nasıl yönettiğimizi öğrenin."
+      "description": "Verileri, çerezleri ve reklamları nasıl yönettiğimizi öğrenin.",
+      "keywords": [
+        "gizlilik politikası",
+        "veri işleme",
+        "çerezler",
+        "analitik",
+        "reklamlar"
+      ]
     },
     "terms": {
       "title": "Şartlar ve koşullar",
-      "description": "Sitenin kullanım koşullarını okuyun."
+      "description": "Sitenin kullanım koşullarını okuyun.",
+      "keywords": [
+        "kullanım şartları",
+        "site koşulları",
+        "metin dönüştürücü şartları"
+      ]
     },
     "advertising": {
       "title": "Reklam politikası",
-      "description": "Sitede reklamların nasıl gösterildiğini öğrenin."
+      "description": "Sitede reklamların nasıl gösterildiğini öğrenin.",
+      "keywords": [
+        "reklam politikası",
+        "reklam açıklaması",
+        "sponsorlu içerik",
+        "reklam ortakları"
+      ]
     }
   },
   "home": {

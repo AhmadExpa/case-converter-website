@@ -16,6 +16,7 @@ export default function Advertising() {
         description={t('meta.advertising.description')}
         path="/advertising"
         locale={locale}
+        keywords={t('meta.advertising.keywords') || []}
       />
       <Navbar />
 

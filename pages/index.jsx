@@ -215,6 +215,7 @@ export default function Home() {
         description={t('meta.home.description')}
         path="/"
         locale={locale}
+        keywords={t('meta.home.keywords') || []}
         includeDefaultSchemas
       />
 
