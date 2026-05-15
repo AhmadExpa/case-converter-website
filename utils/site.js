@@ -1,10 +1,15 @@
 import { LANGUAGES, DEFAULT_LOCALE } from './languageConfig';
 
 const PLACEHOLDER_SITE_URL = 'https://www.quicktextformatter.com';
+const VERCEL_SITE_URL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
 
 export const SITE_NAME = 'QuickTextFormatter';
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || PLACEHOLDER_SITE_URL).replace(/\/$/, '');
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || VERCEL_SITE_URL || PLACEHOLDER_SITE_URL).replace(/\/$/, '');
 export const DEFAULT_SITE_LOCALE = DEFAULT_LOCALE;
+export const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/quicktextformatter/',
+  facebook: 'https://www.facebook.com/quicktextformatter/',
+};
 
 export const normalizePath = (path = '/') => {
   if (!path) return '/';
@@ -83,6 +88,7 @@ export const buildOrganizationSchema = (path = '/') => ({
   '@type': 'Organization',
   name: SITE_NAME,
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
+  sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
 });
 
 export const buildWebPageSchema = ({ path = '/', title = '', description = '', locale = DEFAULT_SITE_LOCALE } = {}) => ({

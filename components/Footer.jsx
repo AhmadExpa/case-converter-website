@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from '../utils/i18n';
+import { SOCIAL_LINKS } from '../utils/site';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Footer() {
@@ -19,7 +20,6 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm text-gray-600 dark:text-gray-300">
-
           <Link
             href="/privacy"
             locale={locale}
@@ -48,6 +48,22 @@ export default function Footer() {
           >
             {t('common.nav.contact')}
           </Link>
+          <a
+            href={SOCIAL_LINKS.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Instagram
+          </a>
+          <a
+            href={SOCIAL_LINKS.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Facebook
+          </a>
         </nav>
 
         <LanguageSwitcher variant="footer" />
