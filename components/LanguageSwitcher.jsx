@@ -15,7 +15,7 @@ export default function LanguageSwitcher({ variant = 'header' }) {
 
     if (typeof window !== 'undefined') {
       window.localStorage.setItem('preferredLanguage', nextLocale);
-      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
+      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax; Secure`;
     }
   };
 

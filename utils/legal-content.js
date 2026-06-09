@@ -10,16 +10,24 @@ export const LAST_UPDATED = "February 22, 2026";
 const VENUE = "Sheridan County, Wyoming";
 const CURRENCY = "USD";
 
+const escHtml = (str) =>
+  String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 const paragraph = (text) => `<p>${text}</p>`;
-const lead = (title, text) => `<p><strong>${title}</strong> ${text}</p>`;
+const lead = (title, text) => `<p><strong>${escHtml(title)}</strong> ${text}</p>`;
 const list = (items) => `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
-const section = (title, ...blocks) => `<section><h2>${title}</h2>${blocks.join("")}</section>`;
-const subsection = (title, ...blocks) => `<h3>${title}</h3>${blocks.join("")}`;
+const section = (title, ...blocks) => `<section><h2>${escHtml(title)}</h2>${blocks.join("")}</section>`;
+const subsection = (title, ...blocks) => `<h3>${escHtml(title)}</h3>${blocks.join("")}`;
 const table = (headers, rows) =>
-  `<table><thead><tr>${headers.map((header) => `<th>${header}</th>`).join("")}</tr></thead><tbody>${rows
+  `<table><thead><tr>${headers.map((header) => `<th>${escHtml(header)}</th>`).join("")}</tr></thead><tbody>${rows
     .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
     .join("")}</tbody></table>`;
-const mailto = (email) => `<a href="mailto:${email}">${email}</a>`;
+const mailto = (email) => `<a href="mailto:${escHtml(email)}">${escHtml(email)}</a>`;
 
 const buildTermsHtml = ({ siteReference, contactEmail }) =>
   [

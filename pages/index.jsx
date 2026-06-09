@@ -64,9 +64,17 @@ export default function Home() {
       return;
     }
 
+    if (file.size > 1 * 1024 * 1024) {
+      setErrorMsg('File too large. Maximum size is 1 MB.');
+      setInfoMsg('');
+      e.target.value = '';
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
-      setText(event.target.result);
+      const content = event.target.result;
+      setText(typeof content === 'string' ? content.slice(0, 500000) : '');
       setFileName(file.name);
       setErrorMsg('');
       setInfoMsg('');
@@ -342,8 +350,9 @@ export default function Home() {
                     <textarea
                       id="case-converter-input"
                       value={text}
-                      onChange={(e) => setText(e.target.value)}
+                      onChange={(e) => setText(e.target.value.slice(0, 500000))}
                       placeholder={t('home.panels.filePlaceholder')}
+                      maxLength={500000}
                       className="mt-4 w-full h-96 p-4 rounded-md border border-gray-300 bg-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono resize-y"
                     />
 

@@ -32,11 +32,16 @@ function sendPageView(path) {
   });
 }
 
+function hasAnalyticsConsent() {
+  if (typeof window === 'undefined') return false;
+  return window.localStorage.getItem('cookieConsent') === 'true';
+}
+
 export default function GoogleAnalytics() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!GA_ID) return undefined;
+    if (!GA_ID || !hasAnalyticsConsent()) return undefined;
 
     const sendWithRetry = (url) => {
       let attempts = 0;
@@ -75,7 +80,7 @@ export default function GoogleAnalytics() {
     };
   }, [router.events]);
 
-  if (!GA_ID) return null;
+  if (!GA_ID || (typeof window !== 'undefined' && !hasAnalyticsConsent())) return null;
 
   return (
     <>
@@ -93,8 +98,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 window.gtag = window.gtag || gtag;
 gtag('js', new Date());
-gtag('set', 'linker', { domains: ${JSON.stringify(LINKER_DOMAINS)} });
-gtag('config', ${JSON.stringify(GA_ID)}, { send_page_view: false });
+gtag('set', 'linker', { domains: ${JSON.stringify(LINKER_DOMAINS).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')} });
+gtag('config', ${JSON.stringify(GA_ID).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')}, { send_page_view: false });
 `,
         }}
       />
