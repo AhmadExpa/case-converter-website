@@ -2,8 +2,10 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SeoHead from '../components/SeoHead';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { useTranslation } from '../utils/i18n';
 import { createLegalContent, EFFECTIVE_DATE, LAST_UPDATED } from '../utils/legal-content';
+import { buildBreadcrumbSchema } from '../utils/site';
 
 const legalContent = createLegalContent();
 
@@ -12,6 +14,10 @@ const legalBodyClassName =
 
 export default function Terms() {
   const { t, locale, dir } = useTranslation();
+  const breadcrumbItems = [
+    { label: t('common.nav.home'), href: '/' },
+    { label: t('common.nav.terms'), href: '/terms' },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col" dir={dir}>
@@ -20,11 +26,12 @@ export default function Terms() {
         description={t('meta.terms.description')}
         path="/terms"
         locale={locale}
-        keywords={t('meta.terms.keywords') || []}
+        schema={[buildBreadcrumbSchema(breadcrumbItems)]}
       />
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mx-auto max-w-5xl space-y-8">
+          <Breadcrumbs items={breadcrumbItems} />
           <div className="space-y-4 text-center">
             <p className="text-sm font-medium uppercase tracking-wide text-indigo-600 dark:text-indigo-300">
               {legalContent.siteName} - {legalContent.termsTitle}

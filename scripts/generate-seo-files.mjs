@@ -7,12 +7,13 @@ const projectRoot = join(__dirname, '..');
 const publicDir = join(projectRoot, 'public');
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://www.quicktextformatter.com')
-).replace(/\/$/, '');
+  normalizeProductionSiteUrl(process.env.NEXT_PUBLIC_SITE_URL, 'https://www.quicktextformatter.com')
+);
+const isPreview = process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production';
 
 const routes = ['/', '/about', '/contact', '/privacy', '/terms', '/advertising', '/guide', '/analytics-guide'];
 const locales = ['en', 'ar', 'hi', 'tr', 'el', 'es'];
+const lastModified = new Date().toISOString();
 
 const localizedUrl = (route, locale) => {
   const normalizedRoute = route.startsWith('/') ? route : `/${route}`;
@@ -24,8 +25,36 @@ const localizedUrl = (route, locale) => {
   return `${SITE_URL}${path}`;
 };
 
-const robots = `User-agent: *
+function normalizeProductionSiteUrl(value, fallback) {
+  const fallbackUrl = fallback.replace(/\/$/, '');
+  const raw = String(value || '').trim();
+  if (!raw) return fallbackUrl;
+
+  try {
+    const url = new URL(/^https?:\/\//i.test(raw) ? raw : `https://${raw}`);
+    if (url.hostname === 'localhost' || url.hostname.endsWith('.vercel.app')) {
+      return fallbackUrl;
+    }
+    return `${url.protocol}//${url.host}`;
+  } catch {
+    return fallbackUrl;
+  }
+}
+
+const robots = isPreview
+  ? `User-agent: *
+Disallow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`
+  : `User-agent: *
 Allow: /
+Disallow: /api
+Disallow: /admin
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /private
+Disallow: /test
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
@@ -36,10 +65,12 @@ ${routes
     locales.map((locale) => {
       const alternates = locales
         .map((altLocale) => `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${localizedUrl(route, altLocale)}" />`)
+        .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(route, 'en')}" />`)
         .join('\n');
 
       return `  <url>
     <loc>${localizedUrl(route, locale)}</loc>
+    <lastmod>${lastModified}</lastmod>
 ${alternates}
   </url>`;
     }),

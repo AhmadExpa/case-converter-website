@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="#FFF8F1"/>
+  <rect x="48" y="48" width="1104" height="534" rx="28" fill="url(#paint0_linear)"/>
+  <rect x="110" y="118" width="980" height="394" rx="24" fill="#FFFDF9" stroke="#FED7AA" stroke-width="4"/>
+  <rect x="156" y="170" width="358" height="36" rx="18" fill="#FFEDD5"/>
+  <rect x="156" y="232" width="876" height="22" rx="11" fill="#E5E7EB"/>
+  <rect x="156" y="272" width="786" height="22" rx="11" fill="#E5E7EB"/>
+  <rect x="156" y="312" width="824" height="22" rx="11" fill="#E5E7EB"/>
+  <rect x="156" y="364" width="234" height="64" rx="18" fill="#EA580C"/>
+  <text x="156" y="108" fill="#9A3412" font-family="Arial, sans-serif" font-size="28" font-weight="700">QuickTextFormatter</text>
+  <text x="156" y="413" fill="#FFF7ED" font-family="Arial, sans-serif" font-size="26" font-weight="700">Case Converter</text>
+  <text x="156" y="488" fill="#7C2D12" font-family="Arial, sans-serif" font-size="54" font-weight="700">Case converter with analytics,</text>
+  <text x="156" y="546" fill="#7C2D12" font-family="Arial, sans-serif" font-size="54" font-weight="700">scope controls, and clean export.</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="48" y1="48" x2="1152" y2="582" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#FFEDD5"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -21,6 +21,20 @@ export default function Footer() {
 
         <nav className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm text-gray-600 dark:text-gray-300">
           <Link
+            href="/guide"
+            locale={locale}
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Title Case Guide
+          </Link>
+          <Link
+            href="/analytics-guide"
+            locale={locale}
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Text Analytics Guide
+          </Link>
+          <Link
             href="/privacy"
             locale={locale}
             className="hover:text-gray-900 dark:hover:text-white transition-colors"

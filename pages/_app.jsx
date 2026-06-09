@@ -1,6 +1,12 @@
 import '../styles/globals.css';
-import CookieConsent from '../components/CookieConsent';
-import { Analytics } from '@vercel/analytics/next';
+import dynamic from 'next/dynamic';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+
+const CookieConsent = dynamic(() => import('../components/CookieConsent'), { ssr: false });
+const Analytics = dynamic(
+  () => import('@vercel/analytics/next').then((module) => module.Analytics),
+  { ssr: false },
+);
 
 /**
  * Custom App component. Next.js uses this to initialize pages. We
@@ -12,6 +18,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <CookieConsent />
+      <GoogleAnalytics />
       <Analytics />
     </>
   );

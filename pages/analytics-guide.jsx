@@ -12,9 +12,9 @@ export default function AnalyticsGuidePage() {
       description={t('meta.analyticsGuide.description')}
       path="/analytics-guide"
       locale={locale}
-      keywords={t('meta.analyticsGuide.keywords') || []}
       dir={dir}
       pageTitle={t('analyticsGuide.title')}
+      pageLabel="Text Analytics Guide"
       intro={t('analyticsGuide.intro')}
       sections={sections}
       ctaTitle={t('analyticsGuide.ctaTitle')}

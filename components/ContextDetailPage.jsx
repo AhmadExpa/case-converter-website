@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import SeoHead from './SeoHead';
+import Breadcrumbs from './Breadcrumbs';
+import { buildBreadcrumbSchema } from '../utils/site';
 
 export default function ContextDetailPage({
   title,
@@ -20,8 +22,14 @@ export default function ContextDetailPage({
   ctaLabelSecondary,
   ctaHrefSecondary,
   homeLabel = 'Home',
-  keywords = [],
+  pageLabel,
+  schema = [],
 }) {
+  const breadcrumbItems = [
+    { label: homeLabel, href: '/' },
+    { label: pageLabel || pageTitle, href: path },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col" dir={dir}>
       <SeoHead
@@ -29,12 +37,13 @@ export default function ContextDetailPage({
         description={description}
         path={path}
         locale={locale}
-        keywords={keywords}
+        schema={[buildBreadcrumbSchema(breadcrumbItems), ...[].concat(schema).filter(Boolean)]}
       />
       <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-10">
         <article className="mx-auto max-w-4xl">
+          <Breadcrumbs items={breadcrumbItems} />
           <header className="mb-8 space-y-4 text-center">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-orange-600 dark:text-orange-300">
               QuickTextFormatter

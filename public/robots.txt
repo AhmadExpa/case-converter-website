@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api
+Disallow: /admin
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /private
+Disallow: /test
 Sitemap: https://www.quicktextformatter.com/sitemap.xml

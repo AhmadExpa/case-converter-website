@@ -6,7 +6,7 @@ import SeoHead from '../components/SeoHead';
 import { analyzeText } from '../utils/analytics';
 import { convertText, parseLineSelection } from '../utils/converters';
 import { useTranslation } from '../utils/i18n';
-import { buildFaqSchema } from '../utils/site';
+import { buildFaqSchema, buildSoftwareApplicationSchema } from '../utils/site';
 
 const defaultOptions = {
   style: '',
@@ -215,8 +215,14 @@ export default function Home() {
         description={t('meta.home.description')}
         path="/"
         locale={locale}
-        keywords={t('meta.home.keywords') || []}
-        schema={[seoSchema]}
+        schema={[
+          buildSoftwareApplicationSchema({
+            path: '/',
+            locale,
+            description: t('meta.home.description'),
+          }),
+          seoSchema,
+        ]}
         includeDefaultSchemas
       />
 
@@ -307,7 +313,11 @@ export default function Home() {
 
                 {subTab === 'input' ? (
                   <div className="animate-fade-in-up">
+                    <label htmlFor="case-converter-file" className="sr-only">
+                      Upload a text file
+                    </label>
                     <input
+                      id="case-converter-file"
                       type="file"
                       accept=".txt"
                       onChange={handleFileUpload}
@@ -326,7 +336,11 @@ export default function Home() {
                       </p>
                     )}
 
+                    <label htmlFor="case-converter-input" className="sr-only">
+                      Text to convert
+                    </label>
                     <textarea
+                      id="case-converter-input"
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                       placeholder={t('home.panels.filePlaceholder')}
@@ -344,7 +358,11 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="animate-fade-in-up">
+                    <label htmlFor="case-converter-output" className="sr-only">
+                      Converted text output
+                    </label>
                     <textarea
+                      id="case-converter-output"
                       readOnly
                       value={convertedText}
                       className="w-full h-96 p-4 rounded-md border border-gray-300 bg-gray-100 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 transition-colors font-mono resize-y"
@@ -372,10 +390,14 @@ export default function Home() {
 
               <div className="w-full md:w-1/3 flex flex-col gap-4">
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md text-sm shadow-sm">
-                  <h4 className="text-sm font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-2">
+                  <h3 className="text-sm font-bold text-gray-800 dark:text-gray-100 uppercase tracking-wider mb-2">
                     {t('home.scope.title')}
-                  </h4>
+                  </h3>
+                  <label htmlFor="case-converter-scope" className="sr-only">
+                    Conversion scope
+                  </label>
                   <select
+                    id="case-converter-scope"
                     value={options.scope}
                     onChange={(e) => setOptions({ ...options, scope: e.target.value })}
                     className="w-full text-sm border-gray-300 rounded-md shadow-sm dark:bg-gray-600 dark:border-gray-500 dark:text-white p-2"
@@ -392,7 +414,11 @@ export default function Home() {
                   )}
                   {options.scope === 'lines' && (
                     <div className="mt-2 text-xs space-y-2">
+                      <label htmlFor="case-converter-lines" className="sr-only">
+                        Selected line numbers or ranges
+                      </label>
                       <input
+                        id="case-converter-lines"
                         type="text"
                         placeholder={t('home.scope.linesPlaceholder')}
                         value={options.lineSelection}
@@ -421,7 +447,7 @@ export default function Home() {
 
                   <div className="mt-4 grid grid-cols-1 gap-4">
                     <div>
-                      <h4 className="font-semibold text-xs uppercase text-gray-500 dark:text-gray-400 mb-1">{t('home.analytics.topWords')}</h4>
+                      <h4 className="font-semibold text-xs uppercase text-gray-700 dark:text-gray-300 mb-1">{t('home.analytics.topWords')}</h4>
                       <div className="flex flex-wrap gap-1">
                         {analytics.topWords.map((w, i) => (
                           <span key={i} className="bg-gray-200 dark:bg-gray-600 px-2 py-0.5 rounded text-xs">{w.word} ({w.count})</span>
@@ -429,7 +455,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-xs uppercase text-gray-500 dark:text-gray-400 mb-1">{t('home.analytics.topLetters')}</h4>
+                      <h4 className="font-semibold text-xs uppercase text-gray-700 dark:text-gray-300 mb-1">{t('home.analytics.topLetters')}</h4>
                       <div className="flex flex-wrap gap-1">
                         {analytics.topLetters.map((l, i) => (
                           <span key={i} className="bg-gray-200 dark:bg-gray-600 px-2 py-0.5 rounded text-xs">{l.letter} ({l.count})</span>
@@ -437,7 +463,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-xs uppercase text-gray-500 dark:text-gray-400 mb-1">{t('home.analytics.longestWords')}</h4>
+                      <h4 className="font-semibold text-xs uppercase text-gray-700 dark:text-gray-300 mb-1">{t('home.analytics.longestWords')}</h4>
                       <div className="flex flex-wrap gap-1">
                         {analytics.longestWords.map((w, i) => (
                           <span key={i} className="bg-gray-200 dark:bg-gray-600 px-2 py-0.5 rounded text-xs overflow-hidden text-ellipsis max-w-full" title={w.word}>{w.word} ({w.length})</span>
@@ -445,7 +471,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-xs uppercase text-gray-500 dark:text-gray-400 mb-1">{t('home.analytics.sentenceStructure')}</h4>
+                      <h4 className="font-semibold text-xs uppercase text-gray-700 dark:text-gray-300 mb-1">{t('home.analytics.sentenceStructure')}</h4>
                       <div className="max-h-32 overflow-y-auto pr-1 custom-scrollbar">
                         {analytics.sentenceStructure.map((s, i) => (
                           <div key={i} className="text-xs text-gray-600 dark:text-gray-300 mb-0.5">
@@ -610,28 +636,28 @@ export default function Home() {
 
                     <div className="grid grid-cols-2 gap-2 mt-3">
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipFirstNWords')}</label>
-                        <input type="number" min="0" value={options.skipFirstNWords} onChange={(e) => setOptionWithConflict('skipFirstNWords', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-first-n-words" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipFirstNWords')}</label>
+                        <input id="skip-first-n-words" type="number" min="0" value={options.skipFirstNWords} onChange={(e) => setOptionWithConflict('skipFirstNWords', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipLastNWords')}</label>
-                        <input type="number" min="0" value={options.skipLastNWords} onChange={(e) => setOptionWithConflict('skipLastNWords', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-last-n-words" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipLastNWords')}</label>
+                        <input id="skip-last-n-words" type="number" min="0" value={options.skipLastNWords} onChange={(e) => setOptionWithConflict('skipLastNWords', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipShorterThan')}</label>
-                        <input type="number" min="0" value={options.skipShorterThan} onChange={(e) => setOptionWithConflict('skipShorterThan', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-shorter-than" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipShorterThan')}</label>
+                        <input id="skip-shorter-than" type="number" min="0" value={options.skipShorterThan} onChange={(e) => setOptionWithConflict('skipShorterThan', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipLongerThan')}</label>
-                        <input type="number" min="0" value={options.skipLongerThan} onChange={(e) => setOptionWithConflict('skipLongerThan', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-longer-than" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipLongerThan')}</label>
+                        <input id="skip-longer-than" type="number" min="0" value={options.skipLongerThan} onChange={(e) => setOptionWithConflict('skipLongerThan', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipFirstNSentences')}</label>
-                        <input type="number" min="0" value={options.skipFirstNSentences} onChange={(e) => setOptionWithConflict('skipFirstNSentences', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-first-n-sentences" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipFirstNSentences')}</label>
+                        <input id="skip-first-n-sentences" type="number" min="0" value={options.skipFirstNSentences} onChange={(e) => setOptionWithConflict('skipFirstNSentences', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                       <div>
-                        <label className="text-xs text-gray-500 dark:text-gray-400">{t('home.controls.skip.skipLastNSentences')}</label>
-                        <input type="number" min="0" value={options.skipLastNSentences} onChange={(e) => setOptionWithConflict('skipLastNSentences', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                        <label htmlFor="skip-last-n-sentences" className="text-xs text-gray-700 dark:text-gray-300">{t('home.controls.skip.skipLastNSentences')}</label>
+                        <input id="skip-last-n-sentences" type="number" min="0" value={options.skipLastNSentences} onChange={(e) => setOptionWithConflict('skipLastNSentences', parseInt(e.target.value, 10) || 0)} className="w-full text-xs border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                       </div>
                     </div>
 
@@ -695,10 +721,11 @@ export default function Home() {
                     </label>
 
                     <div className="mt-3">
-                      <label className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      <label htmlFor="stop-words" className="text-xs text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                         {t('home.controls.structure.stopWordsLabel')}
                       </label>
                       <input
+                        id="stop-words"
                         type="text"
                         placeholder={t('home.controls.structure.stopWordsPlaceholder')}
                         value={options.stopWords}

@@ -62,6 +62,21 @@ export default function Navbar() {
         {t('common.brand')}
       </Link>
 
+      <div className="hidden lg:flex items-center gap-5 text-sm text-gray-600 dark:text-gray-300">
+        <Link href="/guide" locale={locale} className="hover:text-orange-600 dark:hover:text-orange-300">
+          Title Case Guide
+        </Link>
+        <Link href="/analytics-guide" locale={locale} className="hover:text-orange-600 dark:hover:text-orange-300">
+          Text Analytics Guide
+        </Link>
+        <Link href="/about" locale={locale} className="hover:text-orange-600 dark:hover:text-orange-300">
+          {t('common.nav.about')}
+        </Link>
+        <Link href="/contact" locale={locale} className="hover:text-orange-600 dark:hover:text-orange-300">
+          {t('common.nav.contact')}
+        </Link>
+      </div>
+
       <div className="flex items-center gap-3">
         <LanguageSwitcher />
         <button

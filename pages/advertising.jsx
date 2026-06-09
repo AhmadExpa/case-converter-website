@@ -2,12 +2,18 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SeoHead from '../components/SeoHead';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { useTranslation } from '../utils/i18n';
 import { LAST_UPDATED } from '../utils/legal-content';
+import { buildBreadcrumbSchema } from '../utils/site';
 
 export default function Advertising() {
   const { t, locale, dir } = useTranslation();
   const sections = t('advertising.sections') || [];
+  const breadcrumbItems = [
+    { label: t('common.nav.home'), href: '/' },
+    { label: t('common.nav.advertising'), href: '/advertising' },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col" dir={dir}>
@@ -16,11 +22,14 @@ export default function Advertising() {
         description={t('meta.advertising.description')}
         path="/advertising"
         locale={locale}
-        keywords={t('meta.advertising.keywords') || []}
+        schema={[buildBreadcrumbSchema(breadcrumbItems)]}
       />
       <Navbar />
 
       <main className="flex-grow container mx-auto px-4 py-8 space-y-6">
+        <div className="mx-auto max-w-4xl">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
         <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">
           {t('advertising.title')}
         </h1>
