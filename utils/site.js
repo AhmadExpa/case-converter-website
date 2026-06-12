@@ -123,6 +123,7 @@ ${routeItems}
 export const buildWebSiteSchema = (path = '/') => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
   name: SITE_NAME,
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
   inLanguage: LANGUAGES.map((lang) => lang.code),
@@ -131,6 +132,7 @@ export const buildWebSiteSchema = (path = '/') => ({
 export const buildOrganizationSchema = (path = '/') => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
   name: 'Grova',
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
   logo: getOpenGraphImageUrl(),

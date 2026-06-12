@@ -1,0 +1,12 @@
+# QuickTextFormatter
+> A precision text case converter and analyzer tool for converting between title case (AP/Chicago), sentence case, uppercase, lowercase, and related styles.
+
+## Features
+- [Case Converter](https://www.quicktextformatter.com/) - Live browser-based case conversion and text editor.
+- [Formatting Guide](https://www.quicktextformatter.com/guide) - Rules for title casing, AP style, and Chicago style.
+- [Analytics Guide](https://www.quicktextformatter.com/analytics-guide) - Explanation of character, word, and sentence counts.
+
+## Information
+- [About Us](https://www.quicktextformatter.com/about) - Learn more about the QuickTextFormatter suite.
+- [Privacy Policy](https://www.quicktextformatter.com/privacy) - Policies regarding cookie consent and usage data.
+- [Terms of Use](https://www.quicktextformatter.com/terms) - Standard platform usage terms.
