@@ -26,7 +26,7 @@
   "meta": {
     "home": {
       "title": "Case Converter and Title Case Tool | QuickTextFormatter",
-      "description": "Convert text, title case, and sentence case with precision controls, analytics, and scoped formatting.",
+      "description": "Convert text, title case, and sentence case with precision controls, character analytics, and scoped formatting options on QuickTextFormatter.",
       "keywords": [
         "case converter",
         "title case converter",
@@ -140,8 +140,10 @@
       "kicker": "Why this tool matters",
       "title": "A practical case converter for titles, clean copy, and precise edits",
       "paragraphs": [
-        "QuickTextFormatter is built for people who need a fast way to clean up headings, normalize copy, and switch between title case, sentence case, uppercase, and lowercase without rewriting text by hand. The tool is useful for writers, students, editors, marketers, and developers who want controlled formatting instead of a one-size-fits-all transformation.",
-        "The homepage combines the converter with analytics so you can inspect the length, structure, and word patterns of your text before you export it. That matters when you are preparing article titles, product names, metadata, social captions, or any other text where accuracy, readability, and consistent style are important. Scoped conversion, skip rules, and preservation controls help keep brand names, acronyms, and special phrases intact."
+        "QuickTextFormatter is built to satisfy professional formatting requirements, allowing writers, editors, researchers, and developers to clean up titles, headings, and code-based text objects with absolute confidence. Instead of forcing a one-size-fits-all capitalization style onto every block of text, this tool offers dedicated support for AP, Chicago, and traditional title case models alongside standard uppercase, lowercase, camelCase, and sentence case modes. Having access to multiple formats in one browser workspace helps normalize bulk inputs, saving time during content production and editing phases.",
+        "Our converter includes advanced settings designed to address real-world copy editing challenges, such as preservation control and conversion scopes. You can configure the tool to skip specific brand names, acronyms, or custom words, ensuring that proprietary terminology remains unchanged. Additionally, using conversion scopes, you can target only selected lines or section markers, allowing you to format headers within a larger markdown or plain text file without affecting the surrounding content.",
+        "Complementing the formatting controls is a comprehensive text analytics panel that monitors the structural health of your text. It tracks character counts, word counts, sentence densities, and paragraph structures in real-time, which is essential for meeting strict metadata, social media, or academic copy guidelines. By analyzing unique words and character ratios, users can identify patterns or potential optimization opportunities before finalizing and exporting their copy.",
+        "All calculations and transformations are executed entirely within your browser, ensuring maximum privacy and data security. No text is sent to external servers, making it safe to process confidential documents, drafts, or credentials. The tool works seamlessly on all devices and supports direct file uploads, providing a lightweight, robust, and completely free alternative to heavy word processors and desktop formatting software."
       ],
       "faqs": [
         {

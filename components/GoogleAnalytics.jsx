@@ -2,7 +2,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 const LINKER_DOMAINS = [
   'grovanova.com',
   'www.grovanova.com',
@@ -80,7 +80,7 @@ export default function GoogleAnalytics() {
     };
   }, [router.events]);
 
-  if (!GA_ID || (typeof window !== 'undefined' && !hasAnalyticsConsent())) return null;
+  if (!GA_ID) return null;
 
   return (
     <>
