@@ -62,6 +62,13 @@ export default function Footer() {
           >
             {t('common.nav.contact')}
           </Link>
+          <Link
+            href="/tools-directory"
+            locale={locale}
+            className="hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Tools Directory
+          </Link>
           <a
             href={SOCIAL_LINKS.instagram}
             target="_blank"
