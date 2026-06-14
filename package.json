@@ -2,6 +2,9 @@
   "name": "case-converter-website",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "prebuild": "node scripts/generate-seo-files.mjs",
     "dev": "next dev",
