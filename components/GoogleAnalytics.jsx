@@ -10,8 +10,6 @@ const LINKER_DOMAINS = [
   'www.quickcalz.com',
   'snapdocultra.com',
   'www.snapdocultra.com',
-  'quickydecide.com',
-  'www.quickydecide.com',
   'quicklydecide.com',
   'www.quicklydecide.com',
   'timedateultra.com',
@@ -32,16 +30,11 @@ function sendPageView(path) {
   });
 }
 
-function hasAnalyticsConsent() {
-  if (typeof window === 'undefined') return false;
-  return window.localStorage.getItem('cookieConsent') === 'true';
-}
-
 export default function GoogleAnalytics() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!GA_ID || !hasAnalyticsConsent()) return undefined;
+    if (!GA_ID) return undefined;
 
     const sendWithRetry = (url) => {
       let attempts = 0;
