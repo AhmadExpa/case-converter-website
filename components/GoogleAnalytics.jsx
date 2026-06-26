@@ -2,7 +2,8 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const DEFAULT_GA_ID = 'G-Q0M38E72DJ';
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || DEFAULT_GA_ID;
 const LINKER_DOMAINS = [
   'grovanova.com',
   'www.grovanova.com',
