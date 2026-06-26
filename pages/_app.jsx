@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import dynamic from 'next/dynamic';
 import GoogleAnalytics from '../components/GoogleAnalytics';
+import AnalyticsEvents from '../components/AnalyticsEvents';
 
 const CookieConsent = dynamic(() => import('../components/CookieConsent'), { ssr: false });
 const Analytics = dynamic(
@@ -19,6 +20,7 @@ export default function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
       <CookieConsent />
       <GoogleAnalytics />
+      <AnalyticsEvents />
       <Analytics />
     </>
   );
