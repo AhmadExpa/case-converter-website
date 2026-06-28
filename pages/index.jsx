@@ -215,6 +215,24 @@ export default function Home() {
   const contextCards = t('home.context.cards') || [];
   const seoFaqs = t('home.seo.faqs') || [];
   const seoSchema = buildFaqSchema(seoFaqs);
+  const trustSignals = [
+    {
+      title: 'Runs in your browser',
+      description: 'Paste text, test conversions, and review output without installing an editor extension.',
+    },
+    {
+      title: 'No account required',
+      description: 'The core case converter and text analytics workflow stays open for quick one-off edits.',
+    },
+    {
+      title: 'Copy or download results',
+      description: 'Move cleaned text back into your document, CMS, code editor, or spreadsheet in seconds.',
+    },
+    {
+      title: 'A Grova text utility',
+      description: 'Privacy, terms, advertising, contact, and guide pages are available from the page footer.',
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-200 dark:bg-gray-900" dir={dir}>
@@ -272,6 +290,21 @@ export default function Home() {
               {t('home.heroSupport.contact')}
             </Link>
           </p>
+          <div className="mt-6 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-4">
+            {trustSignals.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-orange-100 bg-white/90 p-4 shadow-sm dark:border-orange-900/40 dark:bg-gray-800/90"
+              >
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs leading-5 text-gray-600 dark:text-gray-300">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex justify-center mb-6">
@@ -797,6 +830,40 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        <section className="mt-10 rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800 md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
+                Professional text cleanup
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
+                Built for quick edits that still need clear controls
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
+                QuickTextFormatter gives visitors a direct converter first, then keeps analytics, style controls, guides, and policy pages close enough to support repeat use.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {trustSignals.map((item, idx) => (
+                <article
+                  key={item.title}
+                  className="rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-600 dark:text-orange-300">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="mt-2 text-base font-semibold text-gray-900 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="mt-10">
           <div className="text-center max-w-3xl mx-auto mb-6">

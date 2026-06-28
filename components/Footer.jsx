@@ -17,6 +17,9 @@ export default function Footer() {
           <span className="block text-xs md:text-sm text-gray-500 dark:text-gray-400">
             {t('common.tagline')}
           </span>
+          <span className="block text-xs text-gray-500 dark:text-gray-500">
+            A Grova text utility for browser-based formatting, cleanup, and text analysis.
+          </span>
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm text-gray-600 dark:text-gray-300">
@@ -88,6 +91,9 @@ export default function Footer() {
         </nav>
 
         <LanguageSwitcher variant="footer" />
+      </div>
+      <div className="container mx-auto px-4 pb-4 text-center text-xs text-gray-500 dark:text-gray-500">
+        Part of the Grova network of practical browser tools.
       </div>
     </footer>
   );
