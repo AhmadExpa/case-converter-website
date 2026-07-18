@@ -6,6 +6,12 @@ import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Footer() {
   const { t, locale } = useTranslation();
+  const grovaNetworkLinks = [
+    { name: 'QuickCalz calculators', href: 'https://www.quickcalz.com/' },
+    { name: 'SnapDocUltra PDF tools', href: 'https://www.snapdocultra.com/' },
+    { name: 'Time & Date Ultra world clocks', href: 'https://www.timedateultra.com/' },
+    { name: 'QuicklyDecide randomizers', href: 'https://www.quicklydecide.com/' },
+  ];
 
   return (
     <footer className="bg-white/90 dark:bg-gray-900/90 border-t border-gray-200 dark:border-gray-800 mt-12">
@@ -91,6 +97,22 @@ export default function Footer() {
         </nav>
 
         <LanguageSwitcher variant="footer" />
+      </div>
+      <div className="container mx-auto px-4 pb-4">
+        <div className="flex flex-col items-center justify-center gap-3 border-t border-gray-200 pt-4 text-xs text-gray-500 dark:border-gray-800 dark:text-gray-400 md:flex-row">
+          <span className="font-semibold uppercase tracking-[0.14em]">Grova Network</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {grovaNetworkLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="container mx-auto px-4 pb-4 text-center text-xs text-gray-500 dark:text-gray-500">
         Part of the Grova network of practical browser tools.
