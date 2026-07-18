@@ -119,6 +119,17 @@ export const toolsDirectoryData = [
     ]
   },
   {
+    category: "Learning Paths & Wellbeing Courses (GrovaNova)",
+    links: [
+      { name: "GrovaNova E-Learning Catalog", url: "https://www.grovanova.com/", desc: "Structured learning paths, workbooks, masterclasses, and wellbeing resources." },
+      { name: "GrovaNova Membership & AI Credits", url: "https://www.grovanova.com/membership", desc: "Membership access for learning paths, digital tools, and AI-supported resources." },
+      { name: "Burnout Recovery Learning Path", url: "https://www.grovanova.com/courses/burnout", desc: "A guided burnout recovery path with structured next steps." },
+      { name: "Executive Burnout Recovery Course", url: "https://www.grovanova.com/courses/burnout-exec", desc: "Executive-focused burnout recovery education and practical learning support." },
+      { name: "Burnout Reset Bundle", url: "https://www.grovanova.com/offers/bundle/burnout-bundle", desc: "A curated GrovaNova bundle for burnout recovery resources." },
+      { name: "Professional Clarity Toolkit", url: "https://www.grovanova.com/offers/bundle/professional-clarity-toolkit", desc: "A practical toolkit for work clarity, planning, and professional reflection." }
+    ]
+  },
+  {
     category: "Developer Resources & Industry Standards",
     links: [
       { name: "Schema.org Standards", url: "https://schema.org", desc: "Structured data definitions for search engines." },

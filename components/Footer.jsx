@@ -7,6 +7,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 export default function Footer() {
   const { t, locale } = useTranslation();
   const grovaNetworkLinks = [
+    { name: 'GrovaNova e-learning paths', href: 'https://www.grovanova.com/' },
     { name: 'QuickCalz calculators', href: 'https://www.quickcalz.com/' },
     { name: 'SnapDocUltra PDF tools', href: 'https://www.snapdocultra.com/' },
     { name: 'Time & Date Ultra world clocks', href: 'https://www.timedateultra.com/' },
