@@ -220,3 +220,26 @@ export const buildFaqSchema = (questions = []) => ({
       },
     })),
 });
+
+export const buildHowToSchema = ({
+  name = '',
+  description = '',
+  path = '/',
+  locale = DEFAULT_SITE_LOCALE,
+  steps = [],
+} = {}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name,
+  description,
+  url: getCanonicalUrl(path, locale),
+  inLanguage: locale,
+  step: steps
+    .filter((step) => step?.name || step?.text)
+    .map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name || step.text,
+      text: step.text || step.name,
+    })),
+});

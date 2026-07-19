@@ -233,6 +233,20 @@ export default function Home() {
       description: 'Privacy, terms, advertising, contact, and guide pages are available from the page footer.',
     },
   ];
+  const ruleBasedDifferentiators = [
+    {
+      title: 'Predictable title case rules',
+      description: 'Apply AP-style or Chicago-style capitalization rules instead of relying on a model to guess headline formatting.',
+    },
+    {
+      title: 'Scoped conversion controls',
+      description: 'Format the whole text, selected lines, sentence ranges, or marked sections while protecting content that should stay unchanged.',
+    },
+    {
+      title: 'Brand and structure preservation',
+      description: 'Skip all-caps words, mixed-case brand names, numbers, symbols, quotes, brackets, braces, and HTML when the source text needs care.',
+    },
+  ];
   const grovaHomepageLinks = [
     {
       name: 'SnapDocUltra PDF Tools',
@@ -857,6 +871,38 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        <section className="mt-10 rounded-lg border border-orange-200 bg-orange-50 p-6 shadow-sm dark:border-orange-900/50 dark:bg-orange-950/30 md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-300">
+                Rule-based formatting
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
+                Precise text conversion without AI guesswork
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-gray-700 dark:text-gray-300">
+                QuickTextFormatter is built for writers, editors, marketers, students, and developers who need repeatable formatting rules. It keeps exact controls visible so title case, sentence case, scoped conversion, and protected text behave consistently.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/guide" locale={locale} className="rounded-full bg-orange-600 px-4 py-2 text-sm font-medium text-white hover:bg-orange-700">
+                  Read title case guide
+                </Link>
+                <Link href="/analytics-guide" locale={locale} className="rounded-full border border-orange-300 px-4 py-2 text-sm font-medium text-orange-800 hover:bg-white dark:border-orange-800 dark:text-orange-200 dark:hover:bg-orange-950">
+                  Review text analytics
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {ruleBasedDifferentiators.map((item) => (
+                <article key={item.title} className="rounded-lg border border-orange-100 bg-white p-4 dark:border-orange-900/60 dark:bg-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="mt-10 rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800 md:p-8">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

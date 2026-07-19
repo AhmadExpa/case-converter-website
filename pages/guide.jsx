@@ -1,10 +1,15 @@
 import ContextDetailPage from '../components/ContextDetailPage';
 import { useTranslation } from '../utils/i18n';
+import { buildHowToSchema } from '../utils/site';
 
 export default function GuidePage() {
   const { t, locale, dir } = useTranslation();
 
   const sections = t('guide.sections') || [];
+  const howToSteps = sections.map((section) => ({
+    name: section.heading,
+    text: Array.isArray(section.body) ? section.body.join(' ') : section.heading,
+  }));
 
   return (
     <ContextDetailPage
@@ -24,6 +29,15 @@ export default function GuidePage() {
       ctaLabelSecondary={t('common.nav.home')}
       ctaHrefSecondary="/"
       homeLabel={t('common.nav.home')}
+      schema={[
+        buildHowToSchema({
+          name: t('guide.title'),
+          description: t('guide.intro'),
+          path: '/guide',
+          locale,
+          steps: howToSteps,
+        }),
+      ]}
     />
   );
 }
