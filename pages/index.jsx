@@ -233,6 +233,33 @@ export default function Home() {
       description: 'Privacy, terms, advertising, contact, and guide pages are available from the page footer.',
     },
   ];
+  const grovaHomepageLinks = [
+    {
+      name: 'SnapDocUltra PDF Tools',
+      href: 'https://www.snapdocultra.com/',
+      description: 'Convert cleaned text into documents, compress PDFs, merge files, and prepare polished exports after formatting copy.',
+    },
+    {
+      name: 'GrovaNova E-Learning',
+      href: 'https://www.grovanova.com/',
+      description: 'Use GrovaNova learning paths, workbooks, and masterclasses when formatted notes need a structured learning context.',
+    },
+    {
+      name: 'QuickCalz Calculators',
+      href: 'https://www.quickcalz.com/',
+      description: 'Run calculator checks for reports, homework, finance notes, and planning copy before publishing or sharing text.',
+    },
+    {
+      name: 'Time & Date Ultra',
+      href: 'https://www.timedateultra.com/',
+      description: 'Format meeting notes, event titles, agenda copy, and timezone labels for global scheduling workflows.',
+    },
+    {
+      name: 'QuicklyDecide Randomizers',
+      href: 'https://www.quicklydecide.com/',
+      description: 'Clean pasted names, raffle entries, prompts, and list labels before loading them into randomizer tools.',
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-200 dark:bg-gray-900" dir={dir}>
@@ -862,6 +889,39 @@ export default function Home() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800 md:p-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
+              Related Grova tools
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
+              Tools that support text formatting workflows
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
+              QuickTextFormatter connects with Grova resources for PDFs, learning materials, calculations, schedules, and clean randomizer input lists.
+            </p>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {grovaHomepageLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-2xl border border-gray-200 bg-gray-50 p-5 transition hover:-translate-y-0.5 hover:border-orange-300 hover:bg-white hover:shadow-md dark:border-gray-700 dark:bg-gray-900"
+              >
+                <span className="inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white">
+                  {link.name}
+                  <span className="ml-2 text-orange-600 transition-transform group-hover:translate-x-0.5 dark:text-orange-300">→</span>
+                </span>
+                <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                  {link.description}
+                </p>
+              </a>
+            ))}
           </div>
         </section>
 
