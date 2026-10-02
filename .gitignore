@@ -1,2 +1,6 @@
 /.next
 /node_modules
+
+# Local environment files may contain credentials or deployment values.
+.env*
+!.env.example
