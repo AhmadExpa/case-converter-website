@@ -260,9 +260,21 @@
         }
       ],
       "genericStyles": [
-        { "code": "UPPERCASE", "label": "UPPERCASE", "detail": "Every letter to uppercase." },
-        { "code": "lowercase", "label": "lowercase", "detail": "Every letter to lowercase." },
-        { "code": "Sentence case", "label": "Sentence case", "detail": "Capitalize the first word of each sentence; lower the rest." }
+        {
+          "code": "UPPERCASE",
+          "label": "UPPERCASE",
+          "detail": "Every letter to uppercase."
+        },
+        {
+          "code": "lowercase",
+          "label": "lowercase",
+          "detail": "Every letter to lowercase."
+        },
+        {
+          "code": "Sentence case",
+          "label": "Sentence case",
+          "detail": "Capitalize the first word of each sentence; lower the rest."
+        }
       ]
     },
     "controls": {
@@ -327,9 +339,14 @@
       ],
       "styleGuideTitle": "Styles Guide",
       "styleGuide": [
-        { "label": "AP Style:", "body": "Capitalizes principal words, keeps short prepositions lowercase." },
-        { "label": "Chicago Style:", "body": "Standard for publishing. Capitalizes major words." }
-
+        {
+          "label": "AP Style:",
+          "body": "Capitalizes principal words, keeps short prepositions lowercase."
+        },
+        {
+          "label": "Chicago Style:",
+          "body": "Standard for publishing. Capitalizes major words."
+        }
       ]
     }
   },
@@ -379,7 +396,18 @@
     ],
     "ctaTitle": "Need the analytics view too?",
     "ctaBody": "Read the companion guide for the counters, word frequency, and sentence structure panel.",
-    "ctaLabel": "Open the analytics guide"
+    "ctaLabel": "Open the analytics guide",
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      {
+        "question": "What is the difference between AP and Chicago title case?",
+        "answer": "Both capitalize major words. AP capitalizes words of four or more letters, while Chicago keeps prepositions lowercase regardless of length."
+      },
+      {
+        "question": "Can I convert only part of my text?",
+        "answer": "Yes. Convert the entire text, only selected lines, or only the text between $$$START$$$ and $$$END$$$ markers."
+      }
+    ]
   },
   "analyticsGuide": {
     "title": "Text Analytics Guide",
@@ -416,7 +444,18 @@
     ],
     "ctaTitle": "Need formatting help too?",
     "ctaBody": "Open the title case and formatting guide for style choices, scope controls, and preservation tips.",
-    "ctaLabel": "Open the formatting guide"
+    "ctaLabel": "Open the formatting guide",
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      {
+        "question": "What does the analytics panel count?",
+        "answer": "It counts characters, words, sentences, lines, paragraphs and unique words."
+      },
+      {
+        "question": "How do the frequency views help?",
+        "answer": "Common words, common letters and longest words help you spot repeated terms and unusually long terms at a glance."
+      }
+    ]
   },
   "contact": {
     "title": "Contact QuickTextFormatter",

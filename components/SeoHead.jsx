@@ -17,11 +17,12 @@ export default function SeoHead({
   path = '/',
   locale = 'en',
   schema = [],
-  includeDefaultSchemas = false,
+  includeDefaultSchemas = true,
   ogType = 'website',
-  image = '/og-image.svg',
+  image = '/og-image.png',
   imageAlt = `${SITE_NAME} preview image`,
   noindex = false,
+  hreflang = true,
 }) {
   const normalizedPath = normalizePath(path);
   const alternates = getAlternateLinks(normalizedPath, locale);
@@ -47,10 +48,10 @@ export default function SeoHead({
         }
       />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      {alternates.map(({ hrefLang, href }) => (
+      {hreflang && alternates.map(({ hrefLang, href }) => (
         <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
       ))}
-      <link rel="alternate" hrefLang="x-default" href={defaultHref} />
+      {hreflang && <link rel="alternate" hrefLang="x-default" href={defaultHref} />}
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={SITE_NAME} />
       {title && <meta property="og:title" content={title} />}
@@ -59,6 +60,9 @@ export default function SeoHead({
       <meta property="og:locale" content={getOpenGraphLocale(locale)} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:alt" content={imageAlt} />
+      {imageUrl.endsWith('.png') && <meta property="og:image:type" content="image/png" />}
+      {image === '/og-image.png' && <meta property="og:image:width" content="1200" />}
+      {image === '/og-image.png' && <meta property="og:image:height" content="630" />}
       <meta name="twitter:card" content="summary_large_image" />
       {title && <meta name="twitter:title" content={title} />}
       {description && <meta name="twitter:description" content={description} />}

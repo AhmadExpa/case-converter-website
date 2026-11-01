@@ -94,6 +94,13 @@ export default function GoogleAnalytics() {
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 window.gtag = window.gtag || gtag;
+window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+if (!window.__consentReady) {
+  window.__consentReady = true;
+  window.gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
+  try { if (localStorage.getItem('cookieConsent')==='true') window.gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' }); } catch (e) {}
+}
 gtag('js', new Date());
 gtag('set', 'linker', { domains: ${JSON.stringify(LINKER_DOMAINS).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')} });
 gtag('config', ${JSON.stringify(GA_ID).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')}, { send_page_view: false });

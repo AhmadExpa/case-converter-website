@@ -252,9 +252,21 @@
         }
       ],
       "genericStyles": [
-        { "code": "UPPERCASE", "label": "BÜYÜK HARF", "detail": "Tüm harfler büyük yapılır." },
-        { "code": "lowercase", "label": "küçük harf", "detail": "Tüm harfler küçük yapılır." },
-        { "code": "Sentence case", "label": "Cümle biçimi", "detail": "Her cümlenin ilk kelimesi büyük, kalanlar küçük." }
+        {
+          "code": "UPPERCASE",
+          "label": "BÜYÜK HARF",
+          "detail": "Tüm harfler büyük yapılır."
+        },
+        {
+          "code": "lowercase",
+          "label": "küçük harf",
+          "detail": "Tüm harfler küçük yapılır."
+        },
+        {
+          "code": "Sentence case",
+          "label": "Cümle biçimi",
+          "detail": "Her cümlenin ilk kelimesi büyük, kalanlar küçük."
+        }
       ]
     },
     "controls": {
@@ -319,9 +331,18 @@
       ],
       "styleGuideTitle": "Stil rehberi",
       "styleGuide": [
-        { "label": "AP stili:", "body": "Ana kelimeler büyük; kısa edatlar küçük kalır." },
-        { "label": "Chicago stili:", "body": "Yayıncılık standardı; önemli kelimeler büyük." },
-        { "label": "MLA stili:", "body": "Akademik standart; edatlar Chicago'ya benzer şekilde ele alınır." }
+        {
+          "label": "AP stili:",
+          "body": "Ana kelimeler büyük; kısa edatlar küçük kalır."
+        },
+        {
+          "label": "Chicago stili:",
+          "body": "Yayıncılık standardı; önemli kelimeler büyük."
+        },
+        {
+          "label": "MLA stili:",
+          "body": "Akademik standart; edatlar Chicago'ya benzer şekilde ele alınır."
+        }
       ]
     }
   },
@@ -371,7 +392,18 @@
     ],
     "ctaTitle": "Analiz görünümüne de ihtiyacınız var mı?",
     "ctaBody": "Sayaçlar, sık kelimeler ve cümle yapısı için eşlik eden rehberi açın.",
-    "ctaLabel": "Analiz rehberini aç"
+    "ctaLabel": "Analiz rehberini aç",
+    "faqTitle": "Sık sorulan sorular",
+    "faqs": [
+      {
+        "question": "AP ve Chicago başlık stili arasındaki fark nedir?",
+        "answer": "İkisi de önemli sözcükleri büyük harfle başlatır. AP dört veya daha fazla harfli sözcükleri büyük harfle başlatırken Chicago edatları uzunluklarına bakmadan küçük harfle bırakır."
+      },
+      {
+        "question": "Metnin yalnızca bir bölümünü dönüştürebilir miyim?",
+        "answer": "Evet. Tüm metni, yalnızca seçili satırları veya yalnızca $$$START$$$ ve $$$END$$$ işaretleri arasındaki metni dönüştürebilirsiniz."
+      }
+    ]
   },
   "analyticsGuide": {
     "title": "Metin Analiz Rehberi",
@@ -408,7 +440,18 @@
     ],
     "ctaTitle": "Biçimlendirme yardımı da gerekli mi?",
     "ctaBody": "Stil seçenekleri, kapsam kontrolleri ve koruma ipuçları için biçimlendirme rehberini açın.",
-    "ctaLabel": "Biçimlendirme rehberini aç"
+    "ctaLabel": "Biçimlendirme rehberini aç",
+    "faqTitle": "Sık sorulan sorular",
+    "faqs": [
+      {
+        "question": "Analiz paneli neleri sayar?",
+        "answer": "Karakterleri, sözcükleri, cümleleri, satırları, paragrafları ve benzersiz sözcükleri sayar."
+      },
+      {
+        "question": "Sıklık görünümleri ne işe yarar?",
+        "answer": "Sık kullanılan sözcükler, sık kullanılan harfler ve en uzun sözcükler, tekrar eden ve alışılmadık derecede uzun terimleri hızla görmenizi sağlar."
+      }
+    ]
   },
   "contact": {
     "title": "İletişim",

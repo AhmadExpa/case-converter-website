@@ -252,9 +252,21 @@
         }
       ],
       "genericStyles": [
-        { "code": "UPPERCASE", "label": "MAYÚSCULAS", "detail": "Todas las letras en mayúscula." },
-        { "code": "lowercase", "label": "minúsculas", "detail": "Todas las letras en minúscula." },
-        { "code": "Sentence case", "label": "Oración", "detail": "Mayúscula la primera palabra de cada oración; el resto en minúscula." }
+        {
+          "code": "UPPERCASE",
+          "label": "MAYÚSCULAS",
+          "detail": "Todas las letras en mayúscula."
+        },
+        {
+          "code": "lowercase",
+          "label": "minúsculas",
+          "detail": "Todas las letras en minúscula."
+        },
+        {
+          "code": "Sentence case",
+          "label": "Oración",
+          "detail": "Mayúscula la primera palabra de cada oración; el resto en minúscula."
+        }
       ]
     },
     "controls": {
@@ -319,9 +331,18 @@
       ],
       "styleGuideTitle": "Guía de estilos",
       "styleGuide": [
-        { "label": "Estilo AP:", "body": "Mayúscula en palabras principales; preposiciones cortas en minúscula." },
-        { "label": "Estilo Chicago:", "body": "Estándar editorial; mayúscula en palabras importantes." },
-        { "label": "Estilo MLA:", "body": "Estándar académico; trata preposiciones similar a Chicago." }
+        {
+          "label": "Estilo AP:",
+          "body": "Mayúscula en palabras principales; preposiciones cortas en minúscula."
+        },
+        {
+          "label": "Estilo Chicago:",
+          "body": "Estándar editorial; mayúscula en palabras importantes."
+        },
+        {
+          "label": "Estilo MLA:",
+          "body": "Estándar académico; trata preposiciones similar a Chicago."
+        }
       ]
     }
   },
@@ -371,7 +392,18 @@
     ],
     "ctaTitle": "¿También quieres la vista de analítica?",
     "ctaBody": "Lee la guía complementaria para ver los contadores, palabras frecuentes y estructura de oraciones.",
-    "ctaLabel": "Abrir guía de analítica"
+    "ctaLabel": "Abrir guía de analítica",
+    "faqTitle": "Preguntas frecuentes",
+    "faqs": [
+      {
+        "question": "¿Cuál es la diferencia entre el estilo de título AP y Chicago?",
+        "answer": "Ambos ponen en mayúscula las palabras principales. AP pone en mayúscula las palabras de cuatro o más letras, mientras que Chicago mantiene las preposiciones en minúscula sin importar su longitud."
+      },
+      {
+        "question": "¿Puedo convertir solo una parte del texto?",
+        "answer": "Sí. Convierte todo el texto, solo las líneas seleccionadas o solo el texto entre los marcadores $$$START$$$ y $$$END$$$."
+      }
+    ]
   },
   "analyticsGuide": {
     "title": "Guía de analítica de texto",
@@ -408,7 +440,18 @@
     ],
     "ctaTitle": "¿Necesitas ayuda con el formato?",
     "ctaBody": "Abre la guía de mayúsculas y formato para ver opciones de estilo, alcance y preservación.",
-    "ctaLabel": "Abrir guía de formato"
+    "ctaLabel": "Abrir guía de formato",
+    "faqTitle": "Preguntas frecuentes",
+    "faqs": [
+      {
+        "question": "¿Qué cuenta el panel de analítica?",
+        "answer": "Cuenta caracteres, palabras, oraciones, líneas, párrafos y palabras únicas."
+      },
+      {
+        "question": "¿Para qué sirven las vistas de frecuencia?",
+        "answer": "Las palabras comunes, las letras comunes y las palabras más largas te ayudan a detectar términos repetidos o inusualmente largos de un vistazo."
+      }
+    ]
   },
   "contact": {
     "title": "Contacto",

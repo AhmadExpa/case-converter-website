@@ -24,6 +24,8 @@ export default function AnalyticsGuidePage() {
       ctaLabelSecondary={t('common.nav.home')}
       ctaHrefSecondary="/"
       homeLabel={t('common.nav.home')}
+      faqTitle={t('analyticsGuide.faqTitle')}
+      faqs={t('analyticsGuide.faqs') || []}
     />
   );
 }

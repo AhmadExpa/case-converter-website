@@ -29,6 +29,8 @@ export default function GuidePage() {
       ctaLabelSecondary={t('common.nav.home')}
       ctaHrefSecondary="/"
       homeLabel={t('common.nav.home')}
+      faqTitle={t('guide.faqTitle')}
+      faqs={t('guide.faqs') || []}
       schema={[
         buildHowToSchema({
           name: t('guide.title'),

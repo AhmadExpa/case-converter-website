@@ -24,6 +24,8 @@ export default function ContextDetailPage({
   homeLabel = 'Home',
   pageLabel,
   schema = [],
+  faqTitle,
+  faqs = [],
 }) {
   const breadcrumbItems = [
     { label: homeLabel, href: '/' },
@@ -37,7 +39,21 @@ export default function ContextDetailPage({
         description={description}
         path={path}
         locale={locale}
-        schema={[buildBreadcrumbSchema(breadcrumbItems), ...[].concat(schema).filter(Boolean)]}
+        schema={[
+          buildBreadcrumbSchema(breadcrumbItems),
+          ...[].concat(schema).filter(Boolean),
+          ...(faqs.length
+            ? [{
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map((faq) => ({
+                  '@type': 'Question',
+                  name: faq.question,
+                  acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+                })),
+              }]
+            : []),
+        ]}
       />
       <Navbar />
 
@@ -73,6 +89,20 @@ export default function ContextDetailPage({
               </section>
             ))}
           </div>
+
+          {faqs.length > 0 && (
+            <section className="mt-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">{faqTitle}</h2>
+              <div className="mt-4 space-y-4">
+                {faqs.map((faq) => (
+                  <div key={faq.question}>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">{faq.question}</h3>
+                    <p className="mt-1 text-sm md:text-base leading-7 text-gray-600 dark:text-gray-300">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="mt-8 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-500 p-[1px] shadow-lg">
             <div className="rounded-2xl bg-white px-6 py-6 dark:bg-gray-950">

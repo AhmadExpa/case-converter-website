@@ -11,7 +11,7 @@ const SITE_URL = (
 );
 const isPreview = process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production';
 
-const routes = ['/', '/about', '/contact', '/privacy', '/terms', '/advertising', '/guide', '/analytics-guide'];
+const routes = ['/', '/about', '/contact', '/privacy', '/terms', '/advertising', '/guide', '/analytics-guide', '/tools-directory'];
 const locales = ['en', 'ar', 'hi', 'tr', 'el', 'es'];
 const lastModified = new Date().toISOString();
 
@@ -47,7 +47,20 @@ Disallow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `
-  : `User-agent: *
+  : `# AI search and answer engines (GEO/AIO): explicitly allowed, same rules as everyone else.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: CCBot
+User-agent: *
 Allow: /
 Disallow: /api
 Disallow: /admin
@@ -55,6 +68,7 @@ Disallow: /auth
 Disallow: /dashboard
 Disallow: /private
 Disallow: /test
+
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
@@ -62,10 +76,10 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${routes
   .flatMap((route) =>
-    locales.map((locale) => {
-      const alternates = locales
+    (route === '/tools-directory' ? ['en'] : locales).map((locale) => {
+      const alternates = (route === '/tools-directory' ? [] : locales)
         .map((altLocale) => `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${localizedUrl(route, altLocale)}" />`)
-        .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(route, 'en')}" />`)
+        .concat(route === '/tools-directory' ? [] : `    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(route, 'en')}" />`)
         .join('\n');
 
       return `  <url>

@@ -1,16 +1,40 @@
-import Head from "next/head";
+import SeoHead from "../components/SeoHead";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { useTranslation } from "../utils/i18n";
+import { buildBreadcrumbSchema } from "../utils/site";
 import { toolsDirectoryData } from "../utils/toolsDirectoryData";
 
 export default function ToolsDirectoryPage() {
+  const { t, locale } = useTranslation();
+  const breadcrumbItems = [
+    { label: t("common.nav.home"), href: "/" },
+    { label: "Tools Directory", href: "/tools-directory" },
+  ];
+
   return (
     <>
-      <Head>
-        <title>Online Tools Directory | Free Clock, PDF & Calculator Tools</title>
-        <meta name="description" content="Browse our comprehensive directory of 100+ free online utility tools, featuring PDF converters, world clocks, spinners, text formatters, and calculators." />
-        <link rel="canonical" href="https://www.quicktextformatter.com/tools-directory" />
-      </Head>
+      <SeoHead
+        title="Online Tools Directory | Free Clock, PDF & Calculator Tools"
+        description="Browse our comprehensive directory of 100+ free online utility tools, featuring PDF converters, world clocks, spinners, text formatters, and calculators."
+        path="/tools-directory"
+        hreflang={false}
+        noindex={locale !== "en"}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Online Tools Directory",
+            url: "https://www.quicktextformatter.com/tools-directory",
+          },
+          buildBreadcrumbSchema(breadcrumbItems),
+        ]}
+      />
+      <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={breadcrumbItems} />
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
             Online Tools Directory
@@ -53,7 +77,8 @@ export default function ToolsDirectoryPage() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { LANGUAGES, DEFAULT_LOCALE } from './languageConfig';
 
 const PLACEHOLDER_SITE_URL = 'https://www.quicktextformatter.com';
-const DEFAULT_OG_IMAGE = '/og-image.svg';
+const DEFAULT_OG_IMAGE = '/og-image.png';
 
 const normalizeProductionSiteUrl = (value, fallback) => {
   const fallbackUrl = fallback.replace(/\/$/, '');
@@ -127,7 +127,12 @@ export const buildWebSiteSchema = (path = '/') => ({
   name: SITE_NAME,
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
   inLanguage: LANGUAGES.map((lang) => lang.code),
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  dateModified: SITE_LAST_UPDATED,
 });
+
+// Bump when public page content changes materially.
+export const SITE_LAST_UPDATED = '2026-11-01';
 
 export const buildOrganizationSchema = (path = '/') => ({
   '@context': 'https://schema.org',
@@ -135,8 +140,9 @@ export const buildOrganizationSchema = (path = '/') => ({
   '@id': `${SITE_URL}/#organization`,
   name: 'Grova',
   url: getCanonicalUrl(path, DEFAULT_SITE_LOCALE),
-  logo: getOpenGraphImageUrl(),
+  logo: joinSiteUrl('/icon-512.png'),
   sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
+  areaServed: 'Worldwide',
 });
 
 export const buildWebPageSchema = ({ path = '/', title = '', description = '', locale = DEFAULT_SITE_LOCALE } = {}) => ({
